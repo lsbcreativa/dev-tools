@@ -1,0 +1,16 @@
+{
+  "name": "DevTools Online",
+  "short_name": "DevTools",
+  "description": "Free online developer tools. JSON formatter, Base64 encoder, password generator and more. 100% private, runs in your browser.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fafafa",
+  "theme_color": "#2563eb",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
