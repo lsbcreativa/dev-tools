@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
@@ -20,11 +21,15 @@ export default function Navbar() {
     <nav className={`sticky top-0 z-50 border-b border-[var(--border)] backdrop-blur-md transition-all ${scrolled ? "bg-[var(--card)]/90 shadow-sm" : "bg-[var(--card)]/80"}`}>
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2.5 font-bold text-lg group">
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[var(--primary)] text-xs font-bold text-white transition-transform group-hover:scale-105">
-            DT
-          </span>
-          <span>DevTools</span>
+        <Link href="/" className="flex items-center group">
+          <Image
+            src="/logo.png"
+            alt="DevTools Online"
+            width={140}
+            height={36}
+            className="h-8 w-auto transition-transform group-hover:scale-[1.02]"
+            priority
+          />
         </Link>
 
         {/* Desktop nav */}
