@@ -3,6 +3,7 @@
 import { useState, useCallback } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 const SAMPLE_JSON = JSON.stringify(
   {
@@ -270,6 +271,24 @@ export default function JsonToTypescriptPage() {
       title="JSON to TypeScript"
       description="Convert JSON objects into TypeScript interfaces or type aliases with full support for nested structures."
       slug="json-to-typescript"
+      faqs={[
+        { question: "How does JSON to TypeScript conversion work?", answer: "The tool analyzes the structure and values of your JSON data to infer TypeScript types. Strings become string, numbers become number, booleans become boolean, arrays become typed arrays, and nested objects generate nested interfaces. It also detects optional fields when analyzing arrays of objects." },
+        { question: "Should I use interfaces or type aliases?", answer: "Interfaces are better for object shapes that might be extended (declaration merging). Type aliases are better for unions, intersections, and complex types. For API response types, interfaces are the conventional choice in most TypeScript codebases." },
+        { question: "Does this handle nested JSON objects?", answer: "Yes. The tool recursively generates separate interfaces for each nested object, using the parent key name as the interface name. Arrays of objects also get their own interface definitions." }
+      ]}
+      seoContent={
+        <SeoContent
+          sections={[
+            { title: "How to Convert JSON to TypeScript Interfaces", content: "Paste your JSON data in the input field to automatically generate TypeScript interfaces. The tool infers types from values — strings, numbers, booleans, null, arrays, and nested objects all get proper TypeScript types. You can customize the root interface name, choose between interface and type alias syntax, and toggle export statements." },
+            { title: "Why Generate TypeScript Types from JSON?", content: "Manually writing TypeScript interfaces for API responses is tedious and error-prone. This tool automates the process, ensuring your types exactly match the data structure. Use it when integrating new APIs, migrating JavaScript code to TypeScript, or creating type definitions for configuration files." }
+          ]}
+          faqs={[
+            { question: "How does JSON to TypeScript conversion work?", answer: "The tool analyzes the structure and values of your JSON data to infer TypeScript types. Strings become string, numbers become number, booleans become boolean, arrays become typed arrays, and nested objects generate nested interfaces. It also detects optional fields when analyzing arrays of objects." },
+            { question: "Should I use interfaces or type aliases?", answer: "Interfaces are better for object shapes that might be extended (declaration merging). Type aliases are better for unions, intersections, and complex types. For API response types, interfaces are the conventional choice in most TypeScript codebases." },
+            { question: "Does this handle nested JSON objects?", answer: "Yes. The tool recursively generates separate interfaces for each nested object, using the parent key name as the interface name. Arrays of objects also get their own interface definitions." }
+          ]}
+        />
+      }
     >
       {/* Options */}
       <div className="mb-4 flex flex-wrap items-center gap-4">

@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 /* ---------- Spacing scale (rem -> tailwind number) ---------- */
 
@@ -705,11 +706,52 @@ export default function CssToTailwindPage() {
     ? tailwindClasses + (tailwindClasses ? "\n\n" : "") + unmatchedComment
     : tailwindClasses;
 
+  const faqs = [
+    {
+      question: "Does this converter support all CSS properties?",
+      answer:
+        "This tool covers the most commonly used CSS properties including layout (display, position, flexbox, grid), spacing (margin, padding, gap), typography, colors, borders, sizing, and more. Complex properties like custom animations or CSS variables require manual conversion.",
+    },
+    {
+      question: "How accurate is the CSS to Tailwind conversion?",
+      answer:
+        "The conversion is approximate — it maps standard CSS values to their closest Tailwind equivalents. Tailwind uses a specific spacing scale (0, 1, 2, 4, 8, etc.), so CSS values that don't align with this scale may not convert. Always review the output.",
+    },
+    {
+      question: "Can I convert responsive CSS to Tailwind?",
+      answer:
+        "This tool converts individual CSS declarations. For responsive styles, convert each breakpoint's CSS separately, then prefix the Tailwind classes manually (sm:, md:, lg:, xl:) according to your design requirements.",
+    },
+    {
+      question: "What about custom colors and spacing values?",
+      answer:
+        "Tailwind's default theme includes specific color palettes and spacing scales. CSS values using custom colors (like hex codes beyond black/white) or non-standard spacing values are flagged as 'no match'. You can extend Tailwind's theme config to support custom values.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="CSS to Tailwind"
       description="Convert CSS properties to Tailwind CSS utility classes."
       slug="css-to-tailwind"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Convert CSS to Tailwind CSS",
+              content:
+                "Paste your CSS declarations and get equivalent Tailwind CSS utility classes instantly. This tool maps over 60 CSS properties to their Tailwind equivalents, including display, position, flexbox, grid, spacing (margin, padding, gap), typography (font-size, font-weight, text-align), colors, borders, border-radius, opacity, overflow, cursor, and more. Properties that don't have a direct Tailwind match are flagged so you know what needs manual conversion.",
+            },
+            {
+              title: "Why Migrate from CSS to Tailwind CSS",
+              content:
+                "Tailwind CSS eliminates the need to write custom CSS by providing utility classes that map directly to CSS properties. Benefits include smaller bundle sizes through automatic purging of unused classes, consistent design tokens (spacing, colors, breakpoints), faster prototyping with inline utility classes, and easier maintenance since styles live alongside your markup. This converter helps you migrate existing CSS codebases to Tailwind incrementally, property by property.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       {/* Warning */}
       <div className="mb-4 rounded-lg border border-[var(--border)] bg-[var(--muted)] p-3 text-sm text-[var(--muted-foreground)]">

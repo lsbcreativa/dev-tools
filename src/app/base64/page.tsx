@@ -3,6 +3,7 @@
 import { useState } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 export default function Base64Tool() {
   const [input, setInput] = useState("");
@@ -33,6 +34,24 @@ export default function Base64Tool() {
       title="Base64 Encoder / Decoder"
       description="Encode text to Base64 or decode Base64 strings back to plain text."
       slug="base64"
+      faqs={[
+        { question: "What is Base64 encoding?", answer: "Base64 is a binary-to-text encoding scheme that represents binary data using 64 ASCII characters (A-Z, a-z, 0-9, +, /). It is commonly used to embed images in HTML/CSS, encode email attachments, and transmit binary data over text-based protocols." },
+        { question: "Is Base64 encoding the same as encryption?", answer: "No. Base64 is an encoding scheme, not encryption. Anyone can decode Base64 data without a key. It is designed for data transport, not security. Never use Base64 to protect sensitive information." },
+        { question: "Can I encode files to Base64?", answer: "This tool encodes and decodes text strings. For file encoding (images, PDFs), use our Image to Base64 tool which handles binary file data." }
+      ]}
+      seoContent={
+        <SeoContent
+          sections={[
+            { title: "How to Encode and Decode Base64", content: "Enter your text in the input field and click Convert. In encode mode, the tool converts your text to a Base64 string. In decode mode, it converts a Base64 string back to readable text. The tool supports full UTF-8 characters including emojis, accented characters, and non-Latin scripts." },
+            { title: "Common Uses for Base64 Encoding", content: "Base64 is used in data URIs for embedding images in CSS and HTML, in JWT tokens for encoding header and payload sections, in email (MIME) for transmitting attachments, and in APIs that need to send binary data as JSON string values. It increases data size by approximately 33%." }
+          ]}
+          faqs={[
+            { question: "What is Base64 encoding?", answer: "Base64 is a binary-to-text encoding scheme that represents binary data using 64 ASCII characters (A-Z, a-z, 0-9, +, /). It is commonly used to embed images in HTML/CSS, encode email attachments, and transmit binary data over text-based protocols." },
+            { question: "Is Base64 encoding the same as encryption?", answer: "No. Base64 is an encoding scheme, not encryption. Anyone can decode Base64 data without a key. It is designed for data transport, not security. Never use Base64 to protect sensitive information." },
+            { question: "Can I encode files to Base64?", answer: "This tool encodes and decodes text strings. For file encoding (images, PDFs), use our Image to Base64 tool which handles binary file data." }
+          ]}
+        />
+      }
     >
       <div className="flex gap-2 mb-4">
         <button

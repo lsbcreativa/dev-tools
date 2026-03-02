@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
+import SeoContent from "@/components/tools/SeoContent";
 
 const CHEATSHEET = [
   { pattern: ".", desc: "Any character" },
@@ -81,6 +82,24 @@ export default function RegexTester() {
       title="Regex Tester"
       description="Test regular expressions in real-time with match highlighting and capture groups."
       slug="regex-tester"
+      faqs={[
+        { question: "How do I test a regular expression online?", answer: "Enter your regex pattern in the Pattern field, add flags if needed (g for global, i for case-insensitive, m for multiline), then type or paste your test string. Matches are highlighted in real time with captured groups shown separately." },
+        { question: "What regex flags are available?", answer: "The most common flags are: g (global — find all matches), i (case-insensitive), m (multiline — ^ and $ match line starts/ends), s (dotAll — dot matches newlines), and u (unicode). You can combine multiple flags." },
+        { question: "Why is my regex not matching?", answer: "Common issues include: forgetting to escape special characters (use \\. instead of .), not using the global flag when expecting multiple matches, and anchors (^ $) not matching in multiline text without the m flag." }
+      ]}
+      seoContent={
+        <SeoContent
+          sections={[
+            { title: "How to Test Regular Expressions Online", content: "Enter your regex pattern and test string to see matches highlighted in real time. The tool shows each match with its position, captured groups, and the full match text. Supports all JavaScript regex features including lookahead, lookbehind, named groups, and Unicode properties." },
+            { title: "Regular Expression Quick Reference", content: "Common patterns: \\d matches digits, \\w matches word characters, \\s matches whitespace, . matches any character, * means zero or more, + means one or more, ? means optional, {n,m} matches between n and m times. Use parentheses () for capture groups and | for alternation." }
+          ]}
+          faqs={[
+            { question: "How do I test a regular expression online?", answer: "Enter your regex pattern in the Pattern field, add flags if needed (g for global, i for case-insensitive, m for multiline), then type or paste your test string. Matches are highlighted in real time with captured groups shown separately." },
+            { question: "What regex flags are available?", answer: "The most common flags are: g (global — find all matches), i (case-insensitive), m (multiline — ^ and $ match line starts/ends), s (dotAll — dot matches newlines), and u (unicode). You can combine multiple flags." },
+            { question: "Why is my regex not matching?", answer: "Common issues include: forgetting to escape special characters (use \\. instead of .), not using the global flag when expecting multiple matches, and anchors (^ $) not matching in multiline text without the m flag." }
+          ]}
+        />
+      }
     >
       {/* Quick examples */}
       <div className="mb-4 flex flex-wrap gap-2">

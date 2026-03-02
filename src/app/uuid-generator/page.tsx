@@ -3,6 +3,7 @@
 import { useState } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 export default function UuidGenerator() {
   const [uuids, setUuids] = useState<string[]>([crypto.randomUUID()]);
@@ -20,11 +21,52 @@ export default function UuidGenerator() {
 
   const allText = uuids.join("\n");
 
+  const faqs = [
+    {
+      question: "Are these UUIDs truly random and unique?",
+      answer:
+        "Yes. UUIDs are generated using crypto.randomUUID(), which uses the Web Crypto API for cryptographically secure random number generation. The 122 bits of randomness make collisions practically impossible.",
+    },
+    {
+      question: "What is the difference between UUID v1 and UUID v4?",
+      answer:
+        "UUID v1 includes a timestamp and MAC address, making it partially predictable and potentially leaking device information. UUID v4 is entirely random, making it the preferred choice for most applications where privacy and unpredictability matter.",
+    },
+    {
+      question: "Can I use these UUIDs as database primary keys?",
+      answer:
+        "Yes, UUID v4 is widely used as primary keys in PostgreSQL, MySQL, MongoDB, and other databases. Consider using ULID or UUID v7 if you need sortable identifiers, as UUID v4 is not time-ordered.",
+    },
+    {
+      question: "How many UUIDs can I generate at once?",
+      answer:
+        "This tool supports generating up to 100 UUIDs in a single batch. Each UUID is generated independently using the browser's cryptographic API, and you can copy them all at once or individually.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="UUID Generator"
       description="Generate random UUID v4 identifiers. Create one or bulk generate multiple UUIDs."
       slug="uuid-generator"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Generate UUIDs Online",
+              content:
+                "Click Generate to create random UUID v4 identifiers instantly. You can generate up to 100 UUIDs at once, toggle uppercase formatting, and copy individual UUIDs or all of them at once. All UUIDs are generated client-side using the Web Crypto API (crypto.randomUUID), ensuring cryptographically secure random values that never leave your browser.",
+            },
+            {
+              title: "Understanding UUID v4 Format",
+              content:
+                "UUID v4 (Universally Unique Identifier version 4) is a 128-bit identifier formatted as 32 hexadecimal digits in 5 groups separated by hyphens: xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx. The '4' in the third group indicates version 4 (random), and the 'y' digit is constrained to 8, 9, a, or b to indicate the variant. With 122 random bits, the probability of generating duplicate UUIDs is astronomically low — you would need to generate 1 billion UUIDs per second for 86 years to have a 50% chance of a single collision.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       <div className="flex flex-wrap items-end gap-4">
         <div>

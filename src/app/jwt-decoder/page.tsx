@@ -3,6 +3,7 @@
 import { useState } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 interface DecodedJWT {
   header: Record<string, unknown>;
@@ -83,6 +84,24 @@ export default function JwtDecoderTool() {
       title="JWT Decoder"
       description="Decode and inspect JSON Web Tokens. View the header, payload, and expiration status."
       slug="jwt-decoder"
+      faqs={[
+        { question: "What is a JWT token?", answer: "A JSON Web Token (JWT) is a compact, URL-safe token format used for securely transmitting information between parties. It consists of three Base64URL-encoded parts separated by dots: header (algorithm and type), payload (claims/data), and signature (verification)." },
+        { question: "Can I decode a JWT without the secret key?", answer: "Yes. The header and payload of a JWT are only Base64URL-encoded, not encrypted. Anyone can decode and read them. The secret key is only needed to verify the signature, which confirms the token hasn't been tampered with." },
+        { question: "How do I check if a JWT is expired?", answer: "This tool automatically checks the exp (expiration) claim in the payload and shows whether the token is currently valid or expired, along with the exact expiration date and time." }
+      ]}
+      seoContent={
+        <SeoContent
+          sections={[
+            { title: "How to Decode JWT Tokens", content: "Paste your JWT token in the input field above to instantly decode its header and payload. The tool parses the three Base64URL-encoded sections (header, payload, signature) and displays them as formatted JSON. It also checks token expiration by reading the exp claim and shows whether the token is still valid." },
+            { title: "Understanding JWT Structure", content: "A JWT consists of three parts: the Header specifies the signing algorithm (HS256, RS256, etc.) and token type. The Payload contains claims like sub (subject), iat (issued at), exp (expiration), and custom data. The Signature verifies that the token hasn't been modified. JWTs are used in OAuth 2.0, API authentication, and single sign-on systems." }
+          ]}
+          faqs={[
+            { question: "What is a JWT token?", answer: "A JSON Web Token (JWT) is a compact, URL-safe token format used for securely transmitting information between parties. It consists of three Base64URL-encoded parts separated by dots: header (algorithm and type), payload (claims/data), and signature (verification)." },
+            { question: "Can I decode a JWT without the secret key?", answer: "Yes. The header and payload of a JWT are only Base64URL-encoded, not encrypted. Anyone can decode and read them. The secret key is only needed to verify the signature, which confirms the token hasn't been tampered with." },
+            { question: "How do I check if a JWT is expired?", answer: "This tool automatically checks the exp (expiration) claim in the payload and shows whether the token is currently valid or expired, along with the exact expiration date and time." }
+          ]}
+        />
+      }
     >
       <div>
         <label className="mb-1 block text-sm font-medium">JWT Token</label>

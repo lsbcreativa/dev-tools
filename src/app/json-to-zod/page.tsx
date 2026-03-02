@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 /* ---------- Zod schema generator ---------- */
 
@@ -141,11 +142,52 @@ export default function JsonToZodPage() {
     }
   }, [input, schemaName, addExport, addInfer]);
 
+  const faqs = [
+    {
+      question: "What JSON types does this converter support?",
+      answer:
+        "This tool supports all JSON types: strings, numbers (integers and floats), booleans, null, arrays, and nested objects. It also detects string formats like email, URL, UUID, and datetime to apply specific Zod validators.",
+    },
+    {
+      question: "Can I use the generated Zod schema in production?",
+      answer:
+        "Yes. The generated schemas use standard Zod syntax and are production-ready. Review the output for edge cases specific to your data, such as optional fields or union types that may need manual refinement.",
+    },
+    {
+      question: "What is z.infer and why should I use it?",
+      answer:
+        "z.infer is a Zod utility type that extracts the TypeScript type from a Zod schema. Instead of writing both a Zod schema and a TypeScript interface, z.infer derives the type automatically, keeping your validation and types in sync.",
+    },
+    {
+      question: "How does this compare to JSON Schema?",
+      answer:
+        "Zod schemas are TypeScript-native and provide both validation and type inference in one declaration. JSON Schema is language-agnostic but requires separate tooling for TypeScript types. Zod is preferred in modern TypeScript projects for its developer experience and type safety.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="JSON to Zod Schema"
       description="Generate Zod validation schemas from JSON data automatically. Supports nested objects, arrays, and type inference."
       slug="json-to-zod"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Convert JSON to Zod Schemas",
+              content:
+                "Paste your JSON data into the input field and get a fully typed Zod validation schema instantly. This tool analyzes your JSON structure recursively, detecting types for strings, numbers, booleans, arrays, objects, and null values. It also recognizes common string formats like emails, URLs, UUIDs, and ISO datetime strings, applying the appropriate Zod validators automatically.",
+            },
+            {
+              title: "Why Use Zod for Runtime Validation",
+              content:
+                "Zod is the leading TypeScript-first schema validation library, providing runtime type checking that complements TypeScript's compile-time types. Unlike TypeScript alone, Zod validates data at runtime — critical for API responses, form inputs, and environment variables. With z.infer, you get automatic TypeScript type generation from your schemas, eliminating the need to maintain separate type definitions. This tool generates production-ready Zod schemas that you can use directly in your Next.js, Express, or tRPC projects.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       {/* Presets */}
       <div className="mb-4 flex flex-wrap gap-2">

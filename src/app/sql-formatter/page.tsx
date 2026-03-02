@@ -3,6 +3,7 @@
 import { useState } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 const SQL_KEYWORDS = [
   "SELECT", "FROM", "WHERE", "JOIN", "LEFT JOIN", "RIGHT JOIN", "INNER JOIN",
@@ -108,6 +109,24 @@ export default function SqlFormatter() {
       title="SQL Formatter"
       description="Format, beautify, and minify SQL queries with proper indentation and keyword uppercasing."
       slug="sql-formatter"
+      faqs={[
+        { question: "How do I format SQL online?", answer: "Paste your SQL query in the input field and click Format. The tool adds proper indentation, capitalizes SQL keywords (SELECT, FROM, WHERE, JOIN), and breaks the query into readable lines. You can also minify SQL to remove all extra whitespace." },
+        { question: "Does this support all SQL dialects?", answer: "The formatter handles standard SQL syntax including SELECT, INSERT, UPDATE, DELETE, CREATE TABLE, ALTER TABLE, JOINs, subqueries, and common functions. It works with MySQL, PostgreSQL, SQLite, and SQL Server syntax." },
+        { question: "Does formatting change how my SQL query works?", answer: "No. Formatting only changes whitespace and capitalization. The query logic, execution plan, and results remain exactly the same. It is purely a cosmetic transformation for readability." }
+      ]}
+      seoContent={
+        <SeoContent
+          sections={[
+            { title: "How to Format SQL Queries Online", content: "Paste your unformatted SQL query into the input field and click Format. The tool parses the query structure, capitalizes SQL keywords, adds proper indentation for clauses like SELECT, FROM, WHERE, JOIN, and GROUP BY, and aligns subqueries for maximum readability. You can also minify SQL to compress it into a single line." },
+            { title: "Why Format Your SQL?", content: "Well-formatted SQL is easier to read, debug, and review in code reviews. Consistent formatting helps teams maintain coding standards and makes complex queries with multiple JOINs, subqueries, and CTEs significantly easier to understand. This tool runs in your browser — your queries are never sent to any server." }
+          ]}
+          faqs={[
+            { question: "How do I format SQL online?", answer: "Paste your SQL query in the input field and click Format. The tool adds proper indentation, capitalizes SQL keywords (SELECT, FROM, WHERE, JOIN), and breaks the query into readable lines. You can also minify SQL to remove all extra whitespace." },
+            { question: "Does this support all SQL dialects?", answer: "The formatter handles standard SQL syntax including SELECT, INSERT, UPDATE, DELETE, CREATE TABLE, ALTER TABLE, JOINs, subqueries, and common functions. It works with MySQL, PostgreSQL, SQLite, and SQL Server syntax." },
+            { question: "Does formatting change how my SQL query works?", answer: "No. Formatting only changes whitespace and capitalization. The query logic, execution plan, and results remain exactly the same. It is purely a cosmetic transformation for readability." }
+          ]}
+        />
+      }
     >
       <div>
         <label className="mb-1 block text-sm font-medium">Input SQL</label>

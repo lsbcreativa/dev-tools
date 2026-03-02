@@ -3,6 +3,7 @@
 import { useState } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 // --- JSON to YAML serializer ---
 function jsonToYaml(value: unknown, indent: number = 0): string {
@@ -293,11 +294,52 @@ export default function JsonYamlTool() {
     }
   };
 
+  const faqs = [
+    {
+      question: "Does YAML preserve JSON data types?",
+      answer:
+        "Yes. Both formats support strings, numbers, booleans, null, objects (mappings), and arrays (sequences). The conversion is lossless for these standard types. YAML additionally supports date types and multiline strings which have no direct JSON equivalent.",
+    },
+    {
+      question: "Why do some YAML values need quotes?",
+      answer:
+        "YAML values that could be misinterpreted need quoting — for example, 'true', 'false', 'null', 'yes', 'no', and strings that look like numbers. Strings containing special characters like colons, brackets, or hash signs also require quoting to avoid parsing errors.",
+    },
+    {
+      question: "Can I convert YAML with comments to JSON?",
+      answer:
+        "Yes, but comments are stripped during conversion since JSON does not support comments. If you convert back from JSON to YAML, the comments will not be restored. Consider keeping your original YAML file as the source of truth.",
+    },
+    {
+      question: "What YAML features are supported?",
+      answer:
+        "This tool supports key-value mappings, sequences (arrays), nested structures, quoted strings, boolean values (true/false/yes/no), null values, integers, and floating-point numbers. Advanced YAML features like anchors, aliases, and custom tags are not supported.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="JSON to YAML Converter"
       description="Convert between JSON and YAML formats instantly."
       slug="json-yaml"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Convert Between JSON and YAML",
+              content:
+                "Select your conversion direction (JSON to YAML or YAML to JSON), paste your data, and click Convert. This tool handles nested objects, arrays, quoted strings, boolean values, null, and numeric types. The JSON to YAML conversion preserves structure with proper indentation, while YAML to JSON parsing supports key-value mappings, sequences, inline collections, and comments (which are stripped during conversion).",
+            },
+            {
+              title: "JSON vs YAML: When to Use Each Format",
+              content:
+                "JSON is the standard for APIs, configuration files in JavaScript ecosystems (package.json, tsconfig.json), and data interchange between services. YAML is preferred for human-readable configuration files like Docker Compose, Kubernetes manifests, GitHub Actions workflows, and Ansible playbooks. YAML supports comments, multiline strings, and anchors/aliases, while JSON is more strict and universally parseable. Both formats represent the same data structures — objects and arrays — making conversion between them straightforward.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       <div className="flex gap-2 mb-4">
         <button

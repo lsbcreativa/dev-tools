@@ -3,6 +3,7 @@
 import { useState } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 function parseCronField(field: string, min: number, max: number): number[] {
   const values: Set<number> = new Set();
@@ -216,11 +217,52 @@ export default function CronParser() {
     }
   };
 
+  const faqs = [
+    {
+      question: "What do the 5 fields in a cron expression mean?",
+      answer:
+        "From left to right: minute (0-59), hour (0-23), day of month (1-31), month (1-12), and day of week (0-6, Sunday=0). For example, '30 14 * * *' means 'at 2:30 PM every day'.",
+    },
+    {
+      question: "How do I schedule a job to run every 5 minutes?",
+      answer:
+        "Use */5 in the minute field: '*/5 * * * *'. The slash operator creates step values — */5 means 'every 5th minute starting from 0' (0, 5, 10, 15, ..., 55).",
+    },
+    {
+      question: "What is the difference between day of month and day of week?",
+      answer:
+        "Day of month (field 3) specifies calendar dates (1-31), while day of week (field 5) specifies weekdays (0-6). When both are set to non-wildcard values, the job runs when EITHER condition is met, not both.",
+    },
+    {
+      question: "Does this support 6-field or 7-field cron expressions?",
+      answer:
+        "This tool uses the standard 5-field cron format. Some systems like Quartz or Spring add a seconds field (6 fields) or a year field (7 fields). For those formats, remove the extra fields to use this parser.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="Cron Expression Parser"
       description="Parse cron expressions into human-readable descriptions and view upcoming execution times."
       slug="cron-parser"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Read and Write Cron Expressions",
+              content:
+                "Enter a cron expression with 5 fields (minute, hour, day of month, month, day of week) and get a human-readable description plus the next 5 scheduled execution times. This tool supports all standard cron syntax: wildcards (*), ranges (1-5), lists (1,3,5), and step values (*/15). Use the preset buttons to quickly load common schedules like every minute, hourly, daily at midnight, or weekdays at 8am.",
+            },
+            {
+              title: "Cron Expression Syntax Guide",
+              content:
+                "A cron expression consists of 5 fields separated by spaces: minute (0-59), hour (0-23), day of month (1-31), month (1-12), and day of week (0-6, where 0 is Sunday). The asterisk (*) means every value, a hyphen (1-5) defines a range, a comma (1,3,5) lists specific values, and a slash (*/15) sets step intervals. For example, '0 9 * * 1-5' means 'at 9:00 AM every weekday', and '*/30 * * * *' means 'every 30 minutes'. Cron is used in Linux crontab, GitHub Actions, Kubernetes CronJobs, AWS CloudWatch Events, and most task schedulers.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       <div>
         <label className="mb-1 block text-sm font-medium">Cron Expression</label>

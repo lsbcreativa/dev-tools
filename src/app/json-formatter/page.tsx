@@ -3,6 +3,7 @@
 import { useState } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 function escapeHtml(s: string): string {
   return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -83,6 +84,24 @@ export default function JsonFormatter() {
       title="JSON Formatter & Validator"
       description="Format, validate and minify JSON data with proper indentation."
       slug="json-formatter"
+      faqs={[
+        { question: "How do I format JSON online?", answer: "Paste your JSON into the input field and click Format. The tool will parse it and display it with proper indentation. You can also minify JSON to remove all whitespace." },
+        { question: "How do I validate if my JSON is correct?", answer: "Click the Validate button. If your JSON has syntax errors like missing commas, unmatched brackets, or trailing commas, the tool will show the exact error message with the position." },
+        { question: "What is the difference between formatting and minifying JSON?", answer: "Formatting adds indentation and newlines to make JSON human-readable. Minifying removes all unnecessary whitespace to reduce file size, which is useful for API payloads and configuration files." }
+      ]}
+      seoContent={
+        <SeoContent
+          sections={[
+            { title: "How to Format JSON Online", content: "Paste your raw or minified JSON into the input field above. Click Format to beautify it with proper 2-space indentation, or click Minify to compress it into a single line. The tool validates your JSON in real-time and highlights syntax with color coding — blue for keys, green for strings, orange for numbers, and purple for booleans." },
+            { title: "Why Use a JSON Formatter?", content: "Working with raw JSON from APIs, config files, or databases is error-prone without proper formatting. This tool instantly reveals the structure of nested objects and arrays, making it easy to spot missing values, incorrect nesting, or syntax errors. It runs entirely in your browser — your data never leaves your machine." }
+          ]}
+          faqs={[
+            { question: "How do I format JSON online?", answer: "Paste your JSON into the input field and click Format. The tool will parse it and display it with proper indentation. You can also minify JSON to remove all whitespace." },
+            { question: "How do I validate if my JSON is correct?", answer: "Click the Validate button. If your JSON has syntax errors like missing commas, unmatched brackets, or trailing commas, the tool will show the exact error message with the position." },
+            { question: "What is the difference between formatting and minifying JSON?", answer: "Formatting adds indentation and newlines to make JSON human-readable. Minifying removes all unnecessary whitespace to reduce file size, which is useful for API payloads and configuration files." }
+          ]}
+        />
+      }
     >
       <div>
         <label className="mb-1 block text-sm font-medium">Input JSON</label>

@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 /* ---------- Types ---------- */
 
@@ -465,6 +466,24 @@ export default function CurlToCodePage() {
       title="Curl to Code"
       description="Convert curl commands to JavaScript, Python, Go, and PHP code snippets."
       slug="curl-to-code"
+      faqs={[
+        { question: "What curl options are supported?", answer: "The tool supports -X (method), -H (headers), -d/--data (body), -u (basic auth), -F (form data), --cookie, and positional URLs. It handles quoted strings, backslash-newline continuations, and both single and double quotes." },
+        { question: "Which programming languages are supported?", answer: "JavaScript (fetch API and axios), Python (requests library), Go (net/http), and PHP (curl extension). Each output includes proper imports, error handling patterns, and idiomatic code for the target language." },
+        { question: "Can I convert curl commands from browser DevTools?", answer: "Yes. In Chrome or Firefox DevTools, right-click any network request and select Copy as cURL. Paste it directly into this tool to generate code in your preferred language." }
+      ]}
+      seoContent={
+        <SeoContent
+          sections={[
+            { title: "How to Convert Curl Commands to Code", content: "Paste your curl command in the input field to instantly convert it to production-ready code. The tool parses the full curl syntax including HTTP method, headers, request body, authentication, cookies, and form data. Select your target language tab to see the equivalent code in JavaScript fetch, axios, Python requests, Go, or PHP." },
+            { title: "Converting Browser Requests to Code", content: "A common workflow is copying curl commands from browser DevTools (Network tab → right-click → Copy as cURL) and converting them to your application code. This tool handles the exact format that browsers output, including all headers and cookies, making it easy to replicate API calls in your codebase." }
+          ]}
+          faqs={[
+            { question: "What curl options are supported?", answer: "The tool supports -X (method), -H (headers), -d/--data (body), -u (basic auth), -F (form data), --cookie, and positional URLs. It handles quoted strings, backslash-newline continuations, and both single and double quotes." },
+            { question: "Which programming languages are supported?", answer: "JavaScript (fetch API and axios), Python (requests library), Go (net/http), and PHP (curl extension). Each output includes proper imports, error handling patterns, and idiomatic code for the target language." },
+            { question: "Can I convert curl commands from browser DevTools?", answer: "Yes. In Chrome or Firefox DevTools, right-click any network request and select Copy as cURL. Paste it directly into this tool to generate code in your preferred language." }
+          ]}
+        />
+      }
     >
       {/* Presets */}
       <div className="mb-4 flex flex-wrap gap-2">

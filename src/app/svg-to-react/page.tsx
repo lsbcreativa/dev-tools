@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 /* ---------- SVG attribute conversion map ---------- */
 
@@ -243,11 +244,52 @@ export default function SvgToReactPage() {
     }
   }, [input, componentName, useTs, useForwardRef, useMemoWrap, removeXmlns]);
 
+  const faqs = [
+    {
+      question: "Why convert SVG to React components instead of using img tags?",
+      answer:
+        "React components allow you to control SVG properties dynamically through props — change colors with currentColor, adjust sizes, add hover effects, and animate with CSS or libraries like Framer Motion. Inline SVG components also eliminate extra HTTP requests.",
+    },
+    {
+      question: "What SVG attributes are converted automatically?",
+      answer:
+        "Over 80 SVG attributes are converted, including stroke-width, fill-rule, clip-path, font-size, text-anchor, and all xlink: and xml: namespaced attributes. The class attribute becomes className, and inline styles are converted to React style objects.",
+    },
+    {
+      question: "Should I use forwardRef for SVG components?",
+      answer:
+        "Use forwardRef when you need direct DOM access to the SVG element — for example, to measure dimensions, trigger animations, or integrate with third-party libraries. For simple icon components, forwardRef is optional.",
+    },
+    {
+      question: "Does this tool handle SVG gradients and filters?",
+      answer:
+        "Yes. The converter handles all SVG elements and attributes, including linearGradient, radialGradient, filter, clipPath, and mask elements. Attribute names within these elements are properly converted to camelCase.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="SVG to React Component"
       description="Convert SVG markup to React JSX/TSX components with TypeScript props, forwardRef and memo."
       slug="svg-to-react"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Convert SVG to React Components",
+              content:
+                "Paste your SVG markup into the input field and get a ready-to-use React component. This tool converts SVG attributes from kebab-case to camelCase (stroke-width becomes strokeWidth, fill-opacity becomes fillOpacity), transforms inline style strings into React style objects, and handles over 80 SVG-specific attribute mappings. You can customize the component name, add TypeScript types, forwardRef support, and React.memo wrapping.",
+            },
+            {
+              title: "SVG Best Practices in React Applications",
+              content:
+                "Using SVG as React components instead of img tags gives you full control over colors, sizes, and animations through props and CSS. Components can accept className, style, and any SVG prop through the spread operator. ForwardRef support enables direct DOM access for animations, and React.memo prevents unnecessary re-renders for static icons. This approach is used by popular icon libraries like Heroicons, Lucide, and Phosphor Icons.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       {/* Presets */}
       <div className="mb-4 flex flex-wrap gap-2">

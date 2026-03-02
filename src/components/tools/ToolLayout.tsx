@@ -10,11 +10,15 @@ export default function ToolLayout({
   description,
   slug,
   children,
+  seoContent,
+  faqs,
 }: {
   title: string;
   description: string;
   slug?: string;
   children: React.ReactNode;
+  seoContent?: React.ReactNode;
+  faqs?: { question: string; answer: string }[];
 }) {
   const tool = slug ? getToolBySlug(slug) : null;
   const related = slug ? getRelatedTools(slug) : [];
@@ -72,6 +76,25 @@ export default function ToolLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(toolJsonLd) }}
         />
       )}
+      {faqs && faqs.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: faqs.map((f) => ({
+                "@type": "Question",
+                name: f.question,
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: f.answer,
+                },
+              })),
+            }),
+          }}
+        />
+      )}
 
       {/* Breadcrumbs */}
       {tool && (
@@ -97,6 +120,12 @@ export default function ToolLayout({
       <div className="rounded-xl border border-[var(--card-border)] bg-[var(--card)] p-4 shadow-sm sm:p-6">
         {children}
       </div>
+
+      {seoContent && (
+        <div className="mt-8 rounded-xl border border-[var(--card-border)] bg-[var(--card)] p-4 shadow-sm sm:p-6">
+          {seoContent}
+        </div>
+      )}
 
       {/* Prev/Next */}
       {(adjacent.prev || adjacent.next) && (

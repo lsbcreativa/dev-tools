@@ -3,6 +3,7 @@
 import { useState, useCallback } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 const CHARSETS = {
   uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
@@ -66,6 +67,24 @@ export default function PasswordGenerator() {
       title="Password Generator"
       description="Generate strong, secure random passwords with customizable options."
       slug="password-generator"
+      faqs={[
+        { question: "How strong is a generated password?", answer: "Password strength depends on length and character variety. A 16-character password with uppercase, lowercase, numbers, and symbols has approximately 100 bits of entropy, making it practically impossible to brute-force with current technology." },
+        { question: "Is it safe to generate passwords in a browser?", answer: "Yes. This tool runs entirely in your browser using the Web Crypto API (crypto.getRandomValues), which provides cryptographically secure random numbers. No passwords are sent to any server or stored anywhere." },
+        { question: "How long should my password be?", answer: "At minimum 12 characters, but 16 or more is recommended. Each additional character exponentially increases the number of possible combinations, making the password significantly harder to crack." }
+      ]}
+      seoContent={
+        <SeoContent
+          sections={[
+            { title: "How to Generate a Secure Password", content: "Use the controls above to set your desired password length and character types. The generator uses the Web Crypto API for cryptographically secure randomness — the same standard used by password managers and security applications. Click generate to create a new password, then copy it directly to your clipboard." },
+            { title: "What Makes a Password Strong?", content: "A strong password is long (16+ characters), uses a mix of character types (uppercase, lowercase, numbers, symbols), and is unique for each account. Avoid dictionary words, personal information, and common patterns like 123456 or qwerty. Using a unique random password for every account protects you even if one service is breached." }
+          ]}
+          faqs={[
+            { question: "How strong is a generated password?", answer: "Password strength depends on length and character variety. A 16-character password with uppercase, lowercase, numbers, and symbols has approximately 100 bits of entropy, making it practically impossible to brute-force with current technology." },
+            { question: "Is it safe to generate passwords in a browser?", answer: "Yes. This tool runs entirely in your browser using the Web Crypto API (crypto.getRandomValues), which provides cryptographically secure random numbers. No passwords are sent to any server or stored anywhere." },
+            { question: "How long should my password be?", answer: "At minimum 12 characters, but 16 or more is recommended. Each additional character exponentially increases the number of possible combinations, making the password significantly harder to crack." }
+          ]}
+        />
+      }
     >
       <div className="flex items-center gap-3 rounded-lg border border-[var(--border)] bg-[var(--muted)] p-4">
         <code className="flex-1 text-lg font-mono break-all">{password}</code>
