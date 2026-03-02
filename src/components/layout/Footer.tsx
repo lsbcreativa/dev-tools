@@ -14,7 +14,7 @@ export default function Footer() {
             <img
               src="/logo.png"
               alt="DevTools Online"
-              className="h-14 w-auto"
+              className="h-8 w-auto"
             />
             <p className="mt-2 text-sm text-[var(--muted-foreground)] max-w-xs leading-relaxed">
               {tools.length}+ developer tools that run in your browser. No servers, no signups.

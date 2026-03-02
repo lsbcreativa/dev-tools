@@ -18,14 +18,14 @@ export default function Navbar() {
 
   return (
     <nav className={`sticky top-0 z-50 border-b border-[var(--border)] backdrop-blur-md transition-all ${scrolled ? "bg-[var(--card)]/90 shadow-sm" : "bg-[var(--card)]/80"}`}>
-      <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-4">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
         {/* Logo */}
         <Link href="/" className="flex items-center group">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/logo.png"
             alt="DevTools Online"
-            className="h-16 w-auto transition-transform group-hover:scale-[1.02]"
+            className="h-9 w-auto transition-transform group-hover:scale-[1.02]"
           />
         </Link>
 
