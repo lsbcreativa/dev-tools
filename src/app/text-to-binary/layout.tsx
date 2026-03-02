@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Convert text to binary, hexadecimal, octal, or decimal representations and back. Free online encoding tool.",
   alternates: {
-    canonical: "https://devtoolsonline.com/text-to-binary",
+    canonical: "https://toolboxurl.com/text-to-binary",
   },
   openGraph: {
     title: "Text to Binary Converter Online - Free Online Tool",
     description:
       "Convert text to binary, hexadecimal, octal, or decimal representations and back. Free online encoding tool.",
-    url: "https://devtoolsonline.com/text-to-binary",
+    url: "https://toolboxurl.com/text-to-binary",
   },
 };
 

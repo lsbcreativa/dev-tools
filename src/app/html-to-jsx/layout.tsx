@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Convert HTML markup to valid JSX. Transforms class to className, style strings to objects, self-closes void elements, and more.",
   alternates: {
-    canonical: "https://devtoolsonline.com/html-to-jsx",
+    canonical: "https://toolboxurl.com/html-to-jsx",
   },
   openGraph: {
     title: "HTML to JSX - Free Online Tool",
     description:
       "Convert HTML markup to valid JSX. Transforms class to className, style strings to objects, self-closes void elements, and more.",
-    url: "https://devtoolsonline.com/html-to-jsx",
+    url: "https://toolboxurl.com/html-to-jsx",
   },
 };
 

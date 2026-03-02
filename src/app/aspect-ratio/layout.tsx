@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Calculate and convert aspect ratios, resize dimensions proportionally, and get CSS aspect-ratio properties. Free online aspect ratio tool.",
   alternates: {
-    canonical: "https://devtoolsonline.com/aspect-ratio",
+    canonical: "https://toolboxurl.com/aspect-ratio",
   },
   openGraph: {
     title: "Aspect Ratio Calculator - Free Online Tool",
     description:
       "Calculate and convert aspect ratios, resize dimensions proportionally, and get CSS aspect-ratio properties. Free online aspect ratio tool.",
-    url: "https://devtoolsonline.com/aspect-ratio",
+    url: "https://toolboxurl.com/aspect-ratio",
   },
 };
 

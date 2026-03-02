@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Generate HTML meta tags for SEO, Open Graph, and Twitter Cards. Preview how your page appears in Google search results. Free online tool.",
   alternates: {
-    canonical: "https://devtoolsonline.com/meta-tag-generator",
+    canonical: "https://toolboxurl.com/meta-tag-generator",
   },
   openGraph: {
     title: "Meta Tag Generator Online - Free Online Tool",
     description:
       "Generate HTML meta tags for SEO, Open Graph, and Twitter Cards. Preview how your page appears in Google search results. Free online tool.",
-    url: "https://devtoolsonline.com/meta-tag-generator",
+    url: "https://toolboxurl.com/meta-tag-generator",
   },
 };
 

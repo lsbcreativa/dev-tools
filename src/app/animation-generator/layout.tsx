@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Create CSS keyframe animations visually. Edit keyframes, preview live, use presets, and copy the generated CSS code.",
   alternates: {
-    canonical: "https://devtoolsonline.com/animation-generator",
+    canonical: "https://toolboxurl.com/animation-generator",
   },
   openGraph: {
     title: "CSS Animation Generator - Free Online Tool",
     description:
       "Create CSS keyframe animations visually. Edit keyframes, preview live, use presets, and copy the generated CSS code.",
-    url: "https://devtoolsonline.com/animation-generator",
+    url: "https://toolboxurl.com/animation-generator",
   },
 };
 

@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Chain multiple encoding and decoding operations together. Supports Base64, URL, Hex, ROT13, HTML Entities, and more.",
   alternates: {
-    canonical: "https://devtoolsonline.com/encoding-playground",
+    canonical: "https://toolboxurl.com/encoding-playground",
   },
   openGraph: {
     title: "Encoding Playground - Free Online Tool",
     description:
       "Chain multiple encoding and decoding operations together. Supports Base64, URL, Hex, ROT13, HTML Entities, and more.",
-    url: "https://devtoolsonline.com/encoding-playground",
+    url: "https://toolboxurl.com/encoding-playground",
   },
 };
 

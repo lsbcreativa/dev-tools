@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Generate realistic fake data for testing: names, emails, phones, addresses, companies, and more. 100% client-side.",
   alternates: {
-    canonical: "https://devtoolsonline.com/fake-data-generator",
+    canonical: "https://toolboxurl.com/fake-data-generator",
   },
   openGraph: {
     title: "Fake Data Generator - Free Online Tool",
     description:
       "Generate realistic fake data for testing: names, emails, phones, addresses, companies, and more. 100% client-side.",
-    url: "https://devtoolsonline.com/fake-data-generator",
+    url: "https://toolboxurl.com/fake-data-generator",
   },
 };
 

@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Calculate Unix file permissions with an interactive chmod calculator. Convert between numeric (755) and symbolic (rwxr-xr-x) notation. Free online tool.",
   alternates: {
-    canonical: "https://devtoolsonline.com/chmod-calculator",
+    canonical: "https://toolboxurl.com/chmod-calculator",
   },
   openGraph: {
     title: "Chmod Calculator Online - Free Online Tool",
     description:
       "Calculate Unix file permissions with an interactive chmod calculator. Convert between numeric (755) and symbolic (rwxr-xr-x) notation. Free online tool.",
-    url: "https://devtoolsonline.com/chmod-calculator",
+    url: "https://toolboxurl.com/chmod-calculator",
   },
 };
 

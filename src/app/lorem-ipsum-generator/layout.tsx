@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Generate lorem ipsum placeholder text for your designs. Choose paragraphs, sentences, or words. Free online tool.",
   alternates: {
-    canonical: "https://devtoolsonline.com/lorem-ipsum-generator",
+    canonical: "https://toolboxurl.com/lorem-ipsum-generator",
   },
   openGraph: {
     title: "Lorem Ipsum Generator - Free Placeholder Text - Free Online Tool",
     description:
       "Generate lorem ipsum placeholder text for your designs. Choose paragraphs, sentences, or words. Free online tool.",
-    url: "https://devtoolsonline.com/lorem-ipsum-generator",
+    url: "https://toolboxurl.com/lorem-ipsum-generator",
   },
 };
 

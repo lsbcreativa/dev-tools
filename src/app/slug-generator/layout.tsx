@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Generate clean URL slugs from any text. Supports custom separators, accent removal, and special character handling. Free online slug generator.",
   alternates: {
-    canonical: "https://devtoolsonline.com/slug-generator",
+    canonical: "https://toolboxurl.com/slug-generator",
   },
   openGraph: {
     title: "Slug Generator Online - Free URL Slug Tool - Free Online Tool",
     description:
       "Generate clean URL slugs from any text. Supports custom separators, accent removal, and special character handling. Free online slug generator.",
-    url: "https://devtoolsonline.com/slug-generator",
+    url: "https://toolboxurl.com/slug-generator",
   },
 };
 

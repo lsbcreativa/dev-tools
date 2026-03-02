@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Convert text to UPPERCASE, lowercase, Title Case, camelCase, snake_case and more. Free online text case converter.",
   alternates: {
-    canonical: "https://devtoolsonline.com/text-case-converter",
+    canonical: "https://toolboxurl.com/text-case-converter",
   },
   openGraph: {
     title: "Text Case Converter Online - Free Online Tool",
     description:
       "Convert text to UPPERCASE, lowercase, Title Case, camelCase, snake_case and more. Free online text case converter.",
-    url: "https://devtoolsonline.com/text-case-converter",
+    url: "https://toolboxurl.com/text-case-converter",
   },
 };
 

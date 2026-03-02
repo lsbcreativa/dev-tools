@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Live markdown editor and preview. Write markdown and see the rendered HTML output in real time.",
   alternates: {
-    canonical: "https://devtoolsonline.com/markdown-preview",
+    canonical: "https://toolboxurl.com/markdown-preview",
   },
   openGraph: {
     title: "Markdown Preview Online - Free Online Tool",
     description:
       "Live markdown editor and preview. Write markdown and see the rendered HTML output in real time.",
-    url: "https://devtoolsonline.com/markdown-preview",
+    url: "https://toolboxurl.com/markdown-preview",
   },
 };
 

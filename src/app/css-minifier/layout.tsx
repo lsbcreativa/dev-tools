@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Minify CSS for production or beautify compressed CSS for readability. Supports media queries, nested rules, and provides size statistics.",
   alternates: {
-    canonical: "https://devtoolsonline.com/css-minifier",
+    canonical: "https://toolboxurl.com/css-minifier",
   },
   openGraph: {
     title: "CSS Minifier / Beautifier - Free Online Tool",
     description:
       "Minify CSS for production or beautify compressed CSS for readability. Supports media queries, nested rules, and provides size statistics.",
-    url: "https://devtoolsonline.com/css-minifier",
+    url: "https://toolboxurl.com/css-minifier",
   },
 };
 

@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Convert curl commands to JavaScript (fetch/axios), Python (requests), Go (net/http), and PHP (curl) code snippets.",
   alternates: {
-    canonical: "https://devtoolsonline.com/curl-to-code",
+    canonical: "https://toolboxurl.com/curl-to-code",
   },
   openGraph: {
     title: "Curl to Code - Free Online Tool",
     description:
       "Convert curl commands to JavaScript (fetch/axios), Python (requests), Go (net/http), and PHP (curl) code snippets.",
-    url: "https://devtoolsonline.com/curl-to-code",
+    url: "https://toolboxurl.com/curl-to-code",
   },
 };
 

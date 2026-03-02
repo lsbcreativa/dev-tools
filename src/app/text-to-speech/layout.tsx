@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Convert text to speech using your browser's built-in speech synthesis. Choose from available voices, adjust rate and pitch.",
   alternates: {
-    canonical: "https://devtoolsonline.com/text-to-speech",
+    canonical: "https://toolboxurl.com/text-to-speech",
   },
   openGraph: {
     title: "Text to Speech - Free Online Tool",
     description:
       "Convert text to speech using your browser's built-in speech synthesis. Choose from available voices, adjust rate and pitch.",
-    url: "https://devtoolsonline.com/text-to-speech",
+    url: "https://toolboxurl.com/text-to-speech",
   },
 };
 

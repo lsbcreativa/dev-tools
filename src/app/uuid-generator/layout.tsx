@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Generate random UUID v4 identifiers. Bulk generate multiple UUIDs with one click. Free online UUID generator.",
   alternates: {
-    canonical: "https://devtoolsonline.com/uuid-generator",
+    canonical: "https://toolboxurl.com/uuid-generator",
   },
   openGraph: {
     title: "UUID Generator - Generate UUID v4 Online - Free Online Tool",
     description:
       "Generate random UUID v4 identifiers. Bulk generate multiple UUIDs with one click. Free online UUID generator.",
-    url: "https://devtoolsonline.com/uuid-generator",
+    url: "https://toolboxurl.com/uuid-generator",
   },
 };
 

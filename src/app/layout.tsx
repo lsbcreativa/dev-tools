@@ -10,7 +10,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"], display: "swap" });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://devtoolsonline.com"),
+  metadataBase: new URL("https://toolboxurl.com"),
   title: {
     default: "DevTools Online - Free Developer Tools",
     template: "%s | DevTools Online",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     title: "DevTools Online - Free Developer Tools",
     description:
       "70+ developer tools that run entirely in your browser. No servers, no signups, no data collection.",
-    url: "https://devtoolsonline.com",
+    url: "https://toolboxurl.com",
   },
   twitter: {
     card: "summary_large_image",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true },
   },
   alternates: {
-    canonical: "https://devtoolsonline.com",
+    canonical: "https://toolboxurl.com",
   },
 };
 
@@ -69,19 +69,19 @@ const jsonLd = {
     {
       "@type": "WebSite",
       name: "DevTools Online",
-      url: "https://devtoolsonline.com",
+      url: "https://toolboxurl.com",
       description:
         "70+ developer tools that run entirely in your browser. JSON formatter, regex tester, code converters, CSS generators and more.",
       potentialAction: {
         "@type": "SearchAction",
-        target: "https://devtoolsonline.com/?q={search_term_string}",
+        target: "https://toolboxurl.com/?q={search_term_string}",
         "query-input": "required name=search_term_string",
       },
     },
     {
       "@type": "WebApplication",
       name: "DevTools Online",
-      url: "https://devtoolsonline.com",
+      url: "https://toolboxurl.com",
       description:
         "70+ developer tools that run entirely in your browser. JSON formatter, regex tester, code converters, CSS generators and more.",
       applicationCategory: "DeveloperApplication",

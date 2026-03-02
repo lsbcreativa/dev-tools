@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Search and copy emojis instantly. Browse by category, search by name, and keep track of recently used emojis.",
   alternates: {
-    canonical: "https://devtoolsonline.com/emoji-picker",
+    canonical: "https://toolboxurl.com/emoji-picker",
   },
   openGraph: {
     title: "Emoji Picker & Search - Free Online Tool",
     description:
       "Search and copy emojis instantly. Browse by category, search by name, and keep track of recently used emojis.",
-    url: "https://devtoolsonline.com/emoji-picker",
+    url: "https://toolboxurl.com/emoji-picker",
   },
 };
 

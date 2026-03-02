@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Generate RSA key pairs (2048 or 4096 bit) directly in your browser using the Web Crypto API. Keys never leave your device.",
   alternates: {
-    canonical: "https://devtoolsonline.com/rsa-generator",
+    canonical: "https://toolboxurl.com/rsa-generator",
   },
   openGraph: {
     title: "RSA Key Pair Generator - Free Online Tool",
     description:
       "Generate RSA key pairs (2048 or 4096 bit) directly in your browser using the Web Crypto API. Keys never leave your device.",
-    url: "https://devtoolsonline.com/rsa-generator",
+    url: "https://toolboxurl.com/rsa-generator",
   },
 };
 

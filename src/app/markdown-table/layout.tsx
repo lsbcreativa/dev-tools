@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Generate formatted Markdown tables with a visual editor. Supports column alignment, CSV import, and live preview.",
   alternates: {
-    canonical: "https://devtoolsonline.com/markdown-table",
+    canonical: "https://toolboxurl.com/markdown-table",
   },
   openGraph: {
     title: "Markdown Table Generator - Free Online Tool",
     description:
       "Generate formatted Markdown tables with a visual editor. Supports column alignment, CSV import, and live preview.",
-    url: "https://devtoolsonline.com/markdown-table",
+    url: "https://toolboxurl.com/markdown-table",
   },
 };
 

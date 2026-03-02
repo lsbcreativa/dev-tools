@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Compare two texts side by side and highlight differences. Free online text diff and comparison tool.",
   alternates: {
-    canonical: "https://devtoolsonline.com/text-diff",
+    canonical: "https://toolboxurl.com/text-diff",
   },
   openGraph: {
     title: "Text Diff Checker - Compare Text Online Free - Free Online Tool",
     description:
       "Compare two texts side by side and highlight differences. Free online text diff and comparison tool.",
-    url: "https://devtoolsonline.com/text-diff",
+    url: "https://toolboxurl.com/text-diff",
   },
 };
 

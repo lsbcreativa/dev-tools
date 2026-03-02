@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Convert CSS properties to Tailwind CSS utility classes. Supports display, spacing, typography, layout, and more.",
   alternates: {
-    canonical: "https://devtoolsonline.com/css-to-tailwind",
+    canonical: "https://toolboxurl.com/css-to-tailwind",
   },
   openGraph: {
     title: "CSS to Tailwind - Free Online Tool",
     description:
       "Convert CSS properties to Tailwind CSS utility classes. Supports display, spacing, typography, layout, and more.",
-    url: "https://devtoolsonline.com/css-to-tailwind",
+    url: "https://toolboxurl.com/css-to-tailwind",
   },
 };
 

@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Compress and resize images in your browser. Supports JPEG, PNG, and WebP output with adjustable quality. 100% client-side.",
   alternates: {
-    canonical: "https://devtoolsonline.com/image-compressor",
+    canonical: "https://toolboxurl.com/image-compressor",
   },
   openGraph: {
     title: "Image Compressor - Free Online Tool",
     description:
       "Compress and resize images in your browser. Supports JPEG, PNG, and WebP output with adjustable quality. 100% client-side.",
-    url: "https://devtoolsonline.com/image-compressor",
+    url: "https://toolboxurl.com/image-compressor",
   },
 };
 

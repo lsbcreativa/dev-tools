@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Beautify and minify JavaScript code with proper indentation. Free online JS formatter and minifier.",
   alternates: {
-    canonical: "https://devtoolsonline.com/js-formatter",
+    canonical: "https://toolboxurl.com/js-formatter",
   },
   openGraph: {
     title: "JavaScript Formatter & Minifier Online - Free Online Tool",
     description:
       "Beautify and minify JavaScript code with proper indentation. Free online JS formatter and minifier.",
-    url: "https://devtoolsonline.com/js-formatter",
+    url: "https://toolboxurl.com/js-formatter",
   },
 };
 

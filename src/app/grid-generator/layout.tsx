@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Build CSS Grid layouts visually. Configure columns, rows, gap, alignment, add items, use presets, and copy the generated CSS.",
   alternates: {
-    canonical: "https://devtoolsonline.com/grid-generator",
+    canonical: "https://toolboxurl.com/grid-generator",
   },
   openGraph: {
     title: "CSS Grid Generator - Free Online Tool",
     description:
       "Build CSS Grid layouts visually. Configure columns, rows, gap, alignment, add items, use presets, and copy the generated CSS.",
-    url: "https://devtoolsonline.com/grid-generator",
+    url: "https://toolboxurl.com/grid-generator",
   },
 };
 

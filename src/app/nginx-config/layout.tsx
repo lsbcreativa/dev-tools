@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Generate production-ready Nginx configuration files for static sites, reverse proxies, SPAs, and PHP apps. Supports SSL, gzip, and CORS.",
   alternates: {
-    canonical: "https://devtoolsonline.com/nginx-config",
+    canonical: "https://toolboxurl.com/nginx-config",
   },
   openGraph: {
     title: "Nginx Config Generator - Free Online Tool",
     description:
       "Generate production-ready Nginx configuration files for static sites, reverse proxies, SPAs, and PHP apps. Supports SSL, gzip, and CORS.",
-    url: "https://devtoolsonline.com/nginx-config",
+    url: "https://toolboxurl.com/nginx-config",
   },
 };
 

@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Preview how your website will look when shared on Twitter, Facebook, and LinkedIn. Generate Open Graph and Twitter Card meta tags.",
   alternates: {
-    canonical: "https://devtoolsonline.com/og-preview",
+    canonical: "https://toolboxurl.com/og-preview",
   },
   openGraph: {
     title: "Open Graph Preview - Free Online Tool",
     description:
       "Preview how your website will look when shared on Twitter, Facebook, and LinkedIn. Generate Open Graph and Twitter Card meta tags.",
-    url: "https://devtoolsonline.com/og-preview",
+    url: "https://toolboxurl.com/og-preview",
   },
 };
 

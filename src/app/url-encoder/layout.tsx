@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Encode special characters in URLs or decode percent-encoded strings. Free online URL encoding tool.",
   alternates: {
-    canonical: "https://devtoolsonline.com/url-encoder",
+    canonical: "https://toolboxurl.com/url-encoder",
   },
   openGraph: {
     title: "URL Encoder / Decoder Online - Free Online Tool",
     description:
       "Encode special characters in URLs or decode percent-encoded strings. Free online URL encoding tool.",
-    url: "https://devtoolsonline.com/url-encoder",
+    url: "https://toolboxurl.com/url-encoder",
   },
 };
 

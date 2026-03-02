@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Convert special characters to HTML entities and vice versa. Free online HTML entity encoder and decoder.",
   alternates: {
-    canonical: "https://devtoolsonline.com/html-entities",
+    canonical: "https://toolboxurl.com/html-entities",
   },
   openGraph: {
     title: "HTML Entity Encoder / Decoder - Free Online Tool",
     description:
       "Convert special characters to HTML entities and vice versa. Free online HTML entity encoder and decoder.",
-    url: "https://devtoolsonline.com/html-entities",
+    url: "https://toolboxurl.com/html-entities",
   },
 };
 

@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Convert TypeScript code to plain JavaScript by stripping type annotations, interfaces, generics, and other TS-specific syntax.",
   alternates: {
-    canonical: "https://devtoolsonline.com/ts-to-js",
+    canonical: "https://toolboxurl.com/ts-to-js",
   },
   openGraph: {
     title: "TypeScript to JavaScript Converter - Free Online Tool",
     description:
       "Convert TypeScript code to plain JavaScript by stripping type annotations, interfaces, generics, and other TS-specific syntax.",
-    url: "https://devtoolsonline.com/ts-to-js",
+    url: "https://toolboxurl.com/ts-to-js",
   },
 };
 

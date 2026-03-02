@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Generate CSS box-shadow values with a visual editor. Customize multiple shadow layers, preview live, and copy the CSS. Free online tool.",
   alternates: {
-    canonical: "https://devtoolsonline.com/box-shadow-generator",
+    canonical: "https://toolboxurl.com/box-shadow-generator",
   },
   openGraph: {
     title: "CSS Box Shadow Generator Online - Free Online Tool",
     description:
       "Generate CSS box-shadow values with a visual editor. Customize multiple shadow layers, preview live, and copy the CSS. Free online tool.",
-    url: "https://devtoolsonline.com/box-shadow-generator",
+    url: "https://toolboxurl.com/box-shadow-generator",
   },
 };
 

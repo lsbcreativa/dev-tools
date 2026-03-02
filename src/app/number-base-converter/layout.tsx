@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Convert numbers between decimal, binary, octal, and hexadecimal bases. Supports large numbers with BigInt. Free online base converter.",
   alternates: {
-    canonical: "https://devtoolsonline.com/number-base-converter",
+    canonical: "https://toolboxurl.com/number-base-converter",
   },
   openGraph: {
     title: "Number Base Converter Online - Free Online Tool",
     description:
       "Convert numbers between decimal, binary, octal, and hexadecimal bases. Supports large numbers with BigInt. Free online base converter.",
-    url: "https://devtoolsonline.com/number-base-converter",
+    url: "https://toolboxurl.com/number-base-converter",
   },
 };
 

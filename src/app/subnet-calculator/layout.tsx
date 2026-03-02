@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Calculate IPv4 subnet details including network address, broadcast address, host range, wildcard mask, and CIDR notation.",
   alternates: {
-    canonical: "https://devtoolsonline.com/subnet-calculator",
+    canonical: "https://toolboxurl.com/subnet-calculator",
   },
   openGraph: {
     title: "IP Subnet Calculator - Free Online Tool",
     description:
       "Calculate IPv4 subnet details including network address, broadcast address, host range, wildcard mask, and CIDR notation.",
-    url: "https://devtoolsonline.com/subnet-calculator",
+    url: "https://toolboxurl.com/subnet-calculator",
   },
 };
 

@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Format, beautify, and minify SQL queries with proper indentation and keyword uppercasing. Free online SQL formatter.",
   alternates: {
-    canonical: "https://devtoolsonline.com/sql-formatter",
+    canonical: "https://toolboxurl.com/sql-formatter",
   },
   openGraph: {
     title: "SQL Formatter & Minifier Online - Free Online Tool",
     description:
       "Format, beautify, and minify SQL queries with proper indentation and keyword uppercasing. Free online SQL formatter.",
-    url: "https://devtoolsonline.com/sql-formatter",
+    url: "https://toolboxurl.com/sql-formatter",
   },
 };
 

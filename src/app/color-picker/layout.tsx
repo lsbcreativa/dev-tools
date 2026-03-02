@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Pick colors and convert between HEX, RGB, and HSL formats. Copy CSS values. Free online color picker.",
   alternates: {
-    canonical: "https://devtoolsonline.com/color-picker",
+    canonical: "https://toolboxurl.com/color-picker",
   },
   openGraph: {
     title: "Color Picker & Converter - HEX RGB HSL - Free Online Tool",
     description:
       "Pick colors and convert between HEX, RGB, and HSL formats. Copy CSS values. Free online color picker.",
-    url: "https://devtoolsonline.com/color-picker",
+    url: "https://toolboxurl.com/color-picker",
   },
 };
 

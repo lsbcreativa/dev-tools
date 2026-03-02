@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Generate strong, secure random passwords with customizable length and character types. Free online password generator.",
   alternates: {
-    canonical: "https://devtoolsonline.com/password-generator",
+    canonical: "https://toolboxurl.com/password-generator",
   },
   openGraph: {
     title: "Password Generator - Strong Random Passwords - Free Online Tool",
     description:
       "Generate strong, secure random passwords with customizable length and character types. Free online password generator.",
-    url: "https://devtoolsonline.com/password-generator",
+    url: "https://toolboxurl.com/password-generator",
   },
 };
 

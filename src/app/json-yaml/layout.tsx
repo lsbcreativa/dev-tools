@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Convert between JSON and YAML formats instantly. Free online converter tool with syntax validation and error handling.",
   alternates: {
-    canonical: "https://devtoolsonline.com/json-yaml",
+    canonical: "https://toolboxurl.com/json-yaml",
   },
   openGraph: {
     title: "JSON to YAML Converter Online - Free Online Tool",
     description:
       "Convert between JSON and YAML formats instantly. Free online converter tool with syntax validation and error handling.",
-    url: "https://devtoolsonline.com/json-yaml",
+    url: "https://toolboxurl.com/json-yaml",
   },
 };
 

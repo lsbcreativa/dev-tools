@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "View, sort, search, and export CSV data. Supports custom delimiters, quoted fields, and file upload.",
   alternates: {
-    canonical: "https://devtoolsonline.com/csv-viewer",
+    canonical: "https://toolboxurl.com/csv-viewer",
   },
   openGraph: {
     title: "CSV Viewer & Editor - Free Online Tool",
     description:
       "View, sort, search, and export CSV data. Supports custom delimiters, quoted fields, and file upload.",
-    url: "https://devtoolsonline.com/csv-viewer",
+    url: "https://toolboxurl.com/csv-viewer",
   },
 };
 

@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Generate CSS border-radius values with a visual editor. Customize each corner independently, preview live, and copy the CSS. Free online tool.",
   alternates: {
-    canonical: "https://devtoolsonline.com/border-radius-generator",
+    canonical: "https://toolboxurl.com/border-radius-generator",
   },
   openGraph: {
     title: "CSS Border Radius Generator Online - Free Online Tool",
     description:
       "Generate CSS border-radius values with a visual editor. Customize each corner independently, preview live, and copy the CSS. Free online tool.",
-    url: "https://devtoolsonline.com/border-radius-generator",
+    url: "https://toolboxurl.com/border-radius-generator",
   },
 };
 

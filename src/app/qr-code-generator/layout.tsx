@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Generate QR codes from any text or URL. Download as PNG. Free online QR code generator.",
   alternates: {
-    canonical: "https://devtoolsonline.com/qr-code-generator",
+    canonical: "https://toolboxurl.com/qr-code-generator",
   },
   openGraph: {
     title: "QR Code Generator - Create QR Codes Online Free - Free Online Tool",
     description:
       "Generate QR codes from any text or URL. Download as PNG. Free online QR code generator.",
-    url: "https://devtoolsonline.com/qr-code-generator",
+    url: "https://toolboxurl.com/qr-code-generator",
   },
 };
 

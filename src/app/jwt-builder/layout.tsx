@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Build and sign JSON Web Tokens (JWT) with HS256. Edit header and payload, set expiration, and generate signed tokens.",
   alternates: {
-    canonical: "https://devtoolsonline.com/jwt-builder",
+    canonical: "https://toolboxurl.com/jwt-builder",
   },
   openGraph: {
     title: "JWT Builder - Free Online Tool",
     description:
       "Build and sign JSON Web Tokens (JWT) with HS256. Edit header and payload, set expiration, and generate signed tokens.",
-    url: "https://devtoolsonline.com/jwt-builder",
+    url: "https://toolboxurl.com/jwt-builder",
   },
 };
 

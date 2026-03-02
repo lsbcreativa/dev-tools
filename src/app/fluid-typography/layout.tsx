@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Calculate CSS clamp() values for fluid responsive typography. Generate font sizes for headings and body text that scale smoothly between viewports.",
   alternates: {
-    canonical: "https://devtoolsonline.com/fluid-typography",
+    canonical: "https://toolboxurl.com/fluid-typography",
   },
   openGraph: {
     title: "Fluid Typography Calculator - Free Online Tool",
     description:
       "Calculate CSS clamp() values for fluid responsive typography. Generate font sizes for headings and body text that scale smoothly between viewports.",
-    url: "https://devtoolsonline.com/fluid-typography",
+    url: "https://toolboxurl.com/fluid-typography",
   },
 };
 

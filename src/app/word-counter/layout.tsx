@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Count words, characters, sentences, paragraphs and estimate reading time instantly. Free online word counter tool.",
   alternates: {
-    canonical: "https://devtoolsonline.com/word-counter",
+    canonical: "https://toolboxurl.com/word-counter",
   },
   openGraph: {
     title: "Word & Character Counter Online - Free Online Tool",
     description:
       "Count words, characters, sentences, paragraphs and estimate reading time instantly. Free online word counter tool.",
-    url: "https://devtoolsonline.com/word-counter",
+    url: "https://toolboxurl.com/word-counter",
   },
 };
 

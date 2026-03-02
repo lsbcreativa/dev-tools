@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Convert docker run commands to docker-compose.yml format instantly. Supports ports, volumes, environment variables, networks, and more.",
   alternates: {
-    canonical: "https://devtoolsonline.com/docker-compose",
+    canonical: "https://toolboxurl.com/docker-compose",
   },
   openGraph: {
     title: "Docker Run to Compose - Free Online Tool",
     description:
       "Convert docker run commands to docker-compose.yml format instantly. Supports ports, volumes, environment variables, networks, and more.",
-    url: "https://devtoolsonline.com/docker-compose",
+    url: "https://toolboxurl.com/docker-compose",
   },
 };
 

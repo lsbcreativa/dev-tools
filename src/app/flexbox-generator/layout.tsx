@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Build CSS flexbox layouts visually. Configure container and item properties, preview live, and copy the generated CSS. Free online flexbox playground.",
   alternates: {
-    canonical: "https://devtoolsonline.com/flexbox-generator",
+    canonical: "https://toolboxurl.com/flexbox-generator",
   },
   openGraph: {
     title: "CSS Flexbox Generator Online - Free Online Tool",
     description:
       "Build CSS flexbox layouts visually. Configure container and item properties, preview live, and copy the generated CSS. Free online flexbox playground.",
-    url: "https://devtoolsonline.com/flexbox-generator",
+    url: "https://toolboxurl.com/flexbox-generator",
   },
 };
 

@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Generate color palettes from any base color. Create complementary, analogous, triadic, split-complementary, and monochromatic schemes. Free online tool.",
   alternates: {
-    canonical: "https://devtoolsonline.com/color-palette-generator",
+    canonical: "https://toolboxurl.com/color-palette-generator",
   },
   openGraph: {
     title: "Color Palette Generator Online - Free Online Tool",
     description:
       "Generate color palettes from any base color. Create complementary, analogous, triadic, split-complementary, and monochromatic schemes. Free online tool.",
-    url: "https://devtoolsonline.com/color-palette-generator",
+    url: "https://toolboxurl.com/color-palette-generator",
   },
 };
 

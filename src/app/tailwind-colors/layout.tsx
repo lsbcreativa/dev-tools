@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Find the closest Tailwind CSS color to any hex value. See side-by-side comparisons and copy Tailwind class names instantly.",
   alternates: {
-    canonical: "https://devtoolsonline.com/tailwind-colors",
+    canonical: "https://toolboxurl.com/tailwind-colors",
   },
   openGraph: {
     title: "Tailwind Color Finder - Free Online Tool",
     description:
       "Find the closest Tailwind CSS color to any hex value. See side-by-side comparisons and copy Tailwind class names instantly.",
-    url: "https://devtoolsonline.com/tailwind-colors",
+    url: "https://toolboxurl.com/tailwind-colors",
   },
 };
 

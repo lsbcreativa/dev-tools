@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Beautify, minify, and validate XML documents online. Format XML with proper indentation or compress it for production use.",
   alternates: {
-    canonical: "https://devtoolsonline.com/xml-formatter",
+    canonical: "https://toolboxurl.com/xml-formatter",
   },
   openGraph: {
     title: "XML Formatter & Validator - Free Online Tool",
     description:
       "Beautify, minify, and validate XML documents online. Format XML with proper indentation or compress it for production use.",
-    url: "https://devtoolsonline.com/xml-formatter",
+    url: "https://toolboxurl.com/xml-formatter",
   },
 };
 

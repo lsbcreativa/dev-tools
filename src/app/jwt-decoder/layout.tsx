@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Decode and inspect JSON Web Tokens (JWT). View header, payload, expiration status, and claims. Free online JWT decoder tool.",
   alternates: {
-    canonical: "https://devtoolsonline.com/jwt-decoder",
+    canonical: "https://toolboxurl.com/jwt-decoder",
   },
   openGraph: {
     title: "JWT Decoder Online - Free Token Inspector - Free Online Tool",
     description:
       "Decode and inspect JSON Web Tokens (JWT). View header, payload, expiration status, and claims. Free online JWT decoder tool.",
-    url: "https://devtoolsonline.com/jwt-decoder",
+    url: "https://toolboxurl.com/jwt-decoder",
   },
 };
 

@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Convert images to Base64 encoded strings. Get Data URI, raw Base64, HTML img tags, and CSS background-image code. Free online tool.",
   alternates: {
-    canonical: "https://devtoolsonline.com/image-to-base64",
+    canonical: "https://toolboxurl.com/image-to-base64",
   },
   openGraph: {
     title: "Image to Base64 Converter Online - Free Online Tool",
     description:
       "Convert images to Base64 encoded strings. Get Data URI, raw Base64, HTML img tags, and CSS background-image code. Free online tool.",
-    url: "https://devtoolsonline.com/image-to-base64",
+    url: "https://toolboxurl.com/image-to-base64",
   },
 };
 

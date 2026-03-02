@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Test regular expressions in real-time with match highlighting and capture groups. Free online regex tester.",
   alternates: {
-    canonical: "https://devtoolsonline.com/regex-tester",
+    canonical: "https://toolboxurl.com/regex-tester",
   },
   openGraph: {
     title: "Regex Tester Online - Free Regular Expression Tool - Free Online Tool",
     description:
       "Test regular expressions in real-time with match highlighting and capture groups. Free online regex tester.",
-    url: "https://devtoolsonline.com/regex-tester",
+    url: "https://toolboxurl.com/regex-tester",
   },
 };
 

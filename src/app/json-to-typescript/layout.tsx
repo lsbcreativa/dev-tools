@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Convert JSON data to TypeScript interfaces and type aliases. Handles nested objects, arrays, and optional fields automatically.",
   alternates: {
-    canonical: "https://devtoolsonline.com/json-to-typescript",
+    canonical: "https://toolboxurl.com/json-to-typescript",
   },
   openGraph: {
     title: "JSON to TypeScript - Free Online Tool",
     description:
       "Convert JSON data to TypeScript interfaces and type aliases. Handles nested objects, arrays, and optional fields automatically.",
-    url: "https://devtoolsonline.com/json-to-typescript",
+    url: "https://toolboxurl.com/json-to-typescript",
   },
 };
 

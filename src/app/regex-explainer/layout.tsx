@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Paste a regular expression and get a plain-English explanation of every part. Test your regex against sample text with match highlighting.",
   alternates: {
-    canonical: "https://devtoolsonline.com/regex-explainer",
+    canonical: "https://toolboxurl.com/regex-explainer",
   },
   openGraph: {
     title: "Regex Explainer - Free Online Tool",
     description:
       "Paste a regular expression and get a plain-English explanation of every part. Test your regex against sample text with match highlighting.",
-    url: "https://devtoolsonline.com/regex-explainer",
+    url: "https://toolboxurl.com/regex-explainer",
   },
 };
 

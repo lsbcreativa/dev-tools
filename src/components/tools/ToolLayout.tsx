@@ -32,13 +32,13 @@ export default function ToolLayout({
                 "@type": "ListItem",
                 position: 1,
                 name: "Home",
-                item: "https://devtoolsonline.com",
+                item: "https://toolboxurl.com",
               },
               {
                 "@type": "ListItem",
                 position: 2,
                 name: categoryLabel,
-                item: `https://devtoolsonline.com/#${tool.category}`,
+                item: `https://toolboxurl.com/#${tool.category}`,
               },
               {
                 "@type": "ListItem",
@@ -50,7 +50,7 @@ export default function ToolLayout({
           {
             "@type": "SoftwareApplication",
             name: tool.name,
-            url: `https://devtoolsonline.com/${slug}`,
+            url: `https://toolboxurl.com/${slug}`,
             description: tool.description,
             applicationCategory: "DeveloperApplication",
             operatingSystem: "Any",

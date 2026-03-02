@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Generate SHA-1, SHA-256, SHA-384, and SHA-512 hashes from any text. Free online hash generator.",
   alternates: {
-    canonical: "https://devtoolsonline.com/hash-generator",
+    canonical: "https://toolboxurl.com/hash-generator",
   },
   openGraph: {
     title: "Hash Generator - SHA-256, SHA-1, SHA-512 Online - Free Online Tool",
     description:
       "Generate SHA-1, SHA-256, SHA-384, and SHA-512 hashes from any text. Free online hash generator.",
-    url: "https://devtoolsonline.com/hash-generator",
+    url: "https://toolboxurl.com/hash-generator",
   },
 };
 
