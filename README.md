@@ -1,6 +1,6 @@
 # DevTools Online
 
-**81+ free developer tools that run entirely in your browser.** No servers, no signups, no data collection.
+**85+ free developer tools that run entirely in your browser.** No servers, no signups, no data collection.
 
 Live at [toolboxurl.com](https://toolboxurl.com)
 
@@ -15,7 +15,7 @@ Live at [toolboxurl.com](https://toolboxurl.com)
 - **html-to-image** for code screenshots
 - **isomorphic-dompurify** for XSS sanitization
 
-## Tools (81)
+## Tools (85)
 
 ### Text Tools
 - Word & Character Counter
@@ -73,6 +73,10 @@ Live at [toolboxurl.com](https://toolboxurl.com)
 - Env Variables Editor
 - Git Command Builder
 - SQL to MongoDB Converter
+- SVG to React Component
+- JSON to Zod Schema
+- React Component Generator
+- Tailwind CSS Playground
 
 ### Generators
 - Password Generator

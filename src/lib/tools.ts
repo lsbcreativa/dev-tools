@@ -114,6 +114,12 @@ export const tools: Tool[] = [
   { name: "Env Variables Editor", slug: "env-editor", description: "Edit environment variables visually. Convert between .env, JSON, YAML, and docker-compose formats.", category: "developer", icon: "FileKey" },
   { name: "Git Command Builder", slug: "git-command-builder", description: "Build git commands visually with dropdowns and checkboxes. Merge, rebase, reset, stash and more explained.", category: "developer", icon: "GitBranch" },
   { name: "SQL to MongoDB Converter", slug: "sql-to-nosql", description: "Convert SQL queries to MongoDB equivalents. SELECT, INSERT, UPDATE, DELETE to find, insertOne, updateOne, deleteOne.", category: "developer", icon: "DatabaseZap" },
+
+  // React / TS / Tailwind tools
+  { name: "SVG to React Component", slug: "svg-to-react", description: "Convert SVG markup to React JSX/TSX components with TypeScript props, forwardRef and memo.", category: "developer", icon: "CodeXml" },
+  { name: "JSON to Zod Schema", slug: "json-to-zod", description: "Generate Zod validation schemas from JSON data automatically. Supports nested objects, arrays, and type inference.", category: "developer", icon: "ShieldPlus" },
+  { name: "React Component Generator", slug: "react-generator", description: "Generate React functional components with TypeScript, hooks, forwardRef, memo and custom props.", category: "developer", icon: "Component" },
+  { name: "Tailwind CSS Playground", slug: "tailwind-playground", description: "Preview Tailwind CSS classes in real-time. See rendered output and generated CSS instantly.", category: "developer", icon: "WandSparkles" },
 ];
 
 export function getToolsByCategory(category: ToolCategory): Tool[] {

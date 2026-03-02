@@ -79,6 +79,10 @@ import {
   FileKey,
   GitBranch,
   DatabaseZap,
+  CodeXml,
+  ShieldPlus,
+  Component,
+  WandSparkles,
   type LucideIcon,
 } from "lucide-react";
 
@@ -163,4 +167,8 @@ export const iconMap: Record<string, LucideIcon> = {
   FileKey,
   GitBranch,
   DatabaseZap,
+  CodeXml,
+  ShieldPlus,
+  Component,
+  WandSparkles,
 };

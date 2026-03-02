@@ -33,10 +33,7 @@ function calcClamp(
   const slopeVw = +(slope * 100).toFixed(4);
   const intercept = +(minSizeRem - (slope * minVw) / 16).toFixed(4);
 
-  const preferred =
-    intercept >= 0
-      ? `${intercept}rem + ${slopeVw}vw`
-      : `${intercept}rem + ${slopeVw}vw`;
+  const preferred = `${intercept}rem + ${slopeVw}vw`;
 
   return `clamp(${minSizeRem.toFixed(4)}rem, ${preferred}, ${maxSizeRem.toFixed(4)}rem)`;
 }
