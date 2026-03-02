@@ -40,6 +40,12 @@ export default function Navbar() {
               {cat}
             </Link>
           ))}
+          <Link
+            href="/blog"
+            className="rounded-md px-3 py-1.5 text-[var(--muted-foreground)] transition-colors hover:bg-[var(--muted)] hover:text-[var(--foreground)]"
+          >
+            Blog
+          </Link>
         </div>
 
         {/* Right side: search + theme + mobile menu */}
@@ -65,6 +71,7 @@ export default function Navbar() {
               { label: "Developer Tools", href: "/#developer" },
               { label: "Generators", href: "/#generators" },
               { label: "Design Tools", href: "/#design" },
+              { label: "Blog", href: "/blog" },
             ].map((item) => (
               <Link
                 key={item.href}

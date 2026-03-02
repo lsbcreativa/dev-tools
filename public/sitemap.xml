@@ -21,4 +21,8 @@
     <loc>https://toolboxurl.com/sitemap-design-tools.xml</loc>
     <lastmod>2026-03-02</lastmod>
   </sitemap>
+  <sitemap>
+    <loc>https://toolboxurl.com/sitemap-blog.xml</loc>
+    <lastmod>2026-03-02</lastmod>
+  </sitemap>
 </sitemapindex>

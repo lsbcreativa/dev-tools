@@ -1,6 +1,7 @@
 import { writeFileSync } from "fs";
 import { join } from "path";
 import { tools, categories, type ToolCategory } from "../src/lib/tools";
+import { blogPosts } from "../src/lib/blog";
 
 const SITE_URL = "https://toolboxurl.com";
 const PUBLIC_DIR = join(__dirname, "..", "public");
@@ -93,13 +94,24 @@ for (const [category, filename] of Object.entries(categoryFiles) as [ToolCategor
   console.log(`  ${label.padEnd(20)} → ${filename} (${categoryTools.length} URLs)`);
 }
 
-// 3. Sitemap index
+// 3. Blog sitemap
+const blogUrls = [
+  buildUrlEntry(`${SITE_URL}/blog`, "0.8", "weekly", TODAY),
+  ...blogPosts.map((p) =>
+    buildUrlEntry(`${SITE_URL}/blog/${p.slug}`, "0.7", "monthly", p.date)
+  ),
+];
+writeFileSync(join(PUBLIC_DIR, "sitemap-blog.xml"), buildSitemap(blogUrls));
+sitemapEntries.push({ loc: `${SITE_URL}/sitemap-blog.xml`, lastmod: TODAY });
+console.log(`  Blog             → sitemap-blog.xml (${blogUrls.length} URLs)`);
+
+// 4. Sitemap index
 writeFileSync(join(PUBLIC_DIR, "sitemap.xml"), buildSitemapIndex(sitemapEntries));
 
 // Summary
 const totalTools = tools.length;
 console.log(`\n  Sitemap index    → sitemap.xml (${sitemapEntries.length} sitemaps)`);
 console.log(`  Pages            → sitemap-pages.xml (3 URLs)`);
-console.log(`  Total URLs       → ${totalTools + 3}`);
+console.log(`  Total URLs       → ${totalTools + 3 + blogUrls.length}`);
 console.log(`  Last modified    → ${TODAY}`);
 console.log(`\n  ✓ All sitemaps generated successfully!\n`);
