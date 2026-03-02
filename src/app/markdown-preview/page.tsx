@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import DOMPurify from "isomorphic-dompurify";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
 
@@ -112,7 +113,7 @@ That's it! Start typing on the left to see the preview update in real time.`;
 export default function MarkdownPreview() {
   const [input, setInput] = useState(defaultMarkdown);
 
-  const rendered = useMemo(() => parseMarkdown(input), [input]);
+  const rendered = useMemo(() => DOMPurify.sanitize(parseMarkdown(input)), [input]);
 
   return (
     <ToolLayout

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import DOMPurify from "isomorphic-dompurify";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
 
@@ -121,7 +122,7 @@ export default function SvgPreviewOptimizer() {
           <div
             className="flex items-center justify-center rounded-lg border border-[var(--border)] bg-[var(--muted)] p-4 overflow-auto"
             style={{ minHeight: 200 }}
-            dangerouslySetInnerHTML={{ __html: showOptimized ? optimized : input }}
+            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(showOptimized ? optimized : input, { USE_PROFILES: { svg: true, svgFilters: true }, ADD_TAGS: ["use"], FORBID_TAGS: ["script"], FORBID_ATTR: ["onload", "onerror", "onclick", "onmouseover", "onfocus", "onblur"] }) }}
           />
         </div>
       )}

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import DOMPurify from "isomorphic-dompurify";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
 
@@ -257,7 +258,7 @@ export default function ReadmeGenerator() {
     authorName,
   ]);
 
-  const renderedHtml = useMemo(() => markdownToHtml(markdown), [markdown]);
+  const renderedHtml = useMemo(() => DOMPurify.sanitize(markdownToHtml(markdown)), [markdown]);
 
   return (
     <ToolLayout
