@@ -16,6 +16,7 @@ const categoryColors: Record<string, string> = {
   "Developer Guides": "bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300",
   Security: "bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-300",
   Design: "bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300",
+  DevOps: "bg-orange-100 text-orange-700 dark:bg-orange-900/40 dark:text-orange-300",
 };
 
 function formatDate(dateStr: string): string {
