@@ -99,6 +99,16 @@ export const tools: Tool[] = [
   { name: "Text to Speech", slug: "text-to-speech", description: "Convert text to speech using Web Speech API. Choose voice, speed, and pitch.", category: "text", icon: "Volume2" },
   { name: "Image Compressor", slug: "image-compressor", description: "Compress images in your browser using Canvas API. Adjust quality and resize.", category: "design", icon: "ImageDown" },
   { name: "Color Contrast Checker", slug: "contrast-checker", description: "Check WCAG 2.0 color contrast ratios for accessibility compliance (AA/AAA).", category: "design", icon: "Contrast" },
+
+  // Premium tools (free here, paid elsewhere)
+  { name: "PDF Merge", slug: "pdf-merge", description: "Combine multiple PDF files into one. Reorder pages and download. No limits, 100% free.", category: "generators", icon: "Merge" },
+  { name: "PDF Split", slug: "pdf-split", description: "Split PDF files by page ranges. Extract specific pages into a new PDF. Unlimited and free.", category: "generators", icon: "Scissors" },
+  { name: "PDF Compress", slug: "pdf-compress", description: "Compress PDF files to reduce size. Remove metadata and optimize. No upload limits.", category: "generators", icon: "FileOutput" },
+  { name: "Image Background Remover", slug: "bg-remover", description: "Remove image backgrounds automatically using AI. Download transparent PNG. 100% free.", category: "design", icon: "ImageMinus" },
+  { name: "Code Diff Viewer", slug: "code-diff", description: "Compare two code snippets side by side with line-by-line diff highlighting.", category: "developer", icon: "Columns2" },
+  { name: "Code to Image", slug: "code-to-image", description: "Generate beautiful code screenshots with custom themes and backgrounds. Like Carbon.sh but free.", category: "developer", icon: "Camera" },
+  { name: "JSON/CSV to Excel", slug: "json-to-excel", description: "Convert JSON or CSV data to a real .xlsx Excel file with formatted headers. No signup required.", category: "developer", icon: "FileSpreadsheet" },
+  { name: "Excel Viewer", slug: "excel-viewer", description: "Open and view Excel (.xlsx) files in your browser. Browse sheets, sort columns, and search.", category: "developer", icon: "Table2" },
 ];
 
 export function getToolsByCategory(category: ToolCategory): Tool[] {

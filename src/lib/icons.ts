@@ -68,6 +68,14 @@ import {
   FileType2,
   Volume2,
   Minimize2,
+  Merge,
+  Scissors,
+  FileOutput,
+  ImageMinus,
+  Columns2,
+  Camera,
+  FileSpreadsheet,
+  Table2,
   type LucideIcon,
 } from "lucide-react";
 
@@ -141,4 +149,12 @@ export const iconMap: Record<string, LucideIcon> = {
   FileType2,
   Volume2,
   Minimize2,
+  Merge,
+  Scissors,
+  FileOutput,
+  ImageMinus,
+  Columns2,
+  Camera,
+  FileSpreadsheet,
+  Table2,
 };
