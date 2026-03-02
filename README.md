@@ -1,6 +1,6 @@
 # DevTools Online
 
-**77+ free developer tools that run entirely in your browser.** No servers, no signups, no data collection.
+**81+ free developer tools that run entirely in your browser.** No servers, no signups, no data collection.
 
 Live at [toolboxurl.com](https://toolboxurl.com)
 
@@ -15,7 +15,7 @@ Live at [toolboxurl.com](https://toolboxurl.com)
 - **html-to-image** for code screenshots
 - **isomorphic-dompurify** for XSS sanitization
 
-## Tools (77)
+## Tools (81)
 
 ### Text Tools
 - Word & Character Counter
@@ -69,6 +69,10 @@ Live at [toolboxurl.com](https://toolboxurl.com)
 - Code to Image
 - JSON/CSV to Excel
 - Excel Viewer
+- API Request Builder
+- Env Variables Editor
+- Git Command Builder
+- SQL to MongoDB Converter
 
 ### Generators
 - Password Generator

@@ -75,6 +75,10 @@ import {
   Camera,
   FileSpreadsheet,
   Table2,
+  Send,
+  FileKey,
+  GitBranch,
+  DatabaseZap,
   type LucideIcon,
 } from "lucide-react";
 
@@ -155,4 +159,8 @@ export const iconMap: Record<string, LucideIcon> = {
   Camera,
   FileSpreadsheet,
   Table2,
+  Send,
+  FileKey,
+  GitBranch,
+  DatabaseZap,
 };

@@ -108,6 +108,12 @@ export const tools: Tool[] = [
   { name: "Code to Image", slug: "code-to-image", description: "Generate beautiful code screenshots with custom themes and backgrounds. Like Carbon.sh but free.", category: "developer", icon: "Camera" },
   { name: "JSON/CSV to Excel", slug: "json-to-excel", description: "Convert JSON or CSV data to a real .xlsx Excel file with formatted headers. No signup required.", category: "developer", icon: "FileSpreadsheet" },
   { name: "Excel Viewer", slug: "excel-viewer", description: "Open and view Excel (.xlsx) files in your browser. Browse sheets, sort columns, and search.", category: "developer", icon: "Table2" },
+
+  // Dev-focused tools
+  { name: "API Request Builder", slug: "api-tester", description: "Build and test HTTP requests (GET, POST, PUT, DELETE) with custom headers and body. View responses instantly.", category: "developer", icon: "Send" },
+  { name: "Env Variables Editor", slug: "env-editor", description: "Edit environment variables visually. Convert between .env, JSON, YAML, and docker-compose formats.", category: "developer", icon: "FileKey" },
+  { name: "Git Command Builder", slug: "git-command-builder", description: "Build git commands visually with dropdowns and checkboxes. Merge, rebase, reset, stash and more explained.", category: "developer", icon: "GitBranch" },
+  { name: "SQL to MongoDB Converter", slug: "sql-to-nosql", description: "Convert SQL queries to MongoDB equivalents. SELECT, INSERT, UPDATE, DELETE to find, insertOne, updateOne, deleteOne.", category: "developer", icon: "DatabaseZap" },
 ];
 
 export function getToolsByCategory(category: ToolCategory): Tool[] {
