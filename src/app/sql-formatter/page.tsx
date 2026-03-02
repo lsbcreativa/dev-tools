@@ -104,6 +104,17 @@ export default function SqlFormatter() {
     }
   };
 
+  const handleDownload = () => {
+    if (!output) return;
+    const blob = new Blob([output], { type: "text/plain" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "formatted.sql";
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <ToolLayout
       title="SQL Formatter"
@@ -164,7 +175,15 @@ export default function SqlFormatter() {
         <div className="mt-3">
           <div className="flex items-center justify-between mb-2">
             <span className="text-sm font-medium">Output</span>
-            <CopyButton text={output} />
+            <div className="flex items-center gap-2">
+              <CopyButton text={output} />
+              <button
+                onClick={handleDownload}
+                className="inline-flex items-center gap-1.5 rounded-md border border-[var(--border)] bg-[var(--card)] px-3 py-1.5 text-sm font-medium hover:bg-[var(--muted)] btn-press"
+              >
+                Download .sql
+              </button>
+            </div>
           </div>
           <pre className="rounded-lg border border-[var(--border)] bg-[var(--muted)] p-4 text-sm font-mono overflow-x-auto max-h-96">
             {output}

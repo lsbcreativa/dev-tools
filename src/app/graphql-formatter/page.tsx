@@ -268,6 +268,17 @@ export default function GraphqlFormatterTool() {
     }
   };
 
+  const handleDownload = () => {
+    if (!output) return;
+    const blob = new Blob([output], { type: "text/plain" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "formatted.graphql";
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <ToolLayout
       title="GraphQL Formatter & Prettifier"
@@ -362,7 +373,17 @@ export default function GraphqlFormatterTool() {
           <div>
             <div className="mb-1 flex items-center justify-between">
               <label className="text-sm font-medium">Formatted Output</label>
-              {output && <CopyButton text={output} />}
+              {output && (
+                <div className="flex items-center gap-2">
+                  <CopyButton text={output} />
+                  <button
+                    onClick={handleDownload}
+                    className="inline-flex items-center gap-1.5 rounded-md border border-[var(--border)] bg-[var(--card)] px-3 py-1.5 text-sm font-medium hover:bg-[var(--muted)] btn-press"
+                  >
+                    Download .graphql
+                  </button>
+                </div>
+              )}
             </div>
             {error ? (
               <div className="rounded-lg border border-red-300 bg-red-50 p-3 text-sm text-red-700 dark:border-red-800 dark:bg-red-950 dark:text-red-400">

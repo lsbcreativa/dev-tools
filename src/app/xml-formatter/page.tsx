@@ -196,6 +196,17 @@ export default function XmlFormatterTool() {
     setError("");
   };
 
+  const handleDownload = () => {
+    if (!output) return;
+    const blob = new Blob([output], { type: "application/xml" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "formatted.xml";
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
   const faqs = [
     {
       question: "What is the difference between XML and HTML?",
@@ -307,7 +318,15 @@ export default function XmlFormatterTool() {
           <div>
             <div className="mb-2 flex items-center justify-between">
               <span className="text-sm font-medium">Output</span>
-              <CopyButton text={output} />
+              <div className="flex items-center gap-2">
+                <CopyButton text={output} />
+                <button
+                  onClick={handleDownload}
+                  className="inline-flex items-center gap-1.5 rounded-md border border-[var(--border)] bg-[var(--card)] px-3 py-1.5 text-sm font-medium hover:bg-[var(--muted)] btn-press"
+                >
+                  Download .xml
+                </button>
+              </div>
             </div>
             <pre className="rounded-lg border border-[var(--border)] bg-[var(--muted)] p-4 text-sm font-mono whitespace-pre-wrap break-all overflow-x-auto">
               {output}

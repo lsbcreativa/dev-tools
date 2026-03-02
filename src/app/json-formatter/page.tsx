@@ -79,6 +79,17 @@ export default function JsonFormatter() {
     }
   };
 
+  const handleDownload = () => {
+    if (!output || output === "Valid JSON!") return;
+    const blob = new Blob([output], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "formatted.json";
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <ToolLayout
       title="JSON Formatter & Validator"
@@ -156,7 +167,17 @@ export default function JsonFormatter() {
                 "Output"
               )}
             </span>
-            {output !== "Valid JSON!" && <CopyButton text={output} />}
+            {output !== "Valid JSON!" && (
+              <div className="flex items-center gap-2">
+                <CopyButton text={output} />
+                <button
+                  onClick={handleDownload}
+                  className="inline-flex items-center gap-1.5 rounded-md border border-[var(--border)] bg-[var(--card)] px-3 py-1.5 text-sm font-medium hover:bg-[var(--muted)] btn-press"
+                >
+                  Download .json
+                </button>
+              </div>
+            )}
           </div>
           {highlighted ? (
             <pre

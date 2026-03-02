@@ -290,6 +290,17 @@ export default function CssMinifierTool() {
     setOutput("");
   };
 
+  const handleDownload = () => {
+    if (!output) return;
+    const blob = new Blob([output], { type: "text/css" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "output.css";
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
   const faqs = [
     {
       question: "Does CSS minification break anything?",
@@ -364,7 +375,15 @@ export default function CssMinifierTool() {
           <div>
             <div className="mb-2 flex items-center justify-between">
               <span className="text-sm font-medium">Output</span>
-              <CopyButton text={output} />
+              <div className="flex items-center gap-2">
+                <CopyButton text={output} />
+                <button
+                  onClick={handleDownload}
+                  className="inline-flex items-center gap-1.5 rounded-md border border-[var(--border)] bg-[var(--card)] px-3 py-1.5 text-sm font-medium hover:bg-[var(--muted)] btn-press"
+                >
+                  Download .css
+                </button>
+              </div>
             </div>
             <pre className="rounded-lg border border-[var(--border)] bg-[var(--muted)] p-4 text-sm font-mono whitespace-pre-wrap break-all overflow-x-auto max-h-96 overflow-y-auto">
               {output}
