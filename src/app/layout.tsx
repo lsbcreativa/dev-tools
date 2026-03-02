@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import SearchDialog from "@/components/layout/SearchDialog";
+import NavigationProgress from "@/components/layout/NavigationProgress";
 import { ToastProvider } from "@/components/ui/Toast";
 import { tools } from "@/lib/tools";
 import "./globals.css";
@@ -116,6 +117,7 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: gaScript }} />
       </head>
       <body className="flex min-h-screen flex-col antialiased">
+        <NavigationProgress />
         <ToastProvider>
           <Navbar />
           <main className="flex-1">{children}</main>
