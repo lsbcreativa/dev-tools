@@ -25,7 +25,7 @@ export default function Navbar() {
           <img
             src="/logo.png"
             alt="DevTools Online"
-            className="h-8 w-auto transition-transform group-hover:scale-[1.02]"
+            className="h-9 w-auto transition-transform group-hover:scale-[1.02]"
           />
         </Link>
 
