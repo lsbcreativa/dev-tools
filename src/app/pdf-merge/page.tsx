@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useRef, useCallback } from "react";
-import { PDFDocument } from "pdf-lib";
 import ToolLayout from "@/components/tools/ToolLayout";
 
 interface PdfFile {
@@ -28,6 +27,7 @@ export default function PdfMerge() {
       }
       try {
         const data = await file.arrayBuffer();
+        const { PDFDocument } = await import("pdf-lib");
         const pdf = await PDFDocument.load(data, { ignoreEncryption: true });
         newFiles.push({
           name: file.name,
@@ -66,6 +66,7 @@ export default function PdfMerge() {
     setMerging(true);
     setError("");
     try {
+      const { PDFDocument } = await import("pdf-lib");
       const merged = await PDFDocument.create();
       for (const file of files) {
         const src = await PDFDocument.load(file.data, { ignoreEncryption: true });

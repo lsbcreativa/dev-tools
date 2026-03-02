@@ -40,6 +40,7 @@ export default function ToolCard({
     return (
       <Link
         href={`/${tool.slug}`}
+        prefetch={false}
         className="group flex items-center gap-3 rounded-xl border border-[var(--card-border)] bg-[var(--card)] p-3 card-hover"
       >
         <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[var(--primary)]/10 text-[var(--primary)] transition-all group-hover:bg-[var(--primary)] group-hover:text-white">
@@ -53,6 +54,7 @@ export default function ToolCard({
   return (
     <Link
       href={`/${tool.slug}`}
+      prefetch={false}
       className={`group relative flex flex-col rounded-xl border border-[var(--card-border)] bg-[var(--card)] p-5 card-hover animate-slide-up stagger-${Math.min(index + 1, 5)}`}
     >
       {isNew && (

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { toPng } from "html-to-image";
 import ToolLayout from "@/components/tools/ToolLayout";
 
 const THEMES: Record<string, { bg: string; text: string; keyword: string; string: string; comment: string; number: string; border: string; label: string }> = {
@@ -53,6 +52,7 @@ export default function CodeToImage() {
     if (!previewRef.current) return;
     setExporting(true);
     try {
+      const { toPng } = await import("html-to-image");
       const dataUrl = await toPng(previewRef.current, { pixelRatio: 2 });
       const a = document.createElement("a");
       a.href = dataUrl;

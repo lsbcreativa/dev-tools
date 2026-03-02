@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useRef, useCallback } from "react";
-import { PDFDocument } from "pdf-lib";
 import ToolLayout from "@/components/tools/ToolLayout";
 
 export default function PdfSplit() {
@@ -22,6 +21,7 @@ export default function PdfSplit() {
     }
     try {
       const data = await file.arrayBuffer();
+      const { PDFDocument } = await import("pdf-lib");
       const pdf = await PDFDocument.load(data, { ignoreEncryption: true });
       setPdfData(data);
       setFileName(file.name);
@@ -67,6 +67,7 @@ export default function PdfSplit() {
         setSplitting(false);
         return;
       }
+      const { PDFDocument } = await import("pdf-lib");
       const src = await PDFDocument.load(pdfData, { ignoreEncryption: true });
       const dest = await PDFDocument.create();
       const copied = await dest.copyPages(src, pages.map((p) => p - 1));

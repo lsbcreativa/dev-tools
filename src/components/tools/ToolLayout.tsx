@@ -102,7 +102,7 @@ export default function ToolLayout({
       {(adjacent.prev || adjacent.next) && (
         <div className="mt-6 grid gap-3 sm:grid-cols-2">
           {adjacent.prev ? (
-            <Link href={`/${adjacent.prev.slug}`} className="group flex items-center gap-3 rounded-xl border border-[var(--card-border)] bg-[var(--card)] p-4 transition-all hover:border-[var(--primary)] hover:shadow-sm">
+            <Link href={`/${adjacent.prev.slug}`} prefetch={false} className="group flex items-center gap-3 rounded-xl border border-[var(--card-border)] bg-[var(--card)] p-4 transition-all hover:border-[var(--primary)] hover:shadow-sm">
               <ArrowLeft size={16} className="text-[var(--muted-foreground)] group-hover:text-[var(--primary)] shrink-0" />
               <div className="min-w-0">
                 <div className="text-xs text-[var(--muted-foreground)]">Previous</div>
@@ -111,7 +111,7 @@ export default function ToolLayout({
             </Link>
           ) : <div />}
           {adjacent.next && (
-            <Link href={`/${adjacent.next.slug}`} className="group flex items-center justify-end gap-3 rounded-xl border border-[var(--card-border)] bg-[var(--card)] p-4 text-right transition-all hover:border-[var(--primary)] hover:shadow-sm">
+            <Link href={`/${adjacent.next.slug}`} prefetch={false} className="group flex items-center justify-end gap-3 rounded-xl border border-[var(--card-border)] bg-[var(--card)] p-4 text-right transition-all hover:border-[var(--primary)] hover:shadow-sm">
               <div className="min-w-0">
                 <div className="text-xs text-[var(--muted-foreground)]">Next</div>
                 <div className="text-sm font-medium truncate">{adjacent.next.name}</div>
@@ -130,7 +130,7 @@ export default function ToolLayout({
             {related.map((t) => {
               const Icon = iconMap[t.icon];
               return (
-                <Link key={t.slug} href={`/${t.slug}`} className="group flex items-center gap-3 rounded-xl border border-[var(--card-border)] bg-[var(--card)] p-3 transition-all hover:border-[var(--primary)] hover:shadow-sm">
+                <Link key={t.slug} href={`/${t.slug}`} prefetch={false} className="group flex items-center gap-3 rounded-xl border border-[var(--card-border)] bg-[var(--card)] p-3 transition-all hover:border-[var(--primary)] hover:shadow-sm">
                   <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[var(--primary)]/10 text-[var(--primary)] transition-all group-hover:bg-[var(--primary)] group-hover:text-white">
                     {Icon && <Icon size={14} />}
                   </div>

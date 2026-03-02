@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useRef, useCallback } from "react";
-import { PDFDocument } from "pdf-lib";
 import ToolLayout from "@/components/tools/ToolLayout";
 
 export default function PdfCompress() {
@@ -28,6 +27,7 @@ export default function PdfCompress() {
 
     try {
       const data = await file.arrayBuffer();
+      const { PDFDocument } = await import("pdf-lib");
       const src = await PDFDocument.load(data, { ignoreEncryption: true });
 
       // Create a fresh document and copy all pages (strips unused objects)
