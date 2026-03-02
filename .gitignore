@@ -45,3 +45,7 @@ drizzle/meta
 # claude
 .claude/
 images/
+
+# deploy scripts (contain server credentials)
+deploy.sh
+rollback.sh
