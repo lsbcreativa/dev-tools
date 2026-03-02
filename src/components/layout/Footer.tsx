@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { tools, categories, type ToolCategory } from "@/lib/tools";
-import NewsletterWidget from "./NewsletterWidget";
 
 export default function Footer() {
   const categoryKeys = Object.keys(categories) as ToolCategory[];
@@ -41,11 +40,6 @@ export default function Footer() {
               );
             })}
           </div>
-        </div>
-
-        {/* Newsletter */}
-        <div className="mt-6 max-w-sm">
-          <NewsletterWidget />
         </div>
 
         {/* Bottom bar */}
