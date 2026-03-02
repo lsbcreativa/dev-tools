@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { tools, categories, type ToolCategory } from "@/lib/tools";
 
 export default function Footer() {
@@ -11,11 +10,10 @@ export default function Footer() {
         <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
           {/* Brand */}
           <div>
-            <Image
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
               src="/logo.png"
               alt="DevTools Online"
-              width={140}
-              height={36}
               className="h-8 w-auto"
             />
             <p className="mt-2 text-sm text-[var(--muted-foreground)] max-w-xs leading-relaxed">

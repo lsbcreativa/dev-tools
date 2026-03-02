@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
@@ -22,13 +21,11 @@ export default function Navbar() {
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4">
         {/* Logo */}
         <Link href="/" className="flex items-center group">
-          <Image
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
             src="/logo.png"
             alt="DevTools Online"
-            width={140}
-            height={36}
             className="h-8 w-auto transition-transform group-hover:scale-[1.02]"
-            priority
           />
         </Link>
 
