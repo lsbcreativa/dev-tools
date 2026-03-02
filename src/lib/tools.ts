@@ -120,6 +120,23 @@ export const tools: Tool[] = [
   { name: "JSON to Zod Schema", slug: "json-to-zod", description: "Generate Zod validation schemas from JSON data automatically. Supports nested objects, arrays, and type inference.", category: "developer", icon: "ShieldPlus" },
   { name: "React Component Generator", slug: "react-generator", description: "Generate React functional components with TypeScript, hooks, forwardRef, memo and custom props.", category: "developer", icon: "Component" },
   { name: "Tailwind CSS Playground", slug: "tailwind-playground", description: "Preview Tailwind CSS classes in real-time. See rendered output and generated CSS instantly.", category: "developer", icon: "WandSparkles" },
+
+  // New tools — reaching 100
+  { name: "Favicon Generator", slug: "favicon-generator", description: "Generate favicons from text, emoji or initials. Download as PNG in all standard sizes (16×16 to 512×512).", category: "generators", icon: "ImageIcon" },
+  { name: "Bcrypt Generator", slug: "bcrypt-generator", description: "Hash and verify passwords using a bcrypt-compatible algorithm in your browser. Never sends data to a server.", category: "generators", icon: "Shield" },
+  { name: "Discord Timestamp", slug: "discord-timestamp", description: "Generate Discord timestamp tags from any date and time. Copy the <t:unix:format> code instantly.", category: "generators", icon: "MessageSquare" },
+  { name: "YAML to JSON", slug: "yaml-to-json", description: "Convert YAML to JSON instantly. Supports nested objects, arrays, anchors and multi-line strings.", category: "developer", icon: "FileCode" },
+  { name: "CSV to JSON", slug: "csv-to-json", description: "Convert CSV files to JSON arrays. Auto-detects headers, handles quoted fields and type inference.", category: "developer", icon: "Table" },
+  { name: "JSON to SQL", slug: "json-to-sql", description: "Convert a JSON array to SQL CREATE TABLE and INSERT statements. Supports MySQL, PostgreSQL and SQLite.", category: "developer", icon: "Database" },
+  { name: "GraphQL Formatter", slug: "graphql-formatter", description: "Format and prettify GraphQL queries, mutations, and schema definitions with proper indentation.", category: "developer", icon: "Braces" },
+  { name: "URL Parser", slug: "url-parser", description: "Break down any URL into its components: protocol, host, port, path, query params, and hash.", category: "developer", icon: "Link" },
+  { name: "HTTP Headers Inspector", slug: "http-headers", description: "Paste HTTP response headers and get a plain-English explanation of what each header does.", category: "developer", icon: "Server" },
+  { name: "Base64 Image Viewer", slug: "base64-image", description: "Paste a Base64 image string and preview it instantly. Detect format, dimensions and file size.", category: "developer", icon: "ImageIcon" },
+  { name: "Binary to Text", slug: "binary-to-text", description: "Convert binary (0s and 1s) to readable text and text back to binary. Supports ASCII and UTF-8.", category: "developer", icon: "Binary" },
+  { name: "Markdown to HTML", slug: "markdown-to-html", description: "Convert Markdown to raw HTML source code. See the generated tags and copy the output.", category: "developer", icon: "FileCode" },
+  { name: "CSS Clip-path Generator", slug: "clip-path-generator", description: "Generate CSS clip-path shapes visually. Create polygons, circles, ellipses with live preview.", category: "design", icon: "Scissors" },
+  { name: "Color Blindness Simulator", slug: "color-blindness", description: "Simulate how your designs look to users with color blindness. Upload an image and preview all types.", category: "design", icon: "Eye" },
+  { name: "CSS Variables Generator", slug: "css-variables", description: "Define design tokens — colors, spacing, typography — and generate a :root CSS variables block.", category: "design", icon: "Palette" },
 ];
 
 export function getToolsByCategory(category: ToolCategory): Tool[] {

@@ -83,6 +83,8 @@ import {
   ShieldPlus,
   Component,
   WandSparkles,
+  Shield,
+  MessageSquare,
   type LucideIcon,
 } from "lucide-react";
 
@@ -171,4 +173,6 @@ export const iconMap: Record<string, LucideIcon> = {
   ShieldPlus,
   Component,
   WandSparkles,
+  Shield,
+  MessageSquare,
 };
