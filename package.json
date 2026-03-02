@@ -10,6 +10,7 @@
     "db:push": "drizzle-kit push",
     "db:migrate": "drizzle-kit migrate",
     "db:studio": "drizzle-kit studio",
+    "sitemap": "npx tsx scripts/generate-sitemaps.ts",
     "deploy": "bash deploy.sh",
     "rollback": "bash rollback.sh"
   },
