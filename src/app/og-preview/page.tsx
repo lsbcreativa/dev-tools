@@ -3,6 +3,7 @@
 import { useState } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 export default function OgPreview() {
   const [title, setTitle] = useState("My Awesome Website");
@@ -41,11 +42,42 @@ export default function OgPreview() {
     }
   };
 
+  const faqs = [
+    {
+      question: "What is the Open Graph protocol?",
+      answer: "Open Graph (OG) is a protocol created by Facebook that allows web pages to control how they appear when shared on social media. It uses meta tags in the HTML head to specify title, description, image, and URL.",
+    },
+    {
+      question: "Why does my shared link show the wrong image?",
+      answer: "Social platforms cache OG data. After updating your tags, use Facebook's Sharing Debugger, Twitter's Card Validator, or LinkedIn's Post Inspector to clear the cache and verify your new tags.",
+    },
+    {
+      question: "Do I need both Open Graph and Twitter Card tags?",
+      answer: "Twitter will fall back to Open Graph tags if Twitter Card tags are missing. However, for optimal control over appearance on both platforms, include both sets of tags.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="Open Graph Preview"
       description="Preview and generate Open Graph meta tags for Twitter, Facebook, and LinkedIn social sharing."
       slug="og-preview"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Preview Open Graph Tags",
+              content: "Enter your page URL or paste your Open Graph meta tags to see how your page will appear when shared on social media platforms. The preview shows your page's appearance on Twitter/X, Facebook, LinkedIn, and other platforms that support Open Graph protocol. Check title truncation, description length, and image rendering before publishing.",
+            },
+            {
+              title: "Open Graph Protocol Best Practices",
+              content: "Open Graph tags control how your content appears when shared on social media. Essential tags include og:title (max 60 characters), og:description (max 200 characters), og:image (1200x630px recommended), og:url (canonical URL), and og:type (website, article, product). Twitter uses its own twitter:card, twitter:title, and twitter:image tags. Always test your tags before publishing to ensure your content looks professional when shared.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       {/* Form */}
       <div className="mb-6 space-y-4">

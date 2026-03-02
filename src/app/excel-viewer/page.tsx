@@ -2,6 +2,7 @@
 
 import { useState, useRef, useCallback } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
+import SeoContent from "@/components/tools/SeoContent";
 
 interface SheetData {
   name: string;
@@ -101,11 +102,42 @@ export default function ExcelViewer() {
         })
     : [];
 
+  const faqs = [
+    {
+      question: "What file formats are supported?",
+      answer: "This tool supports .xlsx files (Excel 2007 and later format). For older .xls files, convert them to .xlsx first using any spreadsheet application or online converter.",
+    },
+    {
+      question: "Can I edit the Excel file?",
+      answer: "This is a viewer tool — you can browse, sort, and search data but not modify cells. For editing, use the CSV Viewer tool (export to CSV first) or a full spreadsheet application.",
+    },
+    {
+      question: "Is my file uploaded to any server?",
+      answer: "No. The file is processed entirely in your browser using JavaScript. Your Excel data never leaves your device.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="Excel Viewer"
       description="Open and view Excel (.xlsx) files in your browser. Browse sheets, sort columns, and search data."
       slug="excel-viewer"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to View Excel Files Online",
+              content: "Upload an .xlsx file to browse its contents directly in your browser. Navigate between sheets, sort columns by clicking headers, and search for specific values. The viewer handles formatted cells, multiple sheets, and large datasets without requiring Microsoft Excel or any spreadsheet software installed.",
+            },
+            {
+              title: "Open Excel Files Without Excel",
+              content: "Not everyone has Microsoft Excel installed, and online alternatives like Google Sheets require uploading files to the cloud. This tool opens .xlsx files entirely in your browser — your data stays on your device. It's perfect for quickly inspecting Excel files on any computer, reviewing shared spreadsheets, and checking data before importing into other systems.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       {sheets.length === 0 ? (
         <div

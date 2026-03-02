@@ -3,6 +3,7 @@
 import { useState } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -220,11 +221,42 @@ export default function GridGenerator() {
   const itemsCSS = generateItemsCSS(items);
   const fullCSS = itemsCSS ? `${containerCSS}\n\n${itemsCSS}` : containerCSS;
 
+  const faqs = [
+    {
+      question: "What does 'fr' mean in CSS Grid?",
+      answer: "The 'fr' unit represents a fraction of the available space. In 'grid-template-columns: 1fr 2fr', the second column gets twice the space of the first. It's the most flexible way to divide grid space proportionally.",
+    },
+    {
+      question: "How do I create responsive grids without media queries?",
+      answer: "Use grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)). This creates as many columns as will fit, each at least 250px wide. The grid automatically adjusts the number of columns based on viewport width.",
+    },
+    {
+      question: "What are grid template areas?",
+      answer: "Grid template areas let you name grid regions with strings: grid-template-areas: 'header header' 'sidebar main' 'footer footer'. Then assign items to areas with grid-area: header. This creates a visual map of your layout in CSS.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="CSS Grid Generator"
       description="Build CSS Grid layouts visually. Configure columns, rows, gap, alignment, and copy the generated CSS."
       slug="grid-generator"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Create CSS Grid Layouts",
+              content: "Define your grid by setting the number of columns and rows, specifying track sizes (fr, px, %, auto), and configuring gap spacing. The visual editor shows the grid structure in real-time. Drag to define grid areas, name them, and see how items are placed. Copy the generated CSS for both the grid container and grid items.",
+            },
+            {
+              title: "CSS Grid vs Flexbox: When to Use Each",
+              content: "CSS Grid is designed for two-dimensional layouts — controlling both rows and columns simultaneously. It excels at page-level layouts, dashboard grids, and any design that requires items to align in both directions. Use grid-template-areas for named regions (header, sidebar, main, footer). Use Flexbox for one-dimensional content flow (navigation bars, card rows). Many modern layouts combine both — Grid for the page structure and Flexbox for component internals.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       {/* Presets */}
       <div className="mb-6">

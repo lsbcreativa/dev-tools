@@ -3,6 +3,7 @@
 import { useState } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 interface FlexItem {
   id: string;
@@ -100,11 +101,42 @@ export default function FlexboxGenerator() {
   const wrapOptions = ["nowrap", "wrap", "wrap-reverse"];
   const alignSelfOptions = ["auto", "stretch", "flex-start", "center", "flex-end", "baseline"];
 
+  const faqs = [
+    {
+      question: "What is the difference between justify-content and align-items?",
+      answer: "justify-content distributes items along the main axis (horizontal in row direction). align-items positions items along the cross axis (vertical in row direction). Think of justify-content as horizontal alignment and align-items as vertical alignment in a default row layout.",
+    },
+    {
+      question: "When should I use Flexbox vs CSS Grid?",
+      answer: "Use Flexbox for one-dimensional layouts (a single row or column of items) — navigation bars, card rows, vertically centered content. Use CSS Grid for two-dimensional layouts (rows AND columns) — page layouts, dashboards, complex grid structures.",
+    },
+    {
+      question: "What does flex: 1 mean?",
+      answer: "flex: 1 is shorthand for flex-grow: 1, flex-shrink: 1, flex-basis: 0%. It makes the item grow to fill available space equally with other flex: 1 items. It's the most common way to create equal-width columns.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="CSS Flexbox Generator"
       description="Build CSS flexbox layouts visually. Configure container and item properties, preview live, and copy the generated CSS."
       slug="flexbox-generator"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Create CSS Flexbox Layouts",
+              content: "Configure flexbox container properties (direction, justify-content, align-items, flex-wrap, gap) and see the layout update in real-time. Add, remove, and configure flex items with individual properties like flex-grow, flex-shrink, flex-basis, and align-self. Copy the generated CSS code for both container and items.",
+            },
+            {
+              title: "Understanding CSS Flexbox",
+              content: "Flexbox (Flexible Box Layout) is a CSS layout model designed for one-dimensional layouts — either rows or columns. It excels at distributing space between items, aligning items vertically and horizontally, and creating responsive layouts without media queries. Key concepts: the flex container defines the layout context, flex items are direct children, the main axis follows flex-direction, and the cross axis is perpendicular. Flexbox is supported by all modern browsers.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       {/* Preview */}
       <div className="mb-6">

@@ -3,6 +3,7 @@
 import { useState, useCallback } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 /* ---------- Sample HTML ---------- */
 
@@ -181,11 +182,42 @@ export default function HtmlToBBCodePage() {
     setOutput(htmlToBBCode(value));
   };
 
+  const faqs = [
+    {
+      question: "What HTML tags are supported?",
+      answer: "This tool converts common HTML tags: <b>/<strong>, <i>/<em>, <u>, <a>, <img>, <ul>/<ol>/<li>, <h1>-<h6>, <blockquote>, <code>, <br>, and inline styles for color and font-size.",
+    },
+    {
+      question: "Why use BBCode instead of HTML?",
+      answer: "BBCode is safe by design — forums parse BBCode themselves, preventing HTML injection and XSS attacks. Users can format posts without having access to raw HTML, which could be exploited.",
+    },
+    {
+      question: "Is BBCode still used?",
+      answer: "Yes. Many gaming communities (Steam forums), legacy forums (phpBB, vBulletin), and specialized communities still use BBCode. If you're posting to forums, knowing BBCode formatting is essential.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="HTML to BBCode Converter"
       description="Convert HTML markup to BBCode format for forums and message boards."
       slug="html-to-bbcode"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Convert HTML to BBCode",
+              content: "Paste your HTML markup and get the equivalent BBCode output instantly. The converter handles bold ([b]), italic ([i]), underline ([u]), links ([url]), images ([img]), lists, headings, colors, and font sizes. BBCode is used in forums like phpBB, vBulletin, Discourse, and XenForo.",
+            },
+            {
+              title: "What Is BBCode",
+              content: "BBCode (Bulletin Board Code) is a lightweight markup language used in internet forums and message boards. Unlike HTML, BBCode uses square brackets [b]text[/b] instead of angle brackets <b>text</b>. It was created as a safe alternative to HTML to prevent users from injecting malicious scripts. While Markdown has replaced BBCode in many modern platforms, BBCode is still widely used in gaming forums, community boards, and legacy systems.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       {/* Controls */}
       <div className="mb-4 flex flex-wrap items-center gap-2">

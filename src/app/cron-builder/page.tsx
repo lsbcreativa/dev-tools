@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 interface CronField {
   mode: "every" | "specific" | "interval";
@@ -170,11 +171,42 @@ export default function CronBuilder() {
   // Determine if field supports intervals (minute and hour)
   const supportsInterval = (index: number) => index <= 1;
 
+  const faqs = [
+    {
+      question: "How is this different from the Cron Parser?",
+      answer: "The Cron Parser interprets an existing expression into human-readable text. The Cron Builder lets you create expressions visually by selecting options from dropdowns — ideal when you don't know the cron syntax.",
+    },
+    {
+      question: "Can I test the generated expression?",
+      answer: "The tool shows the next scheduled execution times for your expression, so you can verify it matches your intended schedule before deploying.",
+    },
+    {
+      question: "Does this support non-standard cron extensions?",
+      answer: "This tool generates standard 5-field cron expressions compatible with most platforms. Special extensions like @yearly, @monthly, or seconds fields are platform-specific and not included.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="Crontab Visual Builder"
       description="Build cron expressions visually. See human-readable descriptions and next execution times."
       slug="cron-builder"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Build Cron Expressions Visually",
+              content: "Use the dropdown menus and checkboxes to build cron expressions without memorizing the syntax. Select the schedule frequency (every minute, hourly, daily, weekly, monthly), then fine-tune the exact timing. The generated cron expression and its human-readable description update in real-time.",
+            },
+            {
+              title: "Cron Scheduling Across Platforms",
+              content: "Cron expressions are used across many platforms: Linux crontab for system tasks, GitHub Actions for CI/CD workflows, Kubernetes CronJobs for container scheduling, AWS CloudWatch for Lambda triggers, and Vercel/Netlify for serverless cron. While the basic 5-field syntax is universal, some platforms add a seconds field (6 fields) or support non-standard extensions. Always verify your expression against the target platform's documentation.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       <div className="space-y-6">
         {/* Quick Presets */}

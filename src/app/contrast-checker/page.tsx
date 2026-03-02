@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 /* ---------- Color math helpers ---------- */
 
@@ -122,11 +123,42 @@ export default function ContrastCheckerPage() {
     setBgInput(activeFg);
   };
 
+  const faqs = [
+    {
+      question: "What is a good contrast ratio?",
+      answer: "Aim for at least 4.5:1 for body text (WCAG AA standard). Higher is better — 7:1 (WCAG AAA) ensures readability for users with low vision. Black text on white has a ratio of 21:1 (maximum).",
+    },
+    {
+      question: "Is WCAG compliance legally required?",
+      answer: "In many jurisdictions, yes. The Americans with Disabilities Act (ADA), European Accessibility Act, and similar laws in other countries require websites to be accessible. WCAG 2.0 AA is the most commonly referenced standard.",
+    },
+    {
+      question: "Does contrast matter for non-text elements?",
+      answer: "Yes. WCAG 2.1 requires a 3:1 contrast ratio for UI components (buttons, form inputs, icons) and graphical objects. This is separate from text contrast requirements.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="Color Contrast Checker"
       description="Check WCAG 2.0 color contrast ratios between foreground and background colors for accessibility compliance."
       slug="contrast-checker"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Check Color Contrast for Accessibility",
+              content: "Enter a foreground (text) color and background color to calculate the WCAG contrast ratio. The tool shows whether your color combination passes WCAG 2.0 AA and AAA standards for both normal and large text. Adjust colors until you achieve the required contrast level.",
+            },
+            {
+              title: "WCAG Color Contrast Requirements",
+              content: "The Web Content Accessibility Guidelines (WCAG) define minimum contrast ratios to ensure text is readable by people with visual impairments. WCAG AA requires 4.5:1 for normal text and 3:1 for large text (18px+ or 14px+ bold). WCAG AAA requires 7:1 for normal text and 4.5:1 for large text. Approximately 8% of men and 0.5% of women have some form of color vision deficiency, making contrast compliance essential for inclusive design.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       {/* Color inputs */}
       <div className="grid gap-4 sm:grid-cols-[1fr,auto,1fr] items-end">

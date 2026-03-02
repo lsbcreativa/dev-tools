@@ -2,6 +2,7 @@
 
 import { useState, useRef, useCallback } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
+import SeoContent from "@/components/tools/SeoContent";
 
 interface PdfFile {
   name: string;
@@ -90,11 +91,42 @@ export default function PdfMerge() {
 
   const totalPages = files.reduce((sum, f) => sum + f.pages, 0);
 
+  const faqs = [
+    {
+      question: "Is there a limit on the number of PDFs I can merge?",
+      answer: "There is no hard limit on file count. However, very large PDFs (over 50MB total) may cause slower processing since everything runs in your browser's memory.",
+    },
+    {
+      question: "Will merging change the quality of my PDFs?",
+      answer: "No. The merge operation combines PDF pages without re-encoding or compressing them. All text, images, fonts, and formatting remain exactly as in the original files.",
+    },
+    {
+      question: "Are my files uploaded to a server?",
+      answer: "No. All processing happens entirely in your browser using JavaScript. Your PDF files never leave your device. This is safer than cloud-based alternatives.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="PDF Merge"
       description="Combine multiple PDF files into a single document. Drag to reorder. No limits, no signup."
       slug="pdf-merge"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Merge PDF Files Online",
+              content: "Upload multiple PDF files, drag to reorder them, and combine them into a single PDF document. The merged file maintains the original quality, formatting, and page sizes of each source PDF. Download the result instantly — no file size limits, no watermarks, and no signup required.",
+            },
+            {
+              title: "Why Merge PDFs Client-Side",
+              content: "Unlike most PDF tools that upload your files to remote servers, this tool processes everything in your browser using pdf-lib. Your documents never leave your device, making it safe for confidential contracts, financial documents, medical records, and any sensitive content. There are no upload limits, no waiting for server processing, and no privacy concerns.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       {/* Drop zone */}
       <div

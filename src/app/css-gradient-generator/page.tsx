@@ -3,6 +3,7 @@
 import { useState } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 export default function CssGradientGenerator() {
   const [color1, setColor1] = useState("#2563eb");
@@ -17,11 +18,42 @@ export default function CssGradientGenerator() {
 
   const cssCode = `background: ${gradient};`;
 
+  const faqs = [
+    {
+      question: "What is a gradient color stop?",
+      answer: "A color stop defines a color and its position along the gradient. For example, in 'linear-gradient(red 0%, blue 100%)', red at 0% and blue at 100% are color stops. You can add multiple stops to create smooth multi-color transitions.",
+    },
+    {
+      question: "Do CSS gradients affect page performance?",
+      answer: "CSS gradients are rendered by the browser's GPU and have minimal performance impact. They're more efficient than gradient images because they scale infinitely without file downloads and support retina displays natively.",
+    },
+    {
+      question: "Can I animate CSS gradients?",
+      answer: "You cannot directly animate gradient values with CSS transitions. However, you can animate the background-position or background-size of a larger gradient, or use the @property rule (Houdini) to animate custom properties within gradients.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="CSS Gradient Generator"
       description="Create beautiful CSS gradients visually. Copy the CSS code instantly."
       slug="css-gradient-generator"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Create CSS Gradients",
+              content: "Choose between linear and radial gradients, add color stops, adjust the angle or position, and see the result in real-time. Copy the generated CSS code including vendor prefixes for maximum browser compatibility. You can add multiple color stops, adjust their positions, and create complex multi-color gradients.",
+            },
+            {
+              title: "CSS Gradient Types and Use Cases",
+              content: "Linear gradients transition colors along a straight line — use them for backgrounds, buttons, and overlays. Radial gradients transition from a center point outward — ideal for spotlight effects and circular elements. Conic gradients sweep colors around a center point — perfect for pie charts and color wheels. Modern browsers also support repeating gradients for pattern creation.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       <div
         className="h-48 w-full rounded-xl border border-[var(--border)] shadow-inner sm:h-64"

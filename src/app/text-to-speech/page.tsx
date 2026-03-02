@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
+import SeoContent from "@/components/tools/SeoContent";
 
 export default function TextToSpeechTool() {
   const [text, setText] = useState("");
@@ -83,11 +84,42 @@ export default function TextToSpeechTool() {
   const estimatedMinutes = Math.floor(estimatedSeconds / 60);
   const remainingSeconds = estimatedSeconds % 60;
 
+  const faqs = [
+    {
+      question: "Why are different voices available on different browsers?",
+      answer: "Each operating system and browser provides its own text-to-speech voices. macOS includes Siri voices, Windows includes Microsoft voices, and Chrome adds Google voices. The available voice list depends on your platform.",
+    },
+    {
+      question: "Is my text sent to any server?",
+      answer: "No. The Web Speech API processes text locally in your browser. Your text is never transmitted to any external server, ensuring complete privacy.",
+    },
+    {
+      question: "Can I download the audio?",
+      answer: "The Web Speech API is designed for real-time playback and does not provide a direct download option. For audio file generation, you would need a server-side text-to-speech service.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="Text to Speech"
       description="Convert text to speech using your browser's built-in speech synthesis engine."
       slug="text-to-speech"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Convert Text to Speech Online",
+              content: "Type or paste text and click Play to hear it read aloud using your browser's built-in speech synthesis. Choose from available voices, adjust speaking speed (rate), and modify pitch. The tool uses the Web Speech API, which provides natural-sounding voices without any server processing — your text stays private.",
+            },
+            {
+              title: "Web Speech API and Browser Support",
+              content: "The Web Speech API is built into modern browsers and provides text-to-speech functionality without external services or API keys. Available voices vary by operating system — Windows, macOS, iOS, and Android each provide different voice options. Chrome offers Google's high-quality voices, Safari uses Apple's Siri voices, and Edge provides Microsoft's neural voices. The API supports multiple languages and accents.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       <div className="space-y-4">
         <div className="rounded-lg border border-[var(--border)] bg-[var(--muted)] p-3 text-xs text-[var(--muted-foreground)]">

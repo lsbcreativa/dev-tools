@@ -3,6 +3,7 @@
 import { useState } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 function escapeCsvField(field: string): string {
   const str = String(field);
@@ -129,11 +130,42 @@ export default function JsonCsvTool() {
     }
   };
 
+  const faqs = [
+    {
+      question: "Can I convert nested JSON to CSV?",
+      answer: "CSV is a flat format and cannot represent nested structures directly. Nested objects are typically flattened (parent.child notation) or serialized as JSON strings within CSV cells. For deeply nested data, JSON is the better format.",
+    },
+    {
+      question: "How are special characters handled in CSV?",
+      answer: "Values containing commas, quotes, or newlines are wrapped in double quotes. Double quotes within values are escaped by doubling them (\"\"). This follows the RFC 4180 CSV standard.",
+    },
+    {
+      question: "What if my JSON objects have different keys?",
+      answer: "The tool uses the keys from the first object as column headers. Objects missing a key will have an empty cell for that column. Extra keys in subsequent objects may be ignored.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="JSON to CSV Converter"
       description="Convert between JSON arrays and CSV data. Download results as files."
       slug="json-csv"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Convert Between JSON and CSV",
+              content: "Paste JSON array data or CSV text and convert between formats instantly. For JSON to CSV, the tool extracts keys from the first object as column headers and maps values to rows. For CSV to JSON, each row becomes an object with column headers as keys. You can download the result as a .csv or .json file.",
+            },
+            {
+              title: "JSON vs CSV: When to Use Each Format",
+              content: "CSV (Comma-Separated Values) is ideal for tabular data \u2014 spreadsheets, database exports, and data analysis in tools like Excel, Google Sheets, and Pandas. JSON (JavaScript Object Notation) is preferred for APIs, nested data structures, and web applications. CSV is smaller and faster to parse for flat data, while JSON supports nested objects, arrays, and mixed types that CSV cannot represent.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       <div className="flex gap-2 mb-4">
         <button

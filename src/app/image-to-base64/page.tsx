@@ -3,6 +3,7 @@
 import { useState, useRef } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
 
@@ -91,11 +92,42 @@ export default function ImageToBase64Tool() {
   const htmlImgTag = dataUri ? `<img src="${dataUri}" alt="${fileName}" />` : "";
   const cssBackground = dataUri ? `background-image: url('${dataUri}');` : "";
 
+  const faqs = [
+    {
+      question: "Does Base64 increase file size?",
+      answer: "Yes. Base64 encoding increases the data size by approximately 33% because it converts binary data (8 bits) to ASCII characters (6 bits per character). A 10KB image becomes roughly 13.3KB in Base64.",
+    },
+    {
+      question: "What is a data URI?",
+      answer: "A data URI (data:image/png;base64,...) embeds file data directly in HTML or CSS instead of referencing an external URL. It combines the MIME type and Base64-encoded content into a single string.",
+    },
+    {
+      question: "Should I Base64-encode all my images?",
+      answer: "No. Base64 is best for small images under 10KB (icons, small logos). Larger images should be served as separate files to benefit from browser caching, lazy loading, and modern formats like WebP or AVIF.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="Image to Base64 Converter"
       description="Convert images to Base64 encoded strings for embedding in HTML, CSS, and more."
       slug="image-to-base64"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Convert Images to Base64",
+              content: "Drag and drop an image or click to upload, and get the Base64-encoded data URI instantly. The tool shows the encoded string and provides ready-to-use formats: raw Base64, data URI for HTML img tags, CSS background-image property, and Markdown image syntax. Supported formats include PNG, JPEG, GIF, WebP, and SVG.",
+            },
+            {
+              title: "When to Use Base64-Encoded Images",
+              content: "Base64 encoding embeds image data directly in HTML, CSS, or JSON, eliminating extra HTTP requests. This is beneficial for small images (icons, logos under 10KB), email HTML templates (where external images may be blocked), CSS sprites replacement, and embedding images in single-file applications. However, Base64 increases file size by approximately 33%, so it's not recommended for large images.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       {/* Drop zone */}
       <div

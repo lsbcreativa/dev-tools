@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 interface TypographyElement {
   id: string;
@@ -65,11 +66,42 @@ export default function FluidTypographyCalculator() {
     .map((el) => `${el.selector} {\n  font-size: ${el.clamp};\n}`)
     .join("\n\n");
 
+  const faqs = [
+    {
+      question: "What does CSS clamp() do?",
+      answer: "clamp(min, preferred, max) sets a value that's capped between a minimum and maximum. For typography: the font grows/shrinks based on the preferred value (using vw units) but never goes below min or above max.",
+    },
+    {
+      question: "How is the preferred value calculated?",
+      answer: "The preferred value is calculated as: intercept (rem) + slope (vw), where slope = (maxSize - minSize) / (maxViewport - minViewport) and intercept = minSize - slope * minViewport. This creates a linear scale between your breakpoints.",
+    },
+    {
+      question: "Can I use fluid typography for spacing too?",
+      answer: "Yes. CSS clamp() works with any CSS property that accepts length values — padding, margin, gap, and width. Use the same formula to create fluid spacing that scales proportionally with the viewport.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="Fluid Typography Calculator"
       description="Generate CSS clamp() values for fluid, responsive typography that scales smoothly between viewport sizes."
       slug="fluid-typography"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Calculate Fluid Typography",
+              content: "Enter your minimum and maximum font sizes along with the viewport range, and get a CSS clamp() value that scales typography fluidly between breakpoints. The font size smoothly transitions from the minimum value at the smallest viewport to the maximum value at the largest viewport, without any sudden jumps.",
+            },
+            {
+              title: "Why Use Fluid Typography with CSS clamp()",
+              content: "Traditional responsive typography uses media queries to change font sizes at fixed breakpoints, creating abrupt jumps. CSS clamp() creates smooth, continuous scaling: clamp(min, preferred, max). The preferred value uses viewport units (vw) calculated from your size range. This approach reduces CSS code, eliminates breakpoint jumps, and ensures readable text at every viewport size. It works in all modern browsers and is the recommended approach for responsive typography.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       {/* Viewport settings */}
       <div className="mb-6">

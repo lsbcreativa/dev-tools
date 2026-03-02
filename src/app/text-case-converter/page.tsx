@@ -3,6 +3,7 @@
 import { useState } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 function toTitleCase(str: string) {
   return str.replace(
@@ -62,11 +63,47 @@ export default function TextCaseConverter() {
     setResult(fn(text));
   };
 
+  const faqs = [
+    {
+      question: "What is the difference between camelCase and PascalCase?",
+      answer:
+        "camelCase starts with a lowercase letter (myVariable), while PascalCase starts with an uppercase letter (MyComponent). In JavaScript, camelCase is used for variables and functions, PascalCase for React components and class names.",
+    },
+    {
+      question: "When should I use snake_case vs kebab-case?",
+      answer:
+        "snake_case is the standard in Python, Ruby, and database column names. kebab-case is used in CSS class names, URL slugs, and HTML attributes. Neither can be used as JavaScript variable names directly.",
+    },
+    {
+      question: "Does Title Case capitalize every word?",
+      answer:
+        "Title Case capitalizes the first letter of each word. Some style guides (AP, Chicago) exclude small words like 'a', 'the', 'in', 'of' from capitalization, but this tool capitalizes all words for simplicity.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="Text Case Converter"
       description="Convert text between UPPERCASE, lowercase, Title Case, camelCase, snake_case and more."
       slug="text-case-converter"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Convert Text Case Online",
+              content:
+                "Paste your text and click any conversion button to transform it instantly. Supported conversions include UPPERCASE, lowercase, Title Case, Sentence case, camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE, and dot.case. Each conversion follows standard naming conventions used in programming and writing.",
+            },
+            {
+              title: "Text Case Conventions in Programming",
+              content:
+                "Different programming languages and contexts use different naming conventions. JavaScript uses camelCase for variables and PascalCase for classes. Python prefers snake_case for variables and functions. CSS uses kebab-case for class names. Environment variables use CONSTANT_CASE. Understanding and applying the correct case convention improves code readability and follows community standards.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       <textarea
         value={text}

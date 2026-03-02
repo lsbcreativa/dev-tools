@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 /* ---------- Types ---------- */
 
@@ -145,11 +146,42 @@ export default function GitCommandBuilderPage() {
     return parts.join(" ");
   }, [op, selectedFlags, arg]);
 
+  const faqs = [
+    {
+      question: "What is the difference between git merge and git rebase?",
+      answer: "Merge creates a merge commit preserving both branch histories. Rebase replays your commits on top of the target branch, creating a linear history. Use merge for shared branches, rebase for cleaning up local feature branches before merging.",
+    },
+    {
+      question: "When should I use git reset --hard?",
+      answer: "git reset --hard discards ALL uncommitted changes permanently. Use it only when you're certain you want to discard everything. For safer alternatives, use --soft (keep changes staged) or --mixed (keep changes unstaged).",
+    },
+    {
+      question: "What does git stash do?",
+      answer: "git stash temporarily saves your uncommitted changes (both staged and unstaged) and reverts your working directory to the last commit. Use git stash pop to restore the changes later. It's useful when you need to switch branches without committing.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="Git Command Builder"
       description="Build git commands visually with dropdowns and checkboxes. Merge, rebase, reset, stash and more explained."
       slug="git-command-builder"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Build Git Commands Visually",
+              content: "Select a git operation (merge, rebase, reset, stash, cherry-pick, log, branch, remote), then use checkboxes and dropdowns to configure flags and options. The tool generates the complete git command with explanations for each flag. Copy the command and run it in your terminal.",
+            },
+            {
+              title: "Essential Git Operations Explained",
+              content: "Git merge combines branches by creating a merge commit. Git rebase replays commits on top of another branch for a linear history. Git reset moves HEAD to undo commits (--soft keeps changes staged, --mixed unstages, --hard discards). Git stash temporarily saves uncommitted changes. Git cherry-pick copies specific commits between branches. Understanding when to use each operation is crucial for maintaining a clean git history.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       {/* Operation selector */}
       <div className="mb-4">

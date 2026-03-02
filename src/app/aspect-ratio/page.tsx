@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 function gcd(a: number, b: number): number {
   a = Math.abs(Math.round(a));
@@ -77,11 +78,42 @@ export default function AspectRatioCalculator() {
     setNewHeight("");
   };
 
+  const faqs = [
+    {
+      question: "What is the CSS aspect-ratio property?",
+      answer: "The CSS aspect-ratio property (e.g., aspect-ratio: 16/9) automatically calculates the element's height based on its width and the specified ratio. It's supported in all modern browsers and replaces the old padding-top percentage hack.",
+    },
+    {
+      question: "How do I maintain aspect ratio for responsive images?",
+      answer: "Use the CSS aspect-ratio property on the image container, or set width: 100% and height: auto on the image itself. For background images, use aspect-ratio on the container combined with object-fit: cover.",
+    },
+    {
+      question: "What aspect ratio should I use for social media?",
+      answer: "Instagram: 1:1 (square) or 4:5 (portrait). Twitter/X: 16:9 (landscape). Facebook: 1.91:1 (link preview) or 1:1 (post). TikTok/Stories: 9:16 (vertical). YouTube: 16:9 (standard).",
+    },
+  ];
+
   return (
     <ToolLayout
       title="Aspect Ratio Calculator"
       description="Calculate simplified aspect ratios, resize dimensions proportionally, and generate CSS aspect-ratio values."
       slug="aspect-ratio"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Calculate Aspect Ratios",
+              content: "Enter a width and height to calculate the aspect ratio, or enter a ratio and one dimension to calculate the other. The tool simplifies ratios to their lowest terms (e.g., 1920x1080 becomes 16:9) and shows common format names. Use it for responsive images, video embeds, and CSS aspect-ratio property values.",
+            },
+            {
+              title: "Common Aspect Ratios in Web and Video",
+              content: "16:9 (widescreen) is the standard for HD video, YouTube, and most monitors. 4:3 (classic) was used in older TVs and presentations. 1:1 (square) is common for social media profiles and Instagram posts. 9:16 (vertical) is used for mobile stories and TikTok. 21:9 (ultrawide) is used in cinema and ultrawide monitors. The CSS aspect-ratio property lets you maintain proportions without padding-top hacks.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       {/* Main inputs */}
       <div className="grid grid-cols-2 gap-4">

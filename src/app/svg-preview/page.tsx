@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import DOMPurify from "isomorphic-dompurify";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 const DEFAULT_SVG = `<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
   <!-- A sample shape -->
@@ -57,6 +58,21 @@ export default function SvgPreviewOptimizer() {
   const [optimized, setOptimized] = useState("");
   const [showOptimized, setShowOptimized] = useState(false);
 
+  const faqs = [
+    {
+      question: "How much can SVG optimization reduce file size?",
+      answer: "Typically 20-60% depending on the source. SVGs from design tools like Figma or Illustrator contain extensive metadata and editor-specific attributes that can be safely removed. Hand-coded SVGs tend to be already lean.",
+    },
+    {
+      question: "Will optimization change how my SVG looks?",
+      answer: "No. The optimization only removes metadata, comments, and redundant attributes. The visual appearance remains identical. Always compare the before/after preview to confirm.",
+    },
+    {
+      question: "Should I use SVG or PNG for web icons?",
+      answer: "SVG is preferred for icons because it's resolution-independent (crisp on any screen), typically smaller in file size, stylable with CSS, and animatable. Use PNG only for complex photographic images where SVG would be impractically large.",
+    },
+  ];
+
   const valid = useMemo(() => isValidSvg(input), [input]);
 
   const handleOptimize = () => {
@@ -88,6 +104,22 @@ export default function SvgPreviewOptimizer() {
       title="SVG Preview & Optimizer"
       description="Preview and optimize SVG code. Remove comments, metadata, and unnecessary whitespace. Download optimized SVG files."
       slug="svg-preview"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Preview and Optimize SVG Files",
+              content: "Paste your SVG code or upload an SVG file to see a live preview. The optimizer removes unnecessary metadata, comments, whitespace, and default attribute values to reduce file size. Download the optimized SVG or copy the cleaned code. The tool shows file size before and after optimization.",
+            },
+            {
+              title: "SVG Optimization for Web Performance",
+              content: "SVGs exported from design tools (Figma, Illustrator, Sketch) often contain unnecessary metadata, editor comments, and redundant attributes that increase file size. Optimization can reduce SVG size by 20-60% without any visual change. Key optimizations include removing comments and metadata, collapsing groups, rounding decimal precision, and removing default values. Smaller SVGs load faster and improve Core Web Vitals scores.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       {/* SVG Input */}
       <div className="mb-6">

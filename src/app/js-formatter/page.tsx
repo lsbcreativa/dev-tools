@@ -3,6 +3,7 @@
 import { useState } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 function beautifyJS(code: string, indentSize: number): string {
   const indent = " ".repeat(indentSize);
@@ -284,11 +285,42 @@ export default function JsFormatter() {
     }
   };
 
+  const faqs = [
+    {
+      question: "Does minification affect code functionality?",
+      answer: "No. Minification only removes whitespace, comments, and unnecessary characters. The code executes identically. For additional size reduction, tools like Terser also rename variables (mangling), but this tool focuses on whitespace minification.",
+    },
+    {
+      question: "What indentation style should I use?",
+      answer: "Both 2-space and 4-space indentation are common. Most JavaScript/TypeScript projects use 2 spaces (Node.js convention). Java and C# typically use 4 spaces. Tabs are preferred by some developers for accessibility and customization. Follow your project's existing convention.",
+    },
+    {
+      question: "Can I format TypeScript with this tool?",
+      answer: "This tool formats JavaScript syntax, which covers most TypeScript code since TypeScript is a superset of JavaScript. Type annotations and interfaces will be preserved but may not be optimally formatted.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="JS Beautifier / Minifier"
       description="Beautify or minify JavaScript code with configurable indentation."
       slug="js-formatter"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Format and Minify JavaScript",
+              content: "Paste your JavaScript code and choose to beautify or minify it. Beautifying adds proper indentation, line breaks, and spacing to make code readable. Minifying removes all unnecessary whitespace, comments, and line breaks to reduce file size. You can customize the indentation (2 spaces, 4 spaces, or tabs).",
+            },
+            {
+              title: "Why Format JavaScript Code",
+              content: "Consistent code formatting improves readability, reduces merge conflicts, and makes code reviews faster. Most teams use automated formatters like Prettier or ESLint. Minified JavaScript is used in production to reduce download size and improve page load speed \u2014 a typical JavaScript file can be reduced by 30-60% through minification. This tool provides quick formatting without installing any dependencies.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       <div>
         <label className="mb-1 block text-sm font-medium">Input JavaScript</label>

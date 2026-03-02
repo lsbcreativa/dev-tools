@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 export default function MetaTagGeneratorTool() {
   // Basic fields
@@ -72,11 +73,42 @@ export default function MetaTagGeneratorTool() {
   const previewUrl = ogUrl || "https://example.com";
   const previewDesc = description || "Page description will appear here. Add a description to see a preview.";
 
+  const faqs = [
+    {
+      question: "What is the ideal length for a meta title?",
+      answer: "Keep meta titles between 50-60 characters. Google truncates titles longer than about 60 characters in search results. Include your primary keyword near the beginning for better SEO.",
+    },
+    {
+      question: "Do meta tags directly affect SEO rankings?",
+      answer: "The title tag directly affects rankings. The meta description doesn't directly impact rankings but affects click-through rates. Open Graph and Twitter Card tags don't affect SEO but improve social media engagement.",
+    },
+    {
+      question: "What size should the Open Graph image be?",
+      answer: "The recommended size is 1200x630 pixels for Open Graph images. This works well across Facebook, LinkedIn, Twitter, and WhatsApp. Use PNG or JPG format and keep file size under 1MB.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="Meta Tag Generator"
       description="Generate HTML meta tags for SEO, Open Graph, and Twitter Cards with a live preview."
       slug="meta-tag-generator"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Generate Meta Tags for SEO",
+              content: "Fill in your page title, description, URL, and image to generate complete HTML meta tags including standard SEO tags, Open Graph tags for Facebook/LinkedIn, and Twitter Card tags. Copy the generated code and paste it into your HTML head section. The live preview shows how your page will appear in Google search results and social media shares.",
+            },
+            {
+              title: "Essential Meta Tags for Every Web Page",
+              content: "Meta tags tell search engines and social platforms about your page content. The title tag (50-60 characters) appears as the clickable headline in search results. The meta description (150-160 characters) provides the summary snippet. Open Graph tags (og:title, og:description, og:image) control how your page appears when shared on Facebook, LinkedIn, and WhatsApp. Twitter Cards (twitter:card, twitter:title) customize the appearance on Twitter/X.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       {/* Basic Meta Tags */}
       <div className="space-y-3">

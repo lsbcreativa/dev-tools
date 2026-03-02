@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 function base64UrlEncode(str: string): string {
   return btoa(str).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
@@ -123,11 +124,42 @@ export default function JwtBuilder() {
     }
   };
 
+  const faqs = [
+    {
+      question: "Is JWT data encrypted?",
+      answer: "No. JWT payloads are Base64URL-encoded, which is easily decoded — not encrypted. Anyone with the token can read the payload. Use JWE (JSON Web Encryption) if you need encrypted tokens. Never include passwords or sensitive data in JWT payloads.",
+    },
+    {
+      question: "What is the difference between HS256 and RS256?",
+      answer: "HS256 uses a shared secret key (symmetric) — both token creator and verifier need the same secret. RS256 uses a public/private key pair (asymmetric) — sign with private key, verify with public key. RS256 is more secure for distributed systems.",
+    },
+    {
+      question: "How long should JWT tokens be valid?",
+      answer: "Access tokens should expire quickly (15 minutes to 1 hour) to limit damage if compromised. Refresh tokens can last longer (days to weeks). Set the 'exp' claim to control expiration.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="JWT Builder"
       description="Build and sign JSON Web Tokens with HMAC-SHA256 using the Web Crypto API."
       slug="jwt-builder"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Create JWT Tokens",
+              content: "Edit the header and payload JSON, enter your secret key, and generate a signed JWT token instantly. The tool creates HS256-signed tokens with customizable claims including iss (issuer), sub (subject), exp (expiration), iat (issued at), and any custom fields. The generated token is ready for testing API authentication.",
+            },
+            {
+              title: "JWT Token Structure",
+              content: "A JWT (JSON Web Token) consists of three parts separated by dots: Header (algorithm and type), Payload (claims/data), and Signature (verification hash). The header and payload are Base64URL-encoded JSON objects — they are encoded but NOT encrypted, so never put sensitive data in JWT payloads. The signature ensures the token hasn't been tampered with. JWTs are used for API authentication, session management, and OAuth 2.0 flows.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       <div className="space-y-4">
         {/* Header editor */}

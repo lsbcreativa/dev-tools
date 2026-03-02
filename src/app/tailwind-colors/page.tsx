@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 interface TailwindColor {
   name: string;
@@ -111,11 +112,42 @@ export default function TailwindColorFinder() {
     setHexInput(e.target.value);
   };
 
+  const faqs = [
+    {
+      question: "How accurate is the color matching?",
+      answer: "The tool uses color distance algorithms to find the closest Tailwind color. Exact matches are rare — Tailwind's palette is intentionally limited. The tool shows the closest options so you can choose the best fit for your design.",
+    },
+    {
+      question: "Can I use custom colors with Tailwind?",
+      answer: "Yes. Extend Tailwind's theme in tailwind.config.js to add custom colors: theme: { extend: { colors: { brand: '#FF5733' } } }. Then use them as bg-brand, text-brand, etc.",
+    },
+    {
+      question: "What is the difference between gray, slate, zinc, neutral, and stone?",
+      answer: "These are five gray variants with different undertones. Slate has a blue undertone, zinc is slightly cool, neutral is pure gray, stone has a warm undertone, and gray sits between neutral and slate. Choose based on your design's overall color temperature.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="Tailwind Color Finder"
       description="Find the closest Tailwind CSS color to any hex value. Uses Euclidean distance in RGB space for accurate matching."
       slug="tailwind-colors"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Find Tailwind CSS Colors",
+              content: "Enter any hex color code and find the closest matching Tailwind CSS color class. The tool compares your color against Tailwind's entire default color palette (22 color families, 11 shades each) and shows the closest matches ranked by similarity. Copy the Tailwind class name, hex value, or RGB value directly.",
+            },
+            {
+              title: "Tailwind CSS Color System",
+              content: "Tailwind CSS includes a curated color palette with 22 color families (slate, gray, zinc, neutral, stone, red, orange, amber, yellow, lime, green, emerald, teal, cyan, sky, blue, indigo, violet, purple, fuchsia, pink, rose) each with 11 shades (50-950). The palette is designed for accessible, consistent color usage. Shade 500 is the base, lower numbers are lighter, higher numbers are darker. Use the default palette for consistency or extend it in tailwind.config.js for custom brand colors.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       {/* Input */}
       <div>

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 function arrayBufferToBase64(buffer: ArrayBuffer): string {
   const bytes = new Uint8Array(buffer);
@@ -65,11 +66,27 @@ export default function RSAKeyPairGenerator() {
     }
   };
 
+  const faqs = [
+    { question: "Should I use 2048 or 4096 bit keys?", answer: "2048-bit keys are considered secure until at least 2030 and are faster for encryption/decryption. 4096-bit keys provide higher security margins but are slower. Use 2048 for most applications and 4096 for high-security requirements." },
+    { question: "Are the generated keys secure?", answer: "Yes. Keys are generated using the Web Crypto API, which uses cryptographically secure random number generation built into your browser. No keys are transmitted to any server." },
+    { question: "What is the difference between public and private keys?", answer: "The public key encrypts data and verifies signatures \u2014 share it freely. The private key decrypts data and creates signatures \u2014 keep it secret. Anyone with your public key can send you encrypted messages, but only your private key can decrypt them." },
+  ];
+
   return (
     <ToolLayout
       title="RSA Key Pair Generator"
       description="Generate RSA public and private key pairs using the Web Crypto API. All processing happens in your browser."
       slug="rsa-generator"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            { title: "How to Generate RSA Key Pairs", content: "Click Generate to create a new RSA key pair using the Web Crypto API. The tool produces a public key and a private key in PEM format (Base64-encoded PKCS#8/SPKI). Choose your key size (2048 or 4096 bits) based on your security requirements. Copy each key individually or download them as files." },
+            { title: "Understanding RSA Key Pairs", content: "RSA (Rivest-Shamir-Adleman) is an asymmetric encryption algorithm that uses a pair of mathematically linked keys. The public key encrypts data and can be shared freely. The private key decrypts data and must be kept secret. RSA is used for HTTPS/SSL certificates, SSH authentication, email encryption (PGP/GPG), digital signatures, and JWT signing. Key generation uses your browser's Web Crypto API \u2014 private keys never leave your device." },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       {/* Warning banner */}
       <div className="rounded-lg border border-[var(--success)]/30 bg-[var(--success)]/10 p-3 text-sm text-[var(--success)] mb-4">

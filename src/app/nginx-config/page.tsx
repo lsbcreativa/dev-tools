@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 type ServerType = "static" | "reverse-proxy" | "spa" | "php";
 
@@ -218,11 +219,27 @@ export default function NginxConfigGenerator() {
     { label: "PHP", value: "php" },
   ];
 
+  const faqs = [
+    { question: "What is the difference between a static site and reverse proxy config?", answer: "A static site config serves files directly from a directory. A reverse proxy config forwards requests to a backend application (Node.js, Python, etc.) running on another port. Use reverse proxy for dynamic applications and static for HTML/CSS/JS files." },
+    { question: "How do I enable HTTPS/SSL in Nginx?", answer: "Add ssl_certificate and ssl_certificate_key directives pointing to your SSL certificate files. This tool generates the SSL configuration including recommended cipher suites. Use Let's Encrypt/Certbot for free SSL certificates." },
+    { question: "What does try_files do in Nginx?", answer: "try_files $uri $uri/ /index.html tells Nginx to first try the exact file, then the directory, then fall back to index.html. This is essential for single-page applications (React, Vue, Angular) where client-side routing handles URLs." },
+  ];
+
   return (
     <ToolLayout
       title="Nginx Config Generator"
       description="Generate production-ready Nginx configuration files for static sites, reverse proxies, SPAs, and PHP applications."
       slug="nginx-config"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            { title: "How to Generate Nginx Configuration", content: "Select your use case \u2014 static site, reverse proxy, SPA, or load balancer \u2014 and configure options like server name, port, SSL, gzip compression, and caching headers. The tool generates a complete nginx.conf server block that you can copy and deploy directly. It follows Nginx best practices for security headers, performance optimization, and proper routing." },
+            { title: "Nginx Configuration Best Practices", content: "Nginx is the most popular web server, powering over 30% of websites worldwide. Key configuration best practices include enabling gzip compression for text-based assets, setting proper cache headers (Cache-Control, ETag), adding security headers (X-Frame-Options, Content-Security-Policy), configuring SSL with strong ciphers, and using try_files for SPA routing. This tool generates configurations that follow these best practices out of the box." },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       {/* Form */}
       <div className="space-y-4">

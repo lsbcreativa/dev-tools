@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 /* ---------- Generator ---------- */
 
@@ -183,11 +184,42 @@ export default function ReactGeneratorPage() {
     { label: "default export", checked: defaultExport, set: setDefaultExport },
   ];
 
+  const faqs = [
+    {
+      question: "Should I use TypeScript for React components?",
+      answer: "Yes. TypeScript catches prop type errors at compile time, provides autocompletion in IDEs, and serves as documentation for your component's API. Most modern React projects use TypeScript.",
+    },
+    {
+      question: "When should I use React.memo?",
+      answer: "Use React.memo for components that render the same output given the same props and are re-rendered frequently due to parent updates. Don't overuse it — memoization has its own memory cost and is unnecessary for components that already render quickly.",
+    },
+    {
+      question: "What is forwardRef used for?",
+      answer: "forwardRef allows parent components to access the underlying DOM element of your component via a ref. It's needed for focus management, animations, measurements, and integration with third-party libraries that require DOM access.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="React Component Generator"
       description="Generate React functional components with TypeScript, hooks, forwardRef, memo and custom props."
       slug="react-generator"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Generate React Components",
+              content: "Enter your component name and select the options you need: TypeScript support, props interface, useState, useEffect, forwardRef, React.memo, children prop, className prop, and export style. The tool generates a complete React functional component following modern best practices that you can copy directly into your project.",
+            },
+            {
+              title: "React Component Patterns and Best Practices",
+              content: "Modern React favors functional components with hooks over class components. Use TypeScript for type safety, forwardRef when parent components need DOM access, React.memo for preventing unnecessary re-renders of pure components, and custom hooks for reusable logic. Consistent component structure — imports, types, component definition, export — improves codebase maintainability across teams.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       {/* Component name */}
       <div className="mb-4">

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
+import SeoContent from "@/components/tools/SeoContent";
 
 export default function WordCounter() {
   const [text, setText] = useState("");
@@ -15,11 +16,47 @@ export default function WordCounter() {
     text.trim() === "" ? 0 : text.split(/\n\s*\n/).filter((p) => p.trim()).length;
   const readingTime = Math.max(1, Math.ceil(words / 200));
 
+  const faqs = [
+    {
+      question: "Does this tool count words in all languages?",
+      answer:
+        "Yes. The word counter works with English, Spanish, French, German, and most Latin-script languages. For CJK languages (Chinese, Japanese, Korean), character count is more relevant than word count since these languages don't use spaces between words.",
+    },
+    {
+      question: "How is reading time calculated?",
+      answer:
+        "Reading time is estimated at 200 words per minute, which is the average adult reading speed. Technical or academic content may take longer. The estimate gives you a quick idea of how long your content takes to read.",
+    },
+    {
+      question: "Are spaces and line breaks counted as characters?",
+      answer:
+        "The tool shows both counts: characters with spaces and characters without spaces. Line breaks and tabs are counted as characters in the 'with spaces' count but excluded from the 'without spaces' count.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="Word & Character Counter"
       description="Count words, characters, sentences, paragraphs and estimate reading time."
       slug="word-counter"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Count Words and Characters Online",
+              content:
+                "Paste or type your text in the input field to instantly see word count, character count (with and without spaces), sentence count, paragraph count, and estimated reading time. This tool processes text entirely in your browser \u2014 nothing is sent to any server. It works with any language and handles special characters, punctuation, and whitespace intelligently.",
+            },
+            {
+              title: "Why Word Count Matters for Writers and SEO",
+              content:
+                "Word count is critical for content creation, academic writing, and SEO optimization. Blog posts typically perform best at 1,500-2,500 words for SEO, while meta descriptions should stay under 160 characters. Academic papers have strict word limits. Social media platforms impose character limits: Twitter/X (280 chars), LinkedIn posts (3,000 chars), Instagram captions (2,200 chars). This tool helps you stay within these constraints.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       <textarea
         value={text}

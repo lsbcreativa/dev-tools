@@ -3,6 +3,7 @@
 import { useState } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 interface ParsedDockerRun {
   image: string;
@@ -302,11 +303,42 @@ export default function DockerRunToCompose() {
     }
   };
 
+  const faqs = [
+    {
+      question: "What docker run flags are supported?",
+      answer: "This tool supports the most common flags: -p/--publish (ports), -v/--volume (volumes), -e/--env (environment variables), --name, -d/--detach, --restart, --network, --hostname, --memory, --cpus, and --entrypoint.",
+    },
+    {
+      question: "Can I combine multiple docker run commands into one compose file?",
+      answer: "Yes. Convert each docker run command separately, then combine the service definitions into a single docker-compose.yml file. Each container becomes a named service under the 'services' key.",
+    },
+    {
+      question: "What Docker Compose version does this generate?",
+      answer: "The tool generates Docker Compose format compatible with Docker Compose V2. The version field is no longer required in modern Docker Compose files.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="Docker Run to Compose"
       description="Convert docker run commands into docker-compose.yml format. Paste your command and get a ready-to-use compose file."
       slug="docker-compose"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Convert Docker Run to Docker Compose",
+              content: "Paste your docker run command and get a valid docker-compose.yml file instantly. The tool parses flags like -p (ports), -v (volumes), -e (environment variables), --name (service name), -d (detach), --restart, --network, and more, converting them to the equivalent Docker Compose YAML syntax.",
+            },
+            {
+              title: "Docker Run vs Docker Compose",
+              content: "Docker run commands are convenient for quick one-off containers, but Docker Compose files are better for reproducible, multi-container setups. Docker Compose provides version-controlled configuration, easy scaling with docker compose up --scale, networking between services, shared volumes, and one-command deployment. Converting your docker run commands to compose files makes your infrastructure portable and documented.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       <div>
         <label className="mb-1 block text-sm font-medium">

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 const WORDS = [
   "lorem", "ipsum", "dolor", "sit", "amet", "consectetur", "adipiscing", "elit",
@@ -66,11 +67,47 @@ export default function LoremIpsumGenerator() {
     }
   };
 
+  const faqs = [
+    {
+      question: "Is Lorem Ipsum real Latin?",
+      answer:
+        "It's derived from a real Latin text by Cicero ('De Finibus Bonorum et Malorum'), but the modern version has been altered with added, removed, and scrambled words. It's not grammatically correct Latin.",
+    },
+    {
+      question: "When should I not use Lorem Ipsum?",
+      answer:
+        "Avoid Lorem Ipsum when content length affects design decisions, when testing text processing features, or when stakeholders need to evaluate content flow. In these cases, use real or realistic sample content.",
+    },
+    {
+      question: "How many words are in a standard Lorem Ipsum paragraph?",
+      answer:
+        "A standard Lorem Ipsum paragraph contains approximately 60-80 words, similar to an average English paragraph. This tool lets you control the exact amount you generate.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="Lorem Ipsum Generator"
       description="Generate placeholder text for your designs and mockups."
       slug="lorem-ipsum-generator"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Generate Lorem Ipsum Text",
+              content:
+                "Select the type of placeholder text you need \u2014 paragraphs, sentences, or words \u2014 and specify the quantity. Click Generate to create lorem ipsum text instantly. The generated text follows the traditional Latin-like placeholder format used in typesetting and design since the 1500s. Copy the result with one click.",
+            },
+            {
+              title: "What Is Lorem Ipsum and Why Use It",
+              content:
+                "Lorem Ipsum is placeholder text used in design, publishing, and web development to fill layouts before final content is ready. It approximates the visual appearance of English text without being readable, preventing reviewers from focusing on content instead of design. The standard Lorem Ipsum passage comes from a work by Cicero written in 45 BC, though the modern version has been modified and scrambled over centuries.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       <div className="flex flex-wrap items-end gap-4">
         <div>

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 interface Shadow {
   id: string;
@@ -53,6 +54,21 @@ export default function BoxShadowGenerator() {
   const boxShadowValue = shadows.map(shadowToCSS).join(", ");
   const cssOutput = `box-shadow: ${boxShadowValue};`;
 
+  const faqs = [
+    {
+      question: "What do the box-shadow values mean?",
+      answer: "The values are: horizontal-offset vertical-offset blur-radius spread-radius color. Positive horizontal moves right, positive vertical moves down. Blur softens the shadow edge. Spread expands or contracts the shadow size.",
+    },
+    {
+      question: "What is an inset shadow?",
+      answer: "An inset shadow appears inside the element rather than outside it, creating a pressed or recessed effect. Add the 'inset' keyword before the shadow values: box-shadow: inset 0 2px 4px rgba(0,0,0,0.2).",
+    },
+    {
+      question: "Can I use multiple shadows on one element?",
+      answer: "Yes. Separate multiple shadows with commas: box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24). Multiple layers create more realistic, layered shadow effects.",
+    },
+  ];
+
   const updateShadow = (id: string, updates: Partial<Shadow>) => {
     setShadows((prev) =>
       prev.map((s) => (s.id === id ? { ...s, ...updates } : s))
@@ -73,6 +89,22 @@ export default function BoxShadowGenerator() {
       title="CSS Box Shadow Generator"
       description="Generate CSS box-shadow values with a visual editor. Customize multiple shadow layers and copy the CSS."
       slug="box-shadow-generator"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Create CSS Box Shadows",
+              content: "Adjust the horizontal offset, vertical offset, blur radius, spread radius, and color to create custom box shadows. The live preview shows the shadow effect in real-time. You can add multiple shadow layers for more complex effects and toggle inset shadows for inner shadow effects. Copy the generated CSS code with one click.",
+            },
+            {
+              title: "Box Shadow Best Practices in UI Design",
+              content: "Shadows create depth and hierarchy in user interfaces. Subtle shadows (0 1px 3px rgba(0,0,0,0.12)) work for cards and elevated elements. Larger shadows suggest elements floating higher above the surface. Material Design uses a systematic elevation system with increasing shadow values. Combine multiple shadow layers for realistic, soft shadows — one tight shadow for definition and one larger shadow for ambient light.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       {/* Live Preview */}
       <div className="mb-6">

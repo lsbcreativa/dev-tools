@@ -3,6 +3,7 @@
 import { useState, useCallback } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 /* ------------------------------------------------------------------ */
 /*  Data arrays                                                        */
@@ -196,11 +197,27 @@ export default function FakeDataGenerator() {
   const activeFields = ALL_FIELDS.filter((f) => selectedFields.has(f));
   const activeLabels = activeFields.map((f) => FIELD_LABELS[f]);
 
+  const faqs = [
+    { question: "Is the generated data truly random?", answer: "Yes. Names, emails, and addresses are randomly combined from predefined lists. No real personal information is used. The data looks realistic but does not correspond to any actual individuals." },
+    { question: "Can I generate data in bulk?", answer: "Yes. Specify the number of records you need and generate up to hundreds of rows at once. Export the results as JSON or CSV for easy import into databases or testing tools." },
+    { question: "Does it support custom data formats?", answer: "The tool supports common data types like names, emails, addresses, phone numbers, dates, and UUIDs. For custom formats, you can modify the generated output or use the data as a starting point." },
+  ];
+
   return (
     <ToolLayout
       title="Fake Data Generator"
       description="Generate realistic fake data for testing. 100% client-side with no external APIs."
       slug="fake-data-generator"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            { title: "How to Generate Fake Data for Testing", content: "Select the data types you need \u2014 names, emails, addresses, phone numbers, dates, UUIDs, or custom fields \u2014 and generate realistic fake data instantly. Export as JSON, CSV, or copy directly. All data is generated client-side using randomized algorithms, ensuring no real personal information is used." },
+            { title: "Why Use Fake Data in Development", content: "Fake data is essential for testing applications without using real user information. It helps developers populate databases during development, test form validation and edge cases, create realistic demo environments, generate seed data for staging servers, and comply with data privacy regulations (GDPR, CCPA) by never using real personal data in non-production environments." },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       {/* Controls */}
       <div className="mb-4">

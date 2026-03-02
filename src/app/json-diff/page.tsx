@@ -3,6 +3,7 @@
 import { useState } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 /* ------------------------------------------------------------------ */
 /*  Deep diff types & algorithm                                        */
@@ -320,11 +321,42 @@ export default function JsonDiffViewer() {
       )
     : "";
 
+  const faqs = [
+    {
+      question: "Does key order matter in JSON comparison?",
+      answer: "In JSON, key order is not significant — {a:1, b:2} and {b:2, a:1} are equivalent. This tool compares by key names regardless of order, so reordered keys will not show as differences.",
+    },
+    {
+      question: "Can I compare JSON arrays?",
+      answer: "Yes. Arrays are compared element by element based on their index position. If arrays have different lengths, extra elements are shown as additions or removals.",
+    },
+    {
+      question: "How are nested changes displayed?",
+      answer: "Nested changes are shown with their full path (e.g., 'data.user.name'). Each level of nesting is compared recursively, so you can see exactly which nested field changed.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="JSON Diff Viewer"
       description="Compare two JSON objects and visualize the differences with a color-coded tree view."
       slug="json-diff"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Compare JSON Objects",
+              content: "Paste two JSON objects in the left and right panels and see a detailed comparison of their differences. The tool identifies added keys (present only in the right), removed keys (present only in the left), changed values, and unchanged fields. Nested objects and arrays are compared recursively to show exactly where differences occur.",
+            },
+            {
+              title: "JSON Diff Use Cases for Developers",
+              content: "JSON comparison is essential for debugging API responses (comparing expected vs actual), reviewing configuration changes, tracking state changes in applications, comparing database records, and validating data migrations. Unlike text diff which compares line by line, JSON diff understands the data structure and can detect semantic differences like reordered keys and type changes.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       {/* Textareas */}
       <div className="grid gap-4 sm:grid-cols-2">

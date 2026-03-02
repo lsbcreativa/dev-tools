@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 function generateSlug(
   text: string,
@@ -40,11 +41,47 @@ export default function SlugGeneratorTool() {
     [input, separator, lowercase, removeSpecial]
   );
 
+  const faqs = [
+    {
+      question: "What characters are removed from slugs?",
+      answer:
+        "All special characters, punctuation, and symbols are removed. Accented characters (\u00e9, \u00f1, \u00fc) are transliterated to their ASCII equivalents. Only letters, numbers, and the chosen separator remain.",
+    },
+    {
+      question: "Should I use hyphens or underscores in URLs?",
+      answer:
+        "Google recommends hyphens (-) as word separators in URLs. Hyphens are treated as word separators by search engines, while underscores (_) are not. Use hyphens for SEO-friendly URLs.",
+    },
+    {
+      question: "How long should a URL slug be?",
+      answer:
+        "Keep slugs between 3-5 words (50-60 characters). Shorter slugs are easier to share and remember. Remove stop words like 'a', 'the', 'is', 'and' to keep slugs concise while maintaining meaning.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="Slug Generator"
       description="Generate clean, URL-friendly slugs from any text. Handles accents, special characters, and custom separators."
       slug="slug-generator"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Generate URL Slugs",
+              content:
+                "Enter any text \u2014 a blog post title, product name, or page heading \u2014 and get a clean, URL-friendly slug instantly. The tool converts text to lowercase, replaces spaces with hyphens, removes special characters, and handles accented characters. You can customize the separator (hyphen, underscore, or dot) and toggle options like lowercase conversion.",
+            },
+            {
+              title: "Why Clean URL Slugs Matter for SEO",
+              content:
+                "URL slugs are the human-readable part of a URL after the domain (e.g., /how-to-generate-slugs). Clean, descriptive slugs improve SEO by including relevant keywords that search engines use for ranking. They also improve user experience \u2014 users can understand what a page is about just by reading the URL. Best practices: keep slugs short (3-5 words), use hyphens as separators, avoid stop words, and never include special characters or spaces.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       <div>
         <label className="mb-1 block text-sm font-medium">Input Text</label>

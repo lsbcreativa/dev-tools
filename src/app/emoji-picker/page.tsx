@@ -3,6 +3,7 @@
 import { useState, useEffect, useMemo } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import { useToast } from "@/components/ui/Toast";
+import SeoContent from "@/components/tools/SeoContent";
 
 interface EmojiEntry {
   emoji: string;
@@ -379,11 +380,27 @@ export default function EmojiPickerTool() {
     }
   };
 
+  const faqs = [
+    { question: "Do emojis work in all browsers?", answer: "Yes. Emojis are Unicode characters supported by all modern browsers and operating systems. The visual appearance may vary slightly between platforms (Apple, Google, Microsoft, Samsung) since each uses its own emoji designs." },
+    { question: "Can I use emojis in code?", answer: "Yes. Emojis are valid Unicode characters that work in HTML, CSS content properties, JavaScript strings, Python, and most programming languages. They can even be used in some variable names (though this is not recommended for readability)." },
+    { question: "Why do some emojis look different on different devices?", answer: "Each operating system and platform designs its own emoji graphics. Apple, Google, Microsoft, and Samsung all have unique emoji styles. The Unicode standard defines the meaning and code point, but not the visual design." },
+  ];
+
   return (
     <ToolLayout
       title="Emoji Picker & Search"
       description="Search, browse, and copy emojis to your clipboard instantly."
       slug="emoji-picker"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            { title: "How to Find and Copy Emojis", content: "Browse emojis by category or search by name to find the perfect emoji. Click any emoji to copy it to your clipboard. The picker includes 200+ commonly used emojis organized into categories: smileys, gestures, animals, food, activities, travel, objects, and symbols. Each emoji shows its name on hover for easy identification." },
+            { title: "Using Emojis in Web Development and Marketing", content: "Emojis improve engagement in social media posts, email subject lines, push notifications, and UI elements. Studies show emoji in email subject lines can increase open rates by 56%. In web development, emojis are Unicode characters that work everywhere without images \u2014 use them in HTML, CSS (content property), JavaScript strings, and even domain names (punycode). They're supported by all modern browsers and operating systems." },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       <div className="space-y-4">
         {/* Search */}

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 const SAMPLE_XML = `<?xml version="1.0" encoding="UTF-8"?>
 <catalog>
@@ -195,11 +196,42 @@ export default function XmlFormatterTool() {
     setError("");
   };
 
+  const faqs = [
+    {
+      question: "What is the difference between XML and HTML?",
+      answer: "XML is strict — all tags must be closed, properly nested, and case-sensitive. HTML is lenient — browsers can render invalid HTML. XML is designed for data storage and transport, HTML for document presentation.",
+    },
+    {
+      question: "Why does my XML show a parsing error?",
+      answer: "Common XML errors include unclosed tags, mismatched tag names (case-sensitive), unescaped special characters (use &amp; for &, &lt; for <), and missing root element. XML requires exactly one root element wrapping all content.",
+    },
+    {
+      question: "Is JSON better than XML?",
+      answer: "For web APIs and JavaScript applications, JSON is lighter and more natural. XML is better when you need schemas (XSD), namespaces, mixed content (text with markup), or when working with systems that require XML. Choose based on your ecosystem.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="XML Formatter & Validator"
       description="Beautify, minify, and validate your XML documents."
       slug="xml-formatter"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Format and Validate XML",
+              content: "Paste your XML document to format it with proper indentation, or minify it by removing all unnecessary whitespace. The tool validates your XML structure, highlighting syntax errors like unclosed tags, mismatched elements, and invalid characters. Choose your indentation style (2 spaces, 4 spaces, or tabs).",
+            },
+            {
+              title: "XML in Modern Development",
+              content: "XML (eXtensible Markup Language) remains essential in many domains: Android layouts (XML-based UI), Maven/Gradle build configurations, SOAP web services, SVG graphics, RSS/Atom feeds, Microsoft Office formats (.docx, .xlsx are XML inside ZIP), and enterprise integration (EDI, healthcare HL7). While JSON has replaced XML for most APIs, understanding XML is still necessary for many development workflows.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       <div className="space-y-4">
         <div className="flex flex-wrap items-center gap-2">

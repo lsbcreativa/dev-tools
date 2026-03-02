@@ -2,6 +2,7 @@
 
 import { useState, useRef, useCallback } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
+import SeoContent from "@/components/tools/SeoContent";
 
 export default function PdfSplit() {
   const [pdfData, setPdfData] = useState<ArrayBuffer | null>(null);
@@ -87,11 +88,42 @@ export default function PdfSplit() {
     }
   };
 
+  const faqs = [
+    {
+      question: "Can I extract non-consecutive pages?",
+      answer: "Yes. Specify multiple ranges and individual pages separated by commas: 1-3, 7, 12-15. This extracts pages 1, 2, 3, 7, 12, 13, 14, and 15 into a new PDF.",
+    },
+    {
+      question: "Does splitting affect PDF quality?",
+      answer: "No. Pages are extracted without re-encoding. Text, images, and formatting remain identical to the original document.",
+    },
+    {
+      question: "Can I split password-protected PDFs?",
+      answer: "This tool works with unprotected PDFs. Password-protected files need to be unlocked first before their pages can be extracted.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="PDF Split"
       description="Extract specific pages or page ranges from a PDF file. No limits, no signup."
       slug="pdf-split"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Split PDF Files Online",
+              content: "Upload a PDF file and specify which pages to extract. Enter page ranges (e.g., 1-5, 8, 12-15) to create a new PDF containing only the selected pages. The extracted PDF maintains the original quality and formatting. All processing happens in your browser.",
+            },
+            {
+              title: "PDF Splitting Use Cases",
+              content: "Split PDFs to extract specific chapters from e-books, separate invoices from a combined document, pull specific pages from reports for sharing, remove cover pages or appendices, and create handout-friendly versions of presentations. This client-side tool handles all these scenarios without uploading your documents to any server.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       {!pdfData ? (
         <div

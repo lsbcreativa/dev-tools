@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 /* ---------- Types ---------- */
 
@@ -184,11 +185,42 @@ export default function EnvEditorPage() {
     { id: "docker-compose", label: "Docker Compose" },
   ];
 
+  const faqs = [
+    {
+      question: "What formats can I convert between?",
+      answer: "This tool converts between .env format (KEY=value), JSON objects, YAML mappings, and docker-compose environment syntax. All formats represent the same key-value data in different notation.",
+    },
+    {
+      question: "Why should I never commit .env files?",
+      answer: ".env files contain sensitive credentials like API keys, database passwords, and secret tokens. Committing them to version control exposes secrets in your repository history, even if deleted later.",
+    },
+    {
+      question: "What is the .env.example pattern?",
+      answer: "Create a .env.example file with all variable names but dummy/empty values, and commit it to version control. This documents required variables without exposing real credentials. Developers copy it to .env and fill in their values.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="Env Variables Editor"
       description="Edit environment variables visually. Convert between .env, JSON, YAML, and docker-compose formats."
       slug="env-editor"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Edit Environment Variables",
+              content: "Paste your .env file content, JSON, or YAML configuration and edit variables in a visual key-value editor. Add, remove, and modify variables with a clean interface. Export to .env, JSON, YAML, or docker-compose format. The tool validates variable names and preserves comments.",
+            },
+            {
+              title: "Environment Variable Best Practices",
+              content: "Environment variables store configuration that changes between environments (development, staging, production) — database URLs, API keys, feature flags, and service endpoints. Best practices: never commit .env files to version control (add to .gitignore), use .env.example with placeholder values for documentation, prefix variables with your app name to avoid conflicts, and use a secrets manager (AWS Secrets Manager, Vault) for production credentials.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       {/* Presets */}
       <div className="mb-4 flex flex-wrap gap-2">

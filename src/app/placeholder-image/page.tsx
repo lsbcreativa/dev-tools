@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect, useCallback } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
+import SeoContent from "@/components/tools/SeoContent";
 
 interface Preset {
   label: string;
@@ -75,11 +76,27 @@ export default function PlaceholderImageGenerator() {
     setHeight(preset.height);
   };
 
+  const faqs = [
+    { question: "What image formats are supported?", answer: "This tool generates PNG images. PNG provides lossless quality and transparency support, making it ideal for placeholder images with text and solid colors." },
+    { question: "Can I use custom colors?", answer: "Yes. Set any background and text color using the color pickers. Choose colors that match your design system or use high-contrast combinations for visibility during development." },
+    { question: "What is the maximum image size?", answer: "The tool supports images up to 4000x4000 pixels. For most development purposes, common sizes like 300x200, 800x600, or 1920x1080 are sufficient." },
+  ];
+
   return (
     <ToolLayout
       title="Placeholder Image Generator"
       description="Generate placeholder images with custom dimensions, colors, and text. Download as PNG."
       slug="placeholder-image"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            { title: "How to Generate Placeholder Images", content: "Set the width, height, background color, text color, and optional text to generate a placeholder image instantly. Download the result as a PNG file. Placeholder images are useful for wireframes, mockups, and development when final images are not yet available." },
+            { title: "Using Placeholder Images in Web Development", content: "Placeholder images help maintain layout structure during development. Instead of waiting for design assets, developers can use generated placeholders with exact dimensions to build responsive layouts, test image loading states, and prototype user interfaces. Common sizes include 150x150 for avatars, 1200x630 for social media cards, 800x600 for content images, and 1920x1080 for hero banners." },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       {/* Presets */}
       <div className="mb-6">

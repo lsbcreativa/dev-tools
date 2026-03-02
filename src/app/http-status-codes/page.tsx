@@ -3,6 +3,7 @@
 import { useState } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 interface StatusCode {
   code: number;
@@ -324,11 +325,42 @@ export default function HttpStatusCodes() {
     return { ...category, codes: filteredCodes };
   }).filter((category) => category.codes.length > 0);
 
+  const faqs = [
+    {
+      question: "What is the difference between 401 and 403?",
+      answer: "401 Unauthorized means the client is not authenticated — no credentials provided or invalid credentials. 403 Forbidden means the client is authenticated but doesn't have permission to access the resource.",
+    },
+    {
+      question: "When should I use 301 vs 302 redirects?",
+      answer: "Use 301 (Moved Permanently) when a page has permanently moved — search engines will transfer SEO value. Use 302 (Found) for temporary redirects — the original URL retains its SEO value.",
+    },
+    {
+      question: "What does a 429 status code mean?",
+      answer: "429 Too Many Requests indicates the client has sent too many requests in a given time period (rate limiting). The response usually includes a Retry-After header indicating when to try again.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="HTTP Status Codes Reference"
       description="Complete reference of HTTP status codes with descriptions and common use cases."
       slug="http-status-codes"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "HTTP Status Code Reference",
+              content: "Search or browse the complete list of HTTP status codes with descriptions and use cases. Codes are organized by category: 1xx (Informational), 2xx (Success), 3xx (Redirection), 4xx (Client Error), and 5xx (Server Error). Each code includes when to use it and common scenarios where it appears.",
+            },
+            {
+              title: "Most Important HTTP Status Codes for Developers",
+              content: "200 OK — successful request. 201 Created — resource created (POST). 301 Moved Permanently — permanent redirect (SEO-safe). 302 Found — temporary redirect. 400 Bad Request — malformed request. 401 Unauthorized — authentication required. 403 Forbidden — authenticated but not authorized. 404 Not Found — resource doesn't exist. 429 Too Many Requests — rate limited. 500 Internal Server Error — server-side failure. 503 Service Unavailable — server temporarily down.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       <div className="space-y-4">
         {/* Search */}

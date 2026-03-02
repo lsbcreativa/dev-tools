@@ -3,6 +3,7 @@
 import { useState } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 const entityMap: Record<string, string> = {
   "&": "&amp;",
@@ -50,11 +51,42 @@ export default function HtmlEntities() {
     }
   };
 
+  const faqs = [
+    {
+      question: "What is the difference between named and numeric HTML entities?",
+      answer: "Named entities use descriptive names (&amp;, &lt;, &copy;). Numeric entities use character codes (&#38;, &#60;, &#169;). Both render the same character. Named entities are more readable but not all characters have named entities.",
+    },
+    {
+      question: "Do I need to encode all special characters in HTML?",
+      answer: "Only characters with special meaning in HTML must be encoded: < > & \" and optionally '. Other characters like \u00a9, \u20ac, and accented letters can be used directly if your page uses UTF-8 encoding, but encoding them improves compatibility.",
+    },
+    {
+      question: "How does HTML entity encoding prevent XSS attacks?",
+      answer: "By converting < to &lt; and > to &gt;, any HTML tags in user input are displayed as text instead of being rendered as HTML. This prevents attackers from injecting malicious scripts through form fields or URL parameters.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="HTML Entity Encoder / Decoder"
       description="Convert special characters to HTML entities and vice versa."
       slug="html-entities"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Encode and Decode HTML Entities",
+              content: "Paste text containing special characters to convert them to HTML entities, or paste HTML-encoded text to decode it back. HTML entity encoding converts characters like <, >, &, and quotes into their entity equivalents (&lt;, &gt;, &amp;, &quot;) so they display correctly in HTML without being interpreted as markup.",
+            },
+            {
+              title: "Why HTML Entity Encoding Matters",
+              content: "HTML entity encoding prevents Cross-Site Scripting (XSS) attacks by ensuring user input is displayed as text rather than executed as HTML or JavaScript. It's essential when displaying user-generated content, email addresses (to prevent spam bots), special symbols (\u00a9, \u2122, \u20ac), and mathematical notation. Common entities include &amp; for &, &lt; for <, &gt; for >, &nbsp; for non-breaking space, and &copy; for \u00a9.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       <div className="flex gap-2 mb-4">
         <button

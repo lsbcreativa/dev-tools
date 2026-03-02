@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
+import SeoContent from "@/components/tools/SeoContent";
 
 const SAMPLE_JSON = `[
   { "name": "Alice", "age": 30, "email": "alice@example.com", "city": "New York" },
@@ -101,11 +102,42 @@ export default function JsonToExcel() {
     }
   };
 
+  const faqs = [
+    {
+      question: "What Excel features are included in the output?",
+      answer: "The generated .xlsx file includes formatted header row (bold), auto-sized column widths, proper data types (numbers, strings, dates), and sheet naming. It's a real Excel file compatible with all spreadsheet applications.",
+    },
+    {
+      question: "Can I convert nested JSON to Excel?",
+      answer: "Excel is a flat, tabular format. Top-level JSON arrays of objects are converted directly. Nested objects are serialized as strings within cells. For deeply nested data, flatten the JSON structure first.",
+    },
+    {
+      question: "Is there a row limit?",
+      answer: "The tool handles typical data sizes well. For very large datasets (over 100,000 rows), browser memory may become a limitation. Excel itself supports up to 1,048,576 rows per sheet.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="JSON/CSV to Excel"
       description="Convert JSON or CSV data to a real .xlsx Excel file with formatted headers and auto-sized columns."
       slug="json-to-excel"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Convert JSON or CSV to Excel",
+              content: "Paste JSON array data or CSV text and generate a real .xlsx Excel file with formatted headers, proper column widths, and data type detection. The generated file opens in Microsoft Excel, Google Sheets, LibreOffice, and any spreadsheet application. No signup or server upload required.",
+            },
+            {
+              title: "When to Use Excel vs JSON",
+              content: "Excel (.xlsx) is preferred for sharing data with non-technical stakeholders, creating reports with formatting, and data analysis in spreadsheet applications. JSON is better for APIs, configuration, and programmatic data processing. This tool bridges the gap — convert API responses, database exports, or any structured data into polished Excel files that business users can immediately work with.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       {/* Mode toggle */}
       <div className="mb-4 flex items-center gap-2">

@@ -3,6 +3,7 @@
 import { useState, useCallback } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 const SAMPLE_TS = `import type { Config } from "./config";
 import { type User, getUsers } from "./api";
@@ -277,11 +278,42 @@ export default function TsToJsTool() {
     handleConvert(SAMPLE_TS);
   };
 
+  const faqs = [
+    {
+      question: "Does this remove all TypeScript-specific code?",
+      answer: "Yes. Type annotations, interfaces, type aliases, enums, generic parameters, access modifiers, and declare statements are removed. Runtime code (functions, variables, classes, logic) is preserved.",
+    },
+    {
+      question: "What happens to TypeScript enums?",
+      answer: "TypeScript enums are transpiled to JavaScript objects or removed depending on the implementation. Const enums are inlined at compile time. This tool removes enum declarations — for complex transpilation, use the TypeScript compiler (tsc).",
+    },
+    {
+      question: "Why would I need to convert TypeScript to JavaScript?",
+      answer: "Common use cases include sharing code with JavaScript-only projects, debugging compiled output, converting TypeScript examples for JavaScript users, and migrating away from TypeScript. The TypeScript compiler (tsc) handles full transpilation; this tool provides quick type stripping.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="TypeScript to JavaScript"
       description="Convert TypeScript code to plain JavaScript by removing type annotations, interfaces, and TS-specific syntax."
       slug="ts-to-js"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Convert TypeScript to JavaScript",
+              content: "Paste your TypeScript code and get clean JavaScript output with all type annotations, interfaces, type aliases, enums, and TypeScript-specific syntax removed. The tool preserves your code logic, variable names, and formatting while stripping away everything that isn't valid JavaScript.",
+            },
+            {
+              title: "What Gets Removed in TypeScript to JavaScript Conversion",
+              content: "TypeScript adds type safety on top of JavaScript, but the types are erased at compile time. This tool removes: type annotations (: string, : number), interface and type declarations, generic parameters (<T>), 'as' type assertions, readonly modifiers, access modifiers (public, private, protected), abstract classes, and declare statements. The remaining code is valid JavaScript that runs in any browser or Node.js environment.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       <div className="space-y-4">
         <div className="flex gap-2">

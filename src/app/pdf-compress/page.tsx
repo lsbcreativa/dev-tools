@@ -2,6 +2,7 @@
 
 import { useState, useRef, useCallback } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
+import SeoContent from "@/components/tools/SeoContent";
 
 export default function PdfCompress() {
   const [originalSize, setOriginalSize] = useState(0);
@@ -73,11 +74,42 @@ export default function PdfCompress() {
 
   const reduction = originalSize > 0 ? Math.round(((originalSize - compressedSize) / originalSize) * 100) : 0;
 
+  const faqs = [
+    {
+      question: "How much can I reduce PDF file size?",
+      answer: "Compression varies by content. PDFs with large embedded images can be reduced by 50-70%. Text-heavy PDFs with minimal images may see 10-30% reduction. Metadata removal alone can save 5-10%.",
+    },
+    {
+      question: "Does compression reduce quality?",
+      answer: "This tool focuses on metadata removal and structural optimization, which doesn't affect visual quality. More aggressive compression (available in desktop tools) can reduce image resolution.",
+    },
+    {
+      question: "Are my files sent to a server?",
+      answer: "No. All compression happens in your browser. Your PDF files are processed locally and never uploaded to any external server.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="PDF Compress"
       description="Reduce PDF file size by removing metadata and optimizing document structure. No limits, no signup."
       slug="pdf-compress"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Compress PDF Files Online",
+              content: "Upload a PDF file to reduce its file size. The tool removes unnecessary metadata, unused objects, and optimizes the internal structure. See the original and compressed file sizes with the compression percentage. Download the smaller PDF instantly.",
+            },
+            {
+              title: "Why Compress PDF Files",
+              content: "Large PDFs are difficult to email (most providers limit attachments to 25MB), slow to upload to forms, and consume storage space. PDF compression can reduce file size by 20-70% depending on the content. Documents with embedded images benefit the most from compression. This tool processes everything in your browser — your documents stay private.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       <div
         onClick={() => fileInputRef.current?.click()}

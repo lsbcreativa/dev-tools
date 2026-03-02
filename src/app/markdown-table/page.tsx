@@ -3,6 +3,7 @@
 import { useState, useMemo, useCallback } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 /* ---------- Types ---------- */
 
@@ -310,11 +311,42 @@ export default function MarkdownTablePage() {
     right: "left",
   };
 
+  const faqs = [
+    {
+      question: "Can I set column alignment in Markdown tables?",
+      answer: "Yes. In the separator row, use colons to set alignment: :--- for left (default), :---: for center, and ---: for right alignment. This controls how text is aligned within each column.",
+    },
+    {
+      question: "Do all Markdown platforms support tables?",
+      answer: "Tables are part of GitHub Flavored Markdown (GFM) and are supported by GitHub, GitLab, Bitbucket, Reddit, Notion, Obsidian, and most documentation platforms. Basic CommonMark does not include tables.",
+    },
+    {
+      question: "Can I have multi-line content in table cells?",
+      answer: "Standard Markdown tables don't support multi-line content within cells. Use <br> tags for line breaks in platforms that allow inline HTML, or restructure your data into multiple rows.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="Markdown Table Generator"
       description="Generate formatted Markdown tables with a visual editor. Supports column alignment, CSV import, and live preview."
       slug="markdown-table"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Generate Markdown Tables",
+              content: "Use the visual grid editor to create Markdown tables by typing content directly into cells. Add or remove rows and columns, set column alignment (left, center, right), and see the generated Markdown syntax in real-time. Copy the output and paste it into any Markdown-supported platform.",
+            },
+            {
+              title: "Markdown Table Syntax",
+              content: "Markdown tables use pipes (|) and hyphens (-) to define columns and rows. The header row is separated from data rows by a line of hyphens. Column alignment is set using colons: :--- for left, :---: for center, ---: for right. While Markdown tables can't handle complex layouts like merged cells or nested tables, they're perfect for simple data presentation in README files, documentation, and notes.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       {/* Controls */}
       <div className="mb-4 flex flex-wrap items-center gap-3">

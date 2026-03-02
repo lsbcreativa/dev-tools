@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 interface Token {
   raw: string;
@@ -359,11 +360,42 @@ export default function RegexExplainer() {
     .map((t, i) => `${i + 1}. ${t.raw}  =>  ${t.explanation}`)
     .join("\n");
 
+  const faqs = [
+    {
+      question: "What do the common regex symbols mean?",
+      answer: ". matches any character, * means zero or more, + means one or more, ? means optional, ^ anchors to start, $ anchors to end, [] defines character classes, () creates groups, and | means OR.",
+    },
+    {
+      question: "Is regex the same in all programming languages?",
+      answer: "Core regex syntax is similar across languages, but there are differences in advanced features. JavaScript lacks lookbehind in older versions, Python uses re module with named groups (?P<name>), and PCRE (PHP, Perl) supports recursive patterns. Basic patterns work everywhere.",
+    },
+    {
+      question: "How do I match special characters literally?",
+      answer: "Escape special characters with a backslash: \\. matches a literal dot, \\* matches a literal asterisk, \\( matches a literal parenthesis. Inside character classes, most special characters don't need escaping.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="Regex Explainer"
       description="Paste a regular expression and get a plain-English explanation of every part. Test it against sample text with match highlighting."
       slug="regex-explainer"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Understand Regular Expressions",
+              content: "Paste any regular expression and get a plain-English explanation of what each part does. The tool breaks down the regex into its components — character classes, quantifiers, groups, anchors, lookaheads — and explains each one in simple terms. This is invaluable for understanding complex regex patterns written by others or debugging your own.",
+            },
+            {
+              title: "Common Regular Expression Patterns",
+              content: "Regular expressions (regex) are powerful pattern-matching tools used in every programming language. Common patterns include email validation (/^[^@]+@[^@]+\\.[^@]+$/), URL matching, phone numbers, dates, IP addresses, and password strength checks. While regex can be difficult to read, understanding the building blocks — character classes [a-z], quantifiers (+, *, ?), anchors (^, $), and groups (()) — makes any pattern decipherable.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       {/* Pattern input */}
       <div className="mb-5">

@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 /* ---------- Tailwind → CSS lookup ---------- */
 
@@ -398,11 +399,42 @@ export default function TailwindPlaygroundPage() {
     ? `.element {\n${cssRules.join("\n")}\n}`
     : "";
 
+  const faqs = [
+    {
+      question: "How does Tailwind's spacing scale work?",
+      answer: "Tailwind uses a consistent spacing scale where each unit equals 0.25rem (4px). So p-1 = 4px, p-2 = 8px, p-4 = 16px, p-8 = 32px. This creates harmonious, consistent spacing throughout your design.",
+    },
+    {
+      question: "What are responsive prefixes in Tailwind?",
+      answer: "Prefixes like sm:, md:, lg:, and xl: apply classes only at specific breakpoints. For example, 'text-sm md:text-lg' sets small text by default and large text on medium+ screens. Tailwind uses a mobile-first approach.",
+    },
+    {
+      question: "Can I use custom values in Tailwind?",
+      answer: "Yes. Use arbitrary values in square brackets: w-[137px], text-[#1da1f2], grid-cols-[200px_1fr]. For frequently used custom values, extend the theme in tailwind.config.js.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="Tailwind CSS Playground"
       description="Preview Tailwind CSS classes in real-time. See rendered output and generated CSS instantly."
       slug="tailwind-playground"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Preview Tailwind CSS Classes",
+              content: "Type Tailwind CSS utility classes in the input field and see the rendered output instantly. The preview panel shows your element with the applied styles, and the CSS panel shows the equivalent CSS properties being generated. This is perfect for experimenting with Tailwind classes, learning the framework, and prototyping designs.",
+            },
+            {
+              title: "Getting Started with Tailwind CSS",
+              content: "Tailwind CSS is a utility-first CSS framework that provides low-level utility classes like flex, pt-4, text-center, and rotate-90 that you compose to build designs directly in your HTML. Unlike component frameworks (Bootstrap, Material UI), Tailwind doesn't provide pre-built components — it gives you the building blocks. Key concepts: responsive prefixes (sm:, md:, lg:), state variants (hover:, focus:, active:), and the spacing scale (p-1 = 0.25rem, p-4 = 1rem, p-8 = 2rem).",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       {/* Presets */}
       <div className="mb-4 flex flex-wrap gap-2">

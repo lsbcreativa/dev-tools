@@ -3,6 +3,7 @@
 import { useState, useMemo, useCallback, useRef } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 /* ---------- Sample data ---------- */
 
@@ -222,11 +223,42 @@ export default function CsvViewerPage() {
     URL.revokeObjectURL(url);
   };
 
+  const faqs = [
+    {
+      question: "What delimiters are supported?",
+      answer: "The tool auto-detects common delimiters: comma (,), semicolon (;), tab, and pipe (|). Most CSV files use commas, but European files often use semicolons since commas are used as decimal separators.",
+    },
+    {
+      question: "Can I edit the data before exporting?",
+      answer: "Yes. Click any cell to edit its value directly in the table. You can also sort columns and filter rows. Export the modified data as a new CSV file.",
+    },
+    {
+      question: "How are quoted values handled?",
+      answer: "Values containing commas, newlines, or quotes are wrapped in double quotes per the RFC 4180 standard. The tool correctly parses these quoted values to display the actual content.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="CSV Viewer & Editor"
       description="View, sort, search, and export CSV data with support for custom delimiters and quoted fields."
       slug="csv-viewer"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to View and Edit CSV Files Online",
+              content: "Upload or paste CSV data to view it as a formatted table. Sort columns, filter rows, edit cells inline, and export your changes. The tool auto-detects delimiters (comma, semicolon, tab) and handles quoted values with commas and newlines correctly.",
+            },
+            {
+              title: "Working with CSV Files",
+              content: "CSV (Comma-Separated Values) is the most universal data exchange format, supported by Excel, Google Sheets, databases, and every programming language. Common uses include exporting database tables, sharing data between applications, importing contacts, and analyzing datasets. This tool provides a quick way to inspect and modify CSV files without installing spreadsheet software.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       {/* Controls */}
       <div className="mb-4 flex flex-wrap items-center gap-3">

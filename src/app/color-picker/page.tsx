@@ -3,6 +3,7 @@
 import { useState, useCallback } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 function hexToRgb(hex: string): { r: number; g: number; b: number } | null {
   const match = hex.replace("#", "").match(/^([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/i);
@@ -58,11 +59,42 @@ export default function ColorPicker() {
   const rgbValue = rgb ? `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})` : "";
   const hslValue = hsl ? `hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)` : "";
 
+  const faqs = [
+    {
+      question: "What is the difference between HEX and RGB?",
+      answer: "They represent the same color information differently. HEX uses hexadecimal notation (#FF5733), RGB uses decimal values (rgb(255, 87, 51)). HEX is more compact, RGB is easier to read and modify programmatically. Both produce identical colors.",
+    },
+    {
+      question: "When should I use HSL instead of HEX?",
+      answer: "HSL is intuitive for creating color variations — change lightness for light/dark variants, saturation for vibrancy, or hue for color shifts. It's ideal for generating color palettes and design systems where you need systematic color relationships.",
+    },
+    {
+      question: "How do I make a color semi-transparent?",
+      answer: "Use RGBA (rgba(255, 87, 51, 0.5)) or HSLA (hsla(11, 100%, 60%, 0.5)) where the fourth value is opacity (0 = transparent, 1 = opaque). In modern CSS, you can also use #FF573380 (8-digit hex with alpha).",
+    },
+  ];
+
   return (
     <ToolLayout
       title="Color Picker & Converter"
       description="Pick colors and convert between HEX, RGB, and HSL formats."
       slug="color-picker"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Pick and Convert Colors",
+              content: "Use the color picker to select any color visually, or enter a value in HEX, RGB, or HSL format. The tool instantly converts between all three formats and shows the CSS color values ready to copy. Adjust hue, saturation, and lightness individually to fine-tune your selection.",
+            },
+            {
+              title: "Understanding Color Formats in CSS",
+              content: "HEX (#FF5733) is the most common CSS color format — a six-digit hexadecimal representation of red, green, and blue channels. RGB (rgb(255, 87, 51)) specifies color using decimal values from 0-255 for each channel. HSL (hsl(11, 100%, 60%)) uses hue (0-360°), saturation (0-100%), and lightness (0-100%), making it intuitive for adjusting colors. Modern CSS also supports OKLCH and color() functions for wider gamut colors.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       <div className="grid gap-6 sm:grid-cols-2">
         <div>

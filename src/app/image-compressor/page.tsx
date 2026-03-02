@@ -2,6 +2,7 @@
 
 import { useState, useRef, useCallback } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
+import SeoContent from "@/components/tools/SeoContent";
 
 /* ---------- Helpers ---------- */
 
@@ -201,11 +202,42 @@ export default function ImageCompressorPage() {
       ? Math.round((1 - compressedSize / originalFile.size) * 100)
       : 0;
 
+  const faqs = [
+    {
+      question: "How much quality loss is acceptable?",
+      answer: "For web images, 75-85% JPEG quality is the sweet spot — significant file size reduction with minimal visible quality loss. Below 60%, compression artifacts become noticeable. The right setting depends on the image content.",
+    },
+    {
+      question: "Should I use WebP or JPEG?",
+      answer: "WebP provides 25-35% smaller files than JPEG at equivalent quality and supports transparency. All modern browsers support WebP. Use WebP as the primary format with JPEG as a fallback for older browsers.",
+    },
+    {
+      question: "Are my images uploaded to a server?",
+      answer: "No. All compression happens in your browser using the Canvas API. Your images never leave your device, ensuring complete privacy.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="Image Compressor"
       description="Compress and resize images in your browser. 100% client-side - your images never leave your device."
       slug="image-compressor"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Compress Images Online",
+              content: "Upload or drag and drop images to compress them directly in your browser. Adjust the quality slider to balance file size and visual quality. The tool uses the HTML Canvas API to re-encode images, supporting JPEG, PNG, and WebP output formats. You can also resize images to specific dimensions.",
+            },
+            {
+              title: "Image Compression for Web Performance",
+              content: "Large images are the number one cause of slow web pages. Compressing images can reduce page load time by 50% or more. JPEG compression at 80% quality typically reduces file size by 60-80% with minimal visible quality loss. WebP format offers 25-35% better compression than JPEG. For web use, most images don't need to be larger than 1920px wide or exceed 200KB. This tool processes everything client-side — your images never leave your browser.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       {/* Hidden canvas for compression */}
       <canvas ref={canvasRef} className="hidden" />

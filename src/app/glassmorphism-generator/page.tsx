@@ -3,6 +3,7 @@
 import { useState } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 function hexToRgba(hex: string, opacity: number): string {
   const cleaned = hex.replace("#", "");
@@ -29,11 +30,42 @@ backdrop-filter: blur(${blur}px);
 border: ${borderWidth}px solid ${borderRgba};
 border-radius: ${borderRadius}px;`;
 
+  const faqs = [
+    {
+      question: "What CSS properties create the glassmorphism effect?",
+      answer: "Three properties work together: backdrop-filter: blur(10px) for the frosted blur, background: rgba(255,255,255,0.2) for semi-transparency, and border: 1px solid rgba(255,255,255,0.3) for the glass edge. Optional: box-shadow for depth.",
+    },
+    {
+      question: "Is backdrop-filter supported in all browsers?",
+      answer: "backdrop-filter is supported in Chrome, Safari, Edge, and Firefox (since version 103). For older browsers, provide a fallback with a solid semi-transparent background. Use @supports (backdrop-filter: blur(1px)) for progressive enhancement.",
+    },
+    {
+      question: "Does glassmorphism affect performance?",
+      answer: "backdrop-filter can impact performance because it requires the browser to render and blur the content behind the element in real-time. Use it on a limited number of elements and avoid large blur values on mobile devices.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="Glassmorphism Generator"
       description="Create beautiful glassmorphism CSS effects with a live preview. Adjust blur, transparency, border, and more."
       slug="glassmorphism-generator"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Create Glassmorphism Effects",
+              content: "Adjust the blur intensity, transparency, border opacity, and background color to create a frosted glass effect. The live preview shows the glassmorphism style against a colorful background. Copy the generated CSS including backdrop-filter, background with alpha transparency, and border properties.",
+            },
+            {
+              title: "Glassmorphism in Modern UI Design",
+              content: "Glassmorphism is a design trend featuring frosted glass-like surfaces that reveal blurred content beneath them. It was popularized by Apple's macOS Big Sur and iOS design language. The effect is achieved using CSS backdrop-filter: blur(), semi-transparent backgrounds, and subtle borders. Key considerations: ensure sufficient contrast for accessibility, provide fallbacks for browsers that don't support backdrop-filter, and use the effect sparingly as a focal point rather than everywhere.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       {/* Preview */}
       <div className="mb-6">

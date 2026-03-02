@@ -3,6 +3,7 @@
 import { useState, useCallback } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 interface PermissionGroup {
   read: boolean;
@@ -93,11 +94,42 @@ export default function ChmodCalculatorTool() {
 
   const commandExample = `chmod ${numeric} filename`;
 
+  const faqs = [
+    {
+      question: "What does chmod 755 mean?",
+      answer: "755 means the owner has full permissions (read+write+execute = 7), while group and others have read and execute permissions (read+execute = 5). This is the standard permission for executable scripts and public directories.",
+    },
+    {
+      question: "What is the difference between 644 and 755?",
+      answer: "644 (rw-r--r--) allows the owner to read and write, others can only read. 755 (rwxr-xr-x) adds execute permission. Use 644 for regular files (HTML, CSS, images) and 755 for scripts, executables, and directories.",
+    },
+    {
+      question: "Why does the execute permission matter for directories?",
+      answer: "For directories, the execute permission means the ability to enter the directory (cd) and access files within it. Without execute permission on a directory, you cannot list or access its contents even if the files inside have read permission.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="Chmod Calculator"
       description="Calculate Unix file permissions interactively. Convert between numeric and symbolic notation."
       slug="chmod-calculator"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Calculate Unix File Permissions",
+              content: "Use the interactive checkboxes to set read (r), write (w), and execute (x) permissions for owner, group, and others \u2014 or enter a numeric value like 755 to see the symbolic representation. The tool shows both formats simultaneously: numeric (755) and symbolic (rwxr-xr-x), plus the equivalent chmod command.",
+            },
+            {
+              title: "Understanding Unix Permission System",
+              content: "Unix/Linux file permissions control who can read, write, and execute files. Each file has three permission groups: owner (u), group (g), and others (o). Each group has three permission bits: read (4), write (2), and execute (1). Common permissions include 755 (owner full, others read+execute) for scripts and executables, 644 (owner read+write, others read-only) for regular files, and 700 (owner full, no access for others) for private directories.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       {/* Presets */}
       <div className="mb-4">

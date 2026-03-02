@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
+import SeoContent from "@/components/tools/SeoContent";
 
 interface DiffLine {
   type: "equal" | "add" | "remove";
@@ -84,11 +85,42 @@ export default function CodeDiff() {
     return { added, removed };
   }, [diff]);
 
+  const faqs = [
+    {
+      question: "How is this different from the Text Diff tool?",
+      answer: "The Code Diff Viewer is optimized for source code with monospace formatting, line numbers, and syntax-aware comparison. The Text Diff tool is better for prose, documents, and general text comparison.",
+    },
+    {
+      question: "Can I compare files in different programming languages?",
+      answer: "Yes. The diff algorithm works with any text-based code. It compares content line by line regardless of the programming language.",
+    },
+    {
+      question: "Does it detect refactored or moved code?",
+      answer: "The diff compares line by line at matching positions. Moved code appears as deletions in the original location and additions in the new location. Structural refactoring may show as large blocks of changes.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="Code Diff Viewer"
       description="Compare two code snippets side by side with line-by-line diff highlighting."
       slug="code-diff"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Compare Code Side by Side",
+              content: "Paste two code snippets in the left and right panels to see a highlighted diff showing additions (green), deletions (red), and modifications. The tool provides line-by-line comparison with syntax-aware formatting, making it easy to review code changes, compare file versions, and identify differences.",
+            },
+            {
+              title: "Code Review and Diff Best Practices",
+              content: "Code diff tools are essential for code reviews, debugging, and version control. When reviewing diffs, focus on logic changes rather than formatting, look for unintended changes in adjacent lines, and verify that edge cases are handled. Unlike text diff, code diff preserves indentation and can highlight changes within modified lines for precise identification of what changed.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       <div className="grid gap-4 sm:grid-cols-2">
         <div>

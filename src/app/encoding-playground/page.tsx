@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 type OperationType =
   | "base64-encode"
@@ -175,11 +176,42 @@ export default function EncodingPlayground() {
     return OPERATIONS.find((o) => o.value === op)?.label || op;
   };
 
+  const faqs = [
+    {
+      question: "What is double encoding and why does it happen?",
+      answer: "Double encoding occurs when already-encoded data is encoded again — for example, %20 becoming %2520. This happens when encoding functions are applied multiple times, often due to middleware or framework auto-encoding.",
+    },
+    {
+      question: "What encoding steps are available?",
+      answer: "This tool supports Base64 encode/decode, URL encode/decode, hex encode/decode, ROT13, HTML entity encode/decode, and more. Each step can be added to the chain independently.",
+    },
+    {
+      question: "How do I decode multi-layered encoded data?",
+      answer: "Apply the inverse operations in reverse order. If data was URL-encoded then Base64-encoded, decode Base64 first, then URL-decode. This tool lets you build the chain step by step to find the right sequence.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="Encoding Playground"
       description="Chain multiple encoding and decoding operations together. Build complex transformation pipelines."
       slug="encoding-playground"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Chain Multiple Encodings",
+              content: "Enter text and apply multiple encoding/decoding steps in sequence: Base64, URL encoding, hex, ROT13, HTML entities, and more. Each step transforms the output of the previous step, letting you build complex encoding chains. This is useful for debugging encoded data, understanding multi-layer encoding, and testing data transformations.",
+            },
+            {
+              title: "Understanding Text Encoding Layers",
+              content: "Data transmitted over networks often goes through multiple encoding layers. A URL parameter might be URL-encoded, then the entire URL might be Base64-encoded in a JWT, which is then transmitted as HTML with entity encoding. Debugging such multi-layer encoding requires applying the inverse transformations in reverse order. This tool lets you experiment with encoding chains interactively.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       <div className="space-y-4">
         {/* Input */}

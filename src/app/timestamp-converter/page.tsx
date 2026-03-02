@@ -3,6 +3,7 @@
 import { useState } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 function getRelativeTime(timestamp: number): string {
   const now = Date.now();
@@ -104,11 +105,42 @@ export default function TimestampConverterTool() {
     }
   };
 
+  const faqs = [
+    {
+      question: "What is the difference between seconds and milliseconds timestamps?",
+      answer: "Unix timestamps in seconds have 10 digits (e.g., 1704067200) and are used by most programming languages. Millisecond timestamps have 13 digits (e.g., 1704067200000) and are used by JavaScript's Date.now() and some APIs.",
+    },
+    {
+      question: "What timezone are Unix timestamps in?",
+      answer: "Unix timestamps are always in UTC (Coordinated Universal Time). They represent an absolute point in time regardless of timezone. The conversion to local time depends on your browser's timezone settings.",
+    },
+    {
+      question: "What is the Year 2038 problem?",
+      answer: "32-bit systems store Unix time as a signed 32-bit integer, which overflows on January 19, 2038 at 03:14:07 UTC. Modern 64-bit systems use 64-bit integers, which won't overflow for billions of years.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="Unix Timestamp Converter"
       description="Convert between Unix timestamps and human-readable dates."
       slug="timestamp-converter"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Convert Unix Timestamps",
+              content: "Enter a Unix timestamp (seconds since January 1, 1970 UTC) to see the corresponding human-readable date and time, or select a date to get its Unix timestamp. The tool shows both seconds and milliseconds formats, relative time (e.g., '2 hours ago'), and the date in multiple formats including ISO 8601, UTC, and your local timezone.",
+            },
+            {
+              title: "Understanding Unix Timestamps",
+              content: "Unix time (also called Epoch time or POSIX time) counts the number of seconds elapsed since January 1, 1970 00:00:00 UTC \u2014 known as the Unix Epoch. It's used universally in programming, databases, APIs, and log files because it's timezone-independent and easy to calculate with. JavaScript uses milliseconds (13 digits), while most other languages use seconds (10 digits). The Year 2038 problem occurs when 32-bit signed integers overflow on January 19, 2038.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       <div className="space-y-6">
         {/* Timestamp to Date */}

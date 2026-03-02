@@ -3,6 +3,7 @@
 import { useState } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 const SAMPLE_CSS = `/* ==========================================================================
    Global Reset & Base Styles
@@ -289,11 +290,42 @@ export default function CssMinifierTool() {
     setOutput("");
   };
 
+  const faqs = [
+    {
+      question: "Does CSS minification break anything?",
+      answer: "No. Minification only removes whitespace, comments, and unnecessary semicolons/characters. All CSS rules and selectors remain functionally identical. Always test visually after minification.",
+    },
+    {
+      question: "Should I minify CSS in development?",
+      answer: "No. Keep CSS readable during development for easier debugging. Only minify for production builds. Most bundlers (Vite, webpack, Next.js) handle this automatically.",
+    },
+    {
+      question: "What is the difference between minification and compression?",
+      answer: "Minification removes unnecessary characters from the source code. Compression (gzip/brotli) is a server-level encoding that further reduces transfer size. Use both together for maximum performance.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="CSS Minifier / Beautifier"
       description="Minify CSS for production or beautify compressed CSS for readability."
       slug="css-minifier"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Minify and Beautify CSS",
+              content: "Paste your CSS code to minify it (remove whitespace, comments, and unnecessary characters) or beautify it (add proper indentation and formatting). Minification reduces CSS file size for faster page loads, while beautification makes compressed CSS readable again for debugging and editing.",
+            },
+            {
+              title: "CSS Optimization for Web Performance",
+              content: "Minified CSS loads faster because browsers download fewer bytes. A typical CSS file can be reduced by 20-40% through minification alone. Combined with gzip/brotli compression on the server, total transfer size can be reduced by 80-90%. Modern build tools like PostCSS, cssnano, and Lightning CSS handle minification automatically in production builds.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       <div className="space-y-4">
         <div className="flex flex-wrap gap-2">

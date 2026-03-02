@@ -3,6 +3,7 @@
 import { useState } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 function hexToHsl(hex: string): [number, number, number] {
   const cleaned = hex.replace("#", "");
@@ -143,6 +144,21 @@ export default function ColorPaletteGenerator() {
     setTimeout(() => setCopiedColor(null), 1500);
   };
 
+  const faqs = [
+    {
+      question: "What is a complementary color?",
+      answer: "Complementary colors are directly opposite on the color wheel (180° apart) — like blue and orange, or red and green. They create maximum contrast and visual impact. Use them for call-to-action buttons or emphasis elements.",
+    },
+    {
+      question: "How many colors should a design palette have?",
+      answer: "Most design systems use 5-7 colors: a primary brand color, a secondary accent, a neutral gray scale (3-4 shades), and semantic colors for success (green), warning (yellow), and error (red). Start with fewer colors and expand as needed.",
+    },
+    {
+      question: "What are analogous colors?",
+      answer: "Analogous colors are adjacent on the color wheel (within 30-60°), like blue, blue-green, and green. They create harmonious, low-contrast palettes that feel cohesive and natural. They're common in nature-inspired designs.",
+    },
+  ];
+
   const palettes = generatePalettes(baseColor);
 
   const allColors = palettes.flatMap((p) => p.colors);
@@ -156,6 +172,22 @@ export default function ColorPaletteGenerator() {
       title="Color Palette Generator"
       description="Generate color palettes from any base color. Create complementary, analogous, triadic, split-complementary, and monochromatic color schemes."
       slug="color-palette-generator"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Generate Color Palettes",
+              content: "Enter a base color or click Random to start, then select a harmony type — complementary, analogous, triadic, tetradic, or split-complementary — to generate a harmonious color palette. Each color shows its HEX, RGB, and HSL values. Copy individual colors or the entire palette for your design project.",
+            },
+            {
+              title: "Color Theory and Harmony Types",
+              content: "Color harmony creates visually pleasing combinations based on the color wheel. Complementary colors (opposite on the wheel) create high contrast. Analogous colors (adjacent) feel cohesive and natural. Triadic colors (120° apart) provide vibrant balance. Split-complementary offers contrast with less tension. Tetradic (rectangular) provides the most variety but requires careful balance. Understanding these relationships helps create professional, consistent design systems.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       {/* Color Input */}
       <div className="mb-6">

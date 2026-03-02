@@ -3,6 +3,7 @@
 import { useState } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 export default function BorderRadiusGenerator() {
   const [topLeft, setTopLeft] = useState(16);
@@ -70,11 +71,42 @@ export default function BorderRadiusGenerator() {
     { key: "bottomLeft", label: "Bottom Left", value: bottomLeft },
   ];
 
+  const faqs = [
+    {
+      question: "How do I make a perfect circle with CSS?",
+      answer: "Set border-radius to 50% on a square element (equal width and height). For example: width: 100px; height: 100px; border-radius: 50%. If the element is not square, you'll get an ellipse.",
+    },
+    {
+      question: "What is the difference between px and % for border-radius?",
+      answer: "Pixel values set a fixed corner radius regardless of element size. Percentage values are relative to the element's dimensions — 50% creates a circle/ellipse. Use px for consistent corners across different sizes, % for proportional rounding.",
+    },
+    {
+      question: "Can I set different radii for each corner?",
+      answer: "Yes. Use the four-value syntax: border-radius: top-left top-right bottom-right bottom-left. For example, border-radius: 10px 20px 30px 0px rounds each corner differently.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="CSS Border Radius Generator"
       description="Generate CSS border-radius values with a visual editor. Customize each corner independently and copy the CSS."
       slug="border-radius-generator"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Create CSS Border Radius",
+              content: "Drag the corner sliders or enter pixel values to set border-radius for each corner independently. The live preview shows the resulting shape in real-time. You can link all corners for uniform rounding or control each corner separately for asymmetric designs. Copy the generated CSS with one click.",
+            },
+            {
+              title: "Creative Uses of Border Radius in CSS",
+              content: "Border-radius goes beyond simple rounded corners. Set it to 50% for perfect circles, use asymmetric values for organic shapes (like speech bubbles), combine with aspect-ratio for pills and capsule buttons. The full eight-value syntax (border-radius: x1 x2 x3 x4 / y1 y2 y3 y4) creates complex organic shapes by defining horizontal and vertical radii independently.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       {/* Preview */}
       <div className="mb-6">

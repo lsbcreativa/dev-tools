@@ -3,6 +3,7 @@
 import { useState, useCallback } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 /* ---------- Types ---------- */
 
@@ -112,11 +113,42 @@ export default function ApiTesterPage() {
     { label: "Users API", url: "https://jsonplaceholder.typicode.com/users", method: "GET" as HttpMethod },
   ];
 
+  const faqs = [
+    {
+      question: "Why do I get a CORS error?",
+      answer: "CORS (Cross-Origin Resource Sharing) errors occur when the API server doesn't allow requests from browser-based tools. This is a server-side restriction. To test CORS-restricted APIs, use the API directly from your backend or a tool like curl/Postman.",
+    },
+    {
+      question: "Can I send authenticated requests?",
+      answer: "Yes. Add an Authorization header with your Bearer token, API key, or Basic credentials. The tool supports custom headers for any authentication method.",
+    },
+    {
+      question: "Is this a replacement for Postman?",
+      answer: "This tool handles basic API testing directly in your browser without installation. For advanced features like collections, environments, automated testing, and team collaboration, Postman or Insomnia remain the better choice.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="API Request Builder"
       description="Build and test HTTP requests with custom headers and body. View responses instantly."
       slug="api-tester"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Test API Endpoints",
+              content: "Enter a URL, select the HTTP method (GET, POST, PUT, PATCH, DELETE), add custom headers and request body, and send the request. The tool displays the response status, headers, body, and timing information. It uses the browser's native fetch API, so requests are subject to CORS policies.",
+            },
+            {
+              title: "API Testing Best Practices",
+              content: "When testing APIs, always verify status codes (200 for success, 201 for created, 400 for bad request, 401 for unauthorized, 404 for not found). Check response headers for content type, caching, and rate limiting. Test edge cases: empty payloads, invalid data types, missing required fields, and large payloads. For APIs requiring authentication, include Authorization headers with Bearer tokens or API keys.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       {/* CORS notice */}
       <div className="mb-4 rounded-lg border border-[var(--border)] bg-[var(--muted)] p-3 text-xs text-[var(--muted-foreground)]">

@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 /* ---------- IPv4 helpers ---------- */
 
@@ -161,11 +162,42 @@ export default function SubnetCalculatorPage() {
 
   const ipError = ip.length > 0 && !isValidIPv4(ip);
 
+  const faqs = [
+    {
+      question: "What is CIDR notation?",
+      answer: "CIDR (Classless Inter-Domain Routing) notation uses a slash followed by the number of network bits. /24 means the first 24 bits identify the network, leaving 8 bits for hosts (254 usable addresses). Higher numbers mean smaller subnets.",
+    },
+    {
+      question: "What is the difference between network and broadcast address?",
+      answer: "The network address (first address) identifies the subnet itself — it cannot be assigned to a host. The broadcast address (last address) sends packets to all hosts in the subnet. Usable host addresses are everything in between.",
+    },
+    {
+      question: "How many hosts can a /24 subnet hold?",
+      answer: "A /24 subnet has 256 total addresses (2^8), but 2 are reserved (network and broadcast), leaving 254 usable host addresses. The formula is: usable hosts = 2^(32-prefix) - 2.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="IP Subnet Calculator"
       description="Calculate IPv4 subnet details including network address, broadcast address, host range, and CIDR notation."
       slug="subnet-calculator"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Calculate IP Subnets",
+              content: "Enter an IP address and subnet mask (CIDR notation like /24 or dotted notation like 255.255.255.0) to calculate the network address, broadcast address, host range, number of usable hosts, and wildcard mask. The tool supports both IPv4 subnets and helps you understand network segmentation.",
+            },
+            {
+              title: "Understanding IP Subnetting",
+              content: "Subnetting divides a larger network into smaller, more manageable sub-networks. A /24 subnet (255.255.255.0) provides 254 usable hosts — suitable for a small office. A /16 subnet provides 65,534 hosts — suitable for large organizations. Common subnets: /8 (Class A, 16M hosts), /16 (Class B, 65K hosts), /24 (Class C, 254 hosts), /30 (point-to-point links, 2 hosts), /32 (single host). Understanding subnetting is essential for network administrators and cloud infrastructure.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       {/* Input mode toggle */}
       <div className="mb-4 flex gap-2">

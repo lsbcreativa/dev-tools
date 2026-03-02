@@ -2,6 +2,7 @@
 
 import { useState, useRef } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
+import SeoContent from "@/components/tools/SeoContent";
 
 const THEMES: Record<string, { bg: string; text: string; keyword: string; string: string; comment: string; number: string; border: string; label: string }> = {
   dracula: { bg: "#282a36", text: "#f8f8f2", keyword: "#ff79c6", string: "#f1fa8c", comment: "#6272a4", number: "#bd93f9", border: "#44475a", label: "Dracula" },
@@ -65,11 +66,42 @@ export default function CodeToImage() {
     }
   };
 
+  const faqs = [
+    {
+      question: "What languages are supported for syntax highlighting?",
+      answer: "The tool supports all major programming languages including JavaScript, TypeScript, Python, Go, Rust, Java, C#, PHP, Ruby, Swift, HTML, CSS, SQL, and many more.",
+    },
+    {
+      question: "Can I customize the appearance?",
+      answer: "Yes. Choose from multiple themes (dark, light, monokai, etc.), adjust font size, padding, and background color. You can also toggle the window-style title bar and line numbers.",
+    },
+    {
+      question: "Is this tool free?",
+      answer: "Yes, completely free with no watermarks, no signup, and no file limits. Unlike Carbon.sh and similar tools, everything runs in your browser.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="Code to Image"
       description="Generate beautiful code screenshots with custom themes and backgrounds. Like Carbon.sh but free and unlimited."
       slug="code-to-image"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Create Code Screenshots",
+              content: "Paste your code, choose a theme and language, and generate a beautiful code screenshot. Customize the background color, padding, font size, and window style. Download the result as a PNG image. Perfect for sharing code on social media, presentations, blog posts, and documentation.",
+            },
+            {
+              title: "Code Screenshots for Social Media and Documentation",
+              content: "Code screenshots are more engaging than plain text on social media — they preserve formatting, syntax highlighting, and visual structure. Popular use cases include Twitter/X code tips, LinkedIn technical posts, blog post illustrations, presentation slides, and README documentation. This tool provides a free alternative to Carbon.sh with no watermarks and no file limits.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       <div className="grid gap-4 lg:grid-cols-[1fr_auto]">
         {/* Controls */}

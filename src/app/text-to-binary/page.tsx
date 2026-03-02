@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 type Mode = "text-to-binary" | "binary-to-text";
 type Encoding = "binary" | "hex" | "octal" | "decimal";
@@ -102,11 +103,42 @@ export default function TextToBinaryTool() {
 
   const charCount = mode === "text-to-binary" ? input.length : output.length;
 
+  const faqs = [
+    {
+      question: "How many bits does each character use?",
+      answer: "Standard ASCII characters use 7 bits (0-127), but are typically stored in 8 bits (1 byte). UTF-8 encoded characters use 1-4 bytes depending on the character — basic Latin characters use 1 byte, accented characters use 2 bytes, and emoji use 4 bytes.",
+    },
+    {
+      question: "What is the difference between ASCII and Unicode?",
+      answer: "ASCII encodes 128 characters (English letters, digits, symbols) using 7 bits. Unicode supports over 149,000 characters from all writing systems, emoji, and symbols. UTF-8 is the most common Unicode encoding on the web.",
+    },
+    {
+      question: "Can I convert emoji to binary?",
+      answer: "Yes, though emoji require 4 bytes (32 bits) in UTF-8 encoding. For example, the smiley face emoji uses the code point U+1F600, which becomes 11110000 10011111 10011000 10000000 in UTF-8 binary.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="Text to Binary Converter"
       description="Convert text to binary, hexadecimal, octal, or decimal and back."
       slug="text-to-binary"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Convert Text to Binary and Back",
+              content: "Enter text to see its binary representation, or paste binary code to convert it back to readable text. Each character is converted to its ASCII or Unicode value and represented in binary (base 2), octal (base 8), decimal (base 10), or hexadecimal (base 16). The tool supports all printable ASCII characters and common Unicode characters.",
+            },
+            {
+              title: "Understanding Binary Text Encoding",
+              content: "Computers store all data as binary — sequences of 0s and 1s. Each ASCII character is represented by 7 or 8 bits: 'A' is 01000001 (65 in decimal), 'a' is 01100001 (97), and '0' is 00110000 (48). Unicode extends this to support characters from all writing systems using UTF-8, UTF-16, or UTF-32 encoding. Binary-to-text conversion is fundamental to understanding how computers process and store text data.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       {/* Mode toggle */}
       <div className="flex gap-2 mb-4">

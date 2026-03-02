@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
+import SeoContent from "@/components/tools/SeoContent";
 
 interface DiffLine {
   type: "added" | "removed" | "same";
@@ -43,11 +44,47 @@ export default function TextDiff() {
     setDiff(computeDiff(original, modified));
   };
 
+  const faqs = [
+    {
+      question: "Can I compare code with this tool?",
+      answer:
+        "Yes, this tool works with any plain text including source code. For syntax-highlighted code diffs, consider using the Code Diff Viewer tool which provides language-aware highlighting.",
+    },
+    {
+      question: "Does it detect moved text?",
+      answer:
+        "The diff algorithm compares text line by line and highlights additions and deletions. Moved text appears as a deletion in the original position and an addition in the new position.",
+    },
+    {
+      question: "Is there a size limit for text comparison?",
+      answer:
+        "There is no hard limit, but very large texts (over 100,000 characters) may cause slower processing since everything runs in your browser. For typical documents and code files, performance is instant.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="Text Diff Checker"
       description="Compare two texts and highlight the differences between them."
       slug="text-diff"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Compare Two Texts Online",
+              content:
+                "Paste your original text on the left and the modified text on the right. The tool highlights the differences between them instantly \u2014 green for additions, red for deletions, and yellow for modifications. This is useful for comparing document versions, reviewing code changes, checking translation differences, and verifying edits.",
+            },
+            {
+              title: "Text Comparison Use Cases",
+              content:
+                "Text diff tools are essential for developers reviewing code changes, writers tracking document revisions, translators comparing original and translated text, and editors verifying corrections. Unlike simple text comparison, diff highlighting shows exactly what changed and where, making it easy to spot even subtle differences in punctuation, spacing, or wording.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       <div className="grid gap-4 sm:grid-cols-2">
         <div>

@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 const ALGORITHMS = [
   { label: "HMAC-SHA256", hash: "SHA-256" },
@@ -81,11 +82,27 @@ export default function HmacGenerator() {
     };
   }, [message, secret, algorithm]);
 
+  const faqs = [
+    { question: "What is the difference between HMAC and a regular hash?", answer: "A regular hash (SHA-256) only verifies data integrity \u2014 anyone can compute it. HMAC combines a secret key with the hash, providing both integrity verification AND authentication \u2014 only parties with the secret key can generate a valid HMAC." },
+    { question: "Which HMAC algorithm should I use?", answer: "SHA-256 is the most common choice, offering a good balance of security and performance. SHA-384 and SHA-512 provide larger output and higher security margins. Use whatever your API or protocol specifies." },
+    { question: "Is HMAC the same as digital signature?", answer: "No. HMAC uses symmetric keys \u2014 both parties share the same secret. Digital signatures use asymmetric keys (public/private) \u2014 only the signer has the private key. HMAC is simpler and faster but requires secure key exchange." },
+  ];
+
   return (
     <ToolLayout
       title="HMAC Generator"
       description="Generate HMAC signatures using SHA-256, SHA-384, and SHA-512."
       slug="hmac-generator"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            { title: "How to Generate HMAC Signatures", content: "Enter your message and secret key, select a hash algorithm (SHA-256, SHA-384, or SHA-512), and generate an HMAC signature instantly. HMAC (Hash-based Message Authentication Code) combines a secret key with a hash function to produce a signature that verifies both data integrity and authenticity." },
+            { title: "HMAC in API Authentication", content: "HMAC is widely used for API authentication and webhook verification. Services like AWS, Stripe, GitHub, and Shopify use HMAC signatures to verify that requests are authentic and haven't been tampered with. The sender computes an HMAC using the message body and a shared secret key, then includes the signature in the request header. The receiver recomputes the HMAC and compares it to the received signature." },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       <div className="space-y-4">
         {/* Info banner */}

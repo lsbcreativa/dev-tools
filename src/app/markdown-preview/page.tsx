@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import DOMPurify from "isomorphic-dompurify";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 function parseMarkdown(md: string): string {
   let html = md;
@@ -115,11 +116,47 @@ export default function MarkdownPreview() {
 
   const rendered = useMemo(() => DOMPurify.sanitize(parseMarkdown(input)), [input]);
 
+  const faqs = [
+    {
+      question: "What Markdown flavor does this tool support?",
+      answer:
+        "This tool renders standard CommonMark-compatible Markdown, which covers headings, emphasis, links, images, code blocks, lists, blockquotes, and tables. GitHub-flavored extensions like task lists and strikethrough may also work.",
+    },
+    {
+      question: "Can I export the rendered HTML?",
+      answer:
+        "The preview shows the rendered output visually. You can copy the rendered HTML from the preview panel or use the Markdown source directly in platforms that support Markdown natively.",
+    },
+    {
+      question: "Does it support syntax highlighting in code blocks?",
+      answer:
+        "Code blocks are rendered with monospace formatting. For full syntax highlighting with language-specific colors, you would typically use a library like Prism.js or Highlight.js in your project.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="Markdown Preview"
       description="Write markdown and preview the rendered output in real time."
       slug="markdown-preview"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Preview Markdown Online",
+              content:
+                "Type or paste Markdown syntax on the left panel and see the rendered HTML output in real-time on the right. This tool supports all standard Markdown features: headings, bold, italic, links, images, code blocks, lists, blockquotes, tables, and horizontal rules. The preview updates instantly as you type.",
+            },
+            {
+              title: "Markdown Syntax Reference",
+              content:
+                "Markdown is a lightweight markup language created by John Gruber in 2004. It's used for README files (GitHub), documentation (Docusaurus, MkDocs), blogs (Jekyll, Hugo), note-taking (Obsidian, Notion), and messaging (Slack, Discord). Common syntax includes # for headings, ** for bold, * for italic, [text](url) for links, and ``` for code blocks. Markdown files use the .md or .markdown extension.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       <div className="grid gap-4 sm:grid-cols-2">
         <div>

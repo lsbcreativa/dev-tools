@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -256,11 +257,42 @@ export default function AnimationGenerator() {
 
   const sortedFrames = [...frames].sort((a, b) => a.percent - b.percent);
 
+  const faqs = [
+    {
+      question: "What is the difference between CSS animations and transitions?",
+      answer: "Transitions animate between two states (e.g., hover) and require a trigger. Animations can run automatically, loop infinitely, and define multiple keyframes. Use transitions for simple interactive effects and animations for complex, multi-step sequences.",
+    },
+    {
+      question: "How do I make an animation loop forever?",
+      answer: "Set animation-iteration-count to infinite. For example: animation: spin 1s linear infinite. The 'infinite' keyword makes the animation repeat continuously.",
+    },
+    {
+      question: "What is a CSS timing function?",
+      answer: "Timing functions control the speed curve of an animation. 'linear' moves at constant speed, 'ease' starts slow then fast, 'ease-in-out' starts and ends slowly. Use cubic-bezier() for custom curves or 'steps()' for frame-by-frame animation.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="CSS Animation Generator"
       description="Create CSS keyframe animations visually with a live preview, presets, and full control over keyframe properties."
       slug="animation-generator"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Create CSS Animations",
+              content: "Build CSS keyframe animations visually using the timeline editor. Select from presets like fade-in, slide, bounce, and rotate, or create custom keyframes by setting CSS properties at different percentage points. Configure duration, timing function, delay, iteration count, and direction. Copy the complete @keyframes rule and animation property.",
+            },
+            {
+              title: "CSS Animation Properties Explained",
+              content: "CSS animations use @keyframes to define property changes over time and the animation shorthand to apply them. Key properties include animation-duration (how long), animation-timing-function (easing curve — linear, ease-in, ease-out, cubic-bezier), animation-delay (wait before starting), animation-iteration-count (how many times, or infinite), and animation-direction (normal, reverse, alternate). For simple transitions between two states, use CSS transition instead.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       {/* Preview */}
       <div className="mb-6">

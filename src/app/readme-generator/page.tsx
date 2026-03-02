@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import DOMPurify from "isomorphic-dompurify";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 const LICENSE_OPTIONS = [
   { value: "MIT", badge: "MIT" },
@@ -260,11 +261,42 @@ export default function ReadmeGenerator() {
 
   const renderedHtml = useMemo(() => DOMPurify.sanitize(markdownToHtml(markdown)), [markdown]);
 
+  const faqs = [
+    {
+      question: "What sections should a README include?",
+      answer: "At minimum: project title, description, installation, usage, and license. Additional sections like features, API reference, contributing guidelines, changelog, and acknowledgements make your README more complete.",
+    },
+    {
+      question: "How do I add badges to my README?",
+      answer: "Badges are inline images linked to services. Use shields.io to generate badges for npm version, build status, license, and more. Format: ![badge](https://img.shields.io/badge/...). This tool can generate common badges automatically.",
+    },
+    {
+      question: "Should I write the README before or after coding?",
+      answer: "Writing a README first (README-driven development) helps clarify your project's purpose and API before implementation. At minimum, create a basic README when you initialize the repository and expand it as the project grows.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="GitHub README Generator"
       description="Generate a professional README.md for your GitHub project with badges, installation, usage, and more."
       slug="readme-generator"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Generate a README.md File",
+              content: "Fill in your project details — name, description, features, installation steps, and usage instructions — to generate a professional README.md file. The tool creates well-structured Markdown with badges, table of contents, code blocks, and proper formatting. Copy the result or download it as a .md file.",
+            },
+            {
+              title: "What Makes a Great GitHub README",
+              content: "A great README is the front door of your open-source project. It should include a clear title and description, installation instructions, usage examples with code blocks, contributing guidelines, and a license. Projects with professional READMEs get significantly more stars, forks, and contributions. Include badges for build status, npm version, license, and code coverage to build trust with potential users.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       {/* Form */}
       <div className="space-y-5">

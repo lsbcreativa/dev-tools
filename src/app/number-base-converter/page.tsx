@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 type Base = "decimal" | "binary" | "octal" | "hex";
 
@@ -60,11 +61,42 @@ export default function NumberBaseConverterTool() {
     }
   }, [input, inputBase]);
 
+  const faqs = [
+    {
+      question: "Why do programmers use hexadecimal?",
+      answer: "Hexadecimal is compact \u2014 each hex digit represents exactly 4 binary bits. This makes it ideal for representing memory addresses, color codes (#RRGGBB), byte values (0x00-0xFF), and other binary data in a human-readable format.",
+    },
+    {
+      question: "What is octal used for?",
+      answer: "Octal is primarily used for Unix/Linux file permissions (e.g., chmod 755). Each octal digit represents 3 permission bits: read (4), write (2), and execute (1). It's also used in some programming contexts for character escape sequences.",
+    },
+    {
+      question: "Can I convert negative numbers?",
+      answer: "This tool converts unsigned integers. Negative numbers in binary use representations like two's complement, which depends on the bit width (8-bit, 16-bit, 32-bit, 64-bit).",
+    },
+  ];
+
   return (
     <ToolLayout
       title="Number Base Converter"
       description="Convert numbers between decimal, binary, octal, and hexadecimal. Supports large numbers."
       slug="number-base-converter"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Convert Number Bases",
+              content: "Enter a number in any base \u2014 decimal (base 10), binary (base 2), octal (base 8), or hexadecimal (base 16) \u2014 and see instant conversions to all other bases. The tool validates your input against the selected base and shows the equivalent value in each number system. It handles both integers and common programming prefixes like 0x for hex and 0b for binary.",
+            },
+            {
+              title: "Understanding Number Systems in Programming",
+              content: "Computers operate in binary (base 2), using only 0s and 1s. Hexadecimal (base 16) is a compact way to represent binary data \u2014 each hex digit maps to exactly 4 binary digits. Octal (base 8) maps to 3 binary digits and was historically used in Unix file permissions (chmod 755). Decimal (base 10) is the human-readable format. Developers regularly convert between these bases when working with memory addresses, color codes (#FF5733), bitwise operations, and network protocols.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       <div className="flex flex-col sm:flex-row gap-3">
         <div className="flex-1">

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import ToolLayout from "@/components/tools/ToolLayout";
 import CopyButton from "@/components/tools/CopyButton";
+import SeoContent from "@/components/tools/SeoContent";
 
 /* ------------------------------------------------------------------ */
 /*  Regex heuristics for format detection                              */
@@ -224,11 +225,42 @@ export default function JsonSchemaGenerator() {
     setOutput("");
   };
 
+  const faqs = [
+    {
+      question: "What JSON Schema draft does this tool generate?",
+      answer: "This tool generates JSON Schema Draft 7 (2019), which is widely supported by validators and libraries. The output includes the $schema property pointing to the Draft 7 specification.",
+    },
+    {
+      question: "Does it detect required fields?",
+      answer: "The tool marks all fields present in your sample JSON as required. In practice, you should review and adjust the required array based on your API's actual requirements — some fields may be optional.",
+    },
+    {
+      question: "Can I validate JSON against the generated schema?",
+      answer: "The generated schema can be used with validators like AJV (JavaScript), jsonschema (Python), or online validators. Copy the schema and use it in your application to validate incoming JSON data.",
+    },
+  ];
+
   return (
     <ToolLayout
       title="JSON Schema Generator"
       description="Paste JSON data and auto-generate a JSON Schema Draft 7 with type detection, format heuristics, and nested structures."
       slug="json-schema-generator"
+      faqs={faqs}
+      seoContent={
+        <SeoContent
+          sections={[
+            {
+              title: "How to Generate JSON Schema from JSON",
+              content: "Paste a JSON object or array and get a complete JSON Schema Draft 7 definition automatically. The tool analyzes your data structure and infers types for strings, numbers, integers, booleans, arrays, objects, and null values. Nested objects and arrays are fully supported with recursive schema generation.",
+            },
+            {
+              title: "What Is JSON Schema and Why Use It",
+              content: "JSON Schema is a vocabulary for validating and describing JSON data structures. It defines the expected shape of your data — required fields, data types, string patterns, number ranges, and nested structures. JSON Schema is used for API request/response validation, configuration file validation, form generation, and documentation. It's supported by most programming languages and frameworks including Express, FastAPI, Spring Boot, and AJV.",
+            },
+          ]}
+          faqs={faqs}
+        />
+      }
     >
       {/* Input */}
       <div>
